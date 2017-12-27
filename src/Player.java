@@ -7,4 +7,8 @@ public class Player{
     }
 
 
+    public void move(int roll) {
+        // MOVE! 
+    }
+
 }
