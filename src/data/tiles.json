@@ -1,0 +1,226 @@
+{
+    "tiles": [
+        {
+              "type": "go",
+              "name": "Go",
+        },
+        {
+            "type": "property",
+            "name": "The Macintosh",
+            "purchase": 60,
+            "color": "red",
+            "rent": {
+                "0_avocadoes": 2,
+                "1_avocadoes": 10,
+                "2_avocadoes": 30,
+                "3_avocadoes": 90,
+                "4_avocadoes": 160,
+                "5_avocadoes": 250,
+            },
+            "mortage": 30,
+            "avocado_cost": 50
+        },
+        {
+            "type": "chance",
+            "name": "Chance Card!",
+        },
+        {
+            "type": "property",
+            "name": "No World Wars in fifty years™",
+            "purchase": 60,
+            "color": "red",
+            "rent": {
+                "0_avocadoes": 4,
+                "1_avocadoes": 20,
+                "2_avocadoes": 60,
+                "3_avocadoes": 180,
+                "4_avocadoes": 320,
+                "5_avocadoes": 450,
+            },
+            "mortage": 30,
+            "avocado_cost": 50
+        },
+        {
+            "type": "tax",
+            "name": "Income Theft! Taxation is theft reee $200",
+        },
+        {
+            "type": "hyperloop",
+            "name": "WATER WATER WATER LOOP",
+        },
+        {
+            "type": "property",
+            "name": "Taylor Swift",
+            "purchase": 100,
+            "color": "orange",
+            "rent": {
+                "0_avocadoes": 6,
+                "1_avocadoes": 30,
+                "2_avocadoes": 90,
+                "3_avocadoes": 270,
+                "4_avocadoes": 400,
+                "5_avocadoes": 550,
+            },
+            "mortage": 50,
+            "avocado_cost": 50
+        },
+        {
+            "type": "chance",
+            "name": "Chance Card!",
+        },
+        {
+            "type": "property",
+            "name": "Miley Cyrus",
+            "purchase": 100,
+            "color": "orange",
+            "rent": {
+                "0_avocadoes": 6,
+                "1_avocadoes": 30,
+                "2_avocadoes": 90,
+                "3_avocadoes": 270,
+                "4_avocadoes": 400,
+                "5_avocadoes": 550,
+            },
+            "mortage": 50,
+            "avocado_cost": 50
+        },
+        {
+            "type": "property",
+            "name": "Kanye West",
+            "purchase": 120,
+            "color": "orange",
+            "rent": {
+                "0_avocadoes": 8,
+                "1_avocadoes": 40,
+                "2_avocadoes": 100,
+                "3_avocadoes": 300,
+                "4_avocadoes": 450,
+                "5_avocadoes": 600,
+            },
+            "mortage": 60,
+            "avocado_cost": 50
+        },
+        {
+            "type": "jail",
+            "name": "Visitng the Jail!",
+        },
+        {
+            "type": "property",
+            "name": "Netflix and Chill™",
+            "purchase": 140,
+            "color": "yellow",
+            "rent": {
+                "0_avocadoes": 10,
+                "1_avocadoes": 50,
+                "2_avocadoes": 150,
+                "3_avocadoes": 450,
+                "4_avocadoes": 625,
+                "5_avocadoes": 750,
+            },
+            "mortage": 70,
+            "avocado_cost": 100
+        },
+        {
+            "type": "wild_chance",
+            "name": "Wild Chance Card!",
+        },
+        {
+            "type": "property",
+            "name": "Using internet acronyms irl™",
+            "purchase": 140,
+            "color": "yellow",
+            "rent": {
+                "0_avocadoes": 10,
+                "1_avocadoes": 50,
+                "2_avocadoes": 150,
+                "3_avocadoes": 450,
+                "4_avocadoes": 625,
+                "5_avocadoes": 750,
+            },
+            "mortage": 70,
+            "avocado_cost": 100
+        },
+        {
+            "type": "property",
+            "name": "Paying a friend to take care of your Snap streaks™",
+            "purchase": 160,
+            "color": "yellow",
+            "rent": {
+                "0_avocadoes": 12,
+                "1_avocadoes": 60,
+                "2_avocadoes": 180,
+                "3_avocadoes": 500,
+                "4_avocadoes": 700,
+                "5_avocadoes": 900,
+            },
+            "mortage": 80,
+            "avocado_cost": 100
+        },
+        {
+            "type": "hyperloop",
+            "name": "WARR HYPERLOOP",
+        },
+        {
+            "type": "property",
+            "name": "Nyan Cat",
+            "purchase": 180,
+            "color": "green",
+            "rent": {
+                "0_avocadoes": 14,
+                "1_avocadoes": 70,
+                "2_avocadoes": 200,
+                "3_avocadoes": 550,
+                "4_avocadoes": 750,
+                "5_avocadoes": 950,
+            },
+            "mortage": 90,
+            "avocado_cost": 100
+        },
+        {
+            "type": "chance",
+            "name": "Chance Card!",
+        },
+        {
+            "type": "property",
+            "name": "Datboi",
+            "purchase": 180,
+            "color": "green",
+            "rent": {
+                "0_avocadoes": 14,
+                "1_avocadoes": 70,
+                "2_avocadoes": 200,
+                "3_avocadoes": 550,
+                "4_avocadoes": 750,
+                "5_avocadoes": 950,
+            },
+            "mortage": 90,
+            "avocado_cost": 100
+        },
+        {
+            "type": "property",
+            "name": "It's Wednesday my dudes",
+            "purchase": 200,
+            "color": "green",
+            "rent": {
+                "0_avocadoes": 16,
+                "1_avocadoes": 80,
+                "2_avocadoes": 220,
+                "3_avocadoes": 600,
+                "4_avocadoes": 800,
+                "5_avocadoes": 1000,
+            },
+            "mortage": 100,
+            "avocado_cost": 100
+        },
+        {
+            "type": "hyperloop",
+            "name": "That One Canadian Hyperloop Company",
+        },
+        {
+            "type": "theft",
+            "name": "Government Pays You Because Socialism",
+            "info": "You get to claim all paids taxes!",
+        }
+        // Halfway done also TIL you can't have comments in JSON
+    ]
+}
