@@ -3,42 +3,50 @@
  * AUTHORS: Carol Chen, Nicholas Carr
  */
 import java.util.Random;
+import java.util.Scanner;
 
 class Millenialopoly {
 
     // MIL is the currency used in Millenialopoly
     private static double startingMoneyMIL = 1500;
 
-    public Player[] players;
-    public int numPlayers;
+    public static Player[] players;
+    public static int numPlayers;
 
-    public Board gameBoard;
+    public static Board gameBoard;
 
     // Should actually init at real values
-    public Currency Bitcoin = new Currency(10000);
-    public Currency Ethereum = new Currency(500);
+    public static Currency Bitcoin = new Currency(10000);
+    public static Currency Ethereum = new Currency(500);
 
     public static void main(String[] args) {
         // Start the shenanigans!
+        Game gameState = new Game();
 
         // Start with welcome panel, instructions, etc
+        GameFrame gameFrame = new GameFrame(gameState);
+        WelcomePanel welcomePanel = new WelcomePanel(gameFrame);
 
-        numPlayers = 3; // Change to input
+        numPlayers = gameState.getPlayerCount(); // Change to input
 
-        gameBoard = new Board;
+        gameBoard = new Board();
 
         players = new Player[numPlayers];
         for (int i = 0; i < numPlayers; i++){
-            players[i] = new Player("Player No." + i) // Change to taking a name input
+            players[i] = new Player("Player No." + i); // Change to taking a name input
         }
+    }
 
-        // Add some kind of "start game" thingy
-
+    /**
+     * Start a game
+     * @param state Game state
+     */
+    public static void startGame(Game state) {
         // Game loop
         while (true){
             for (int i = 0; i < numPlayers; i++){
                 Random dice = new Random();
-                int roll = rand.nextInt(6) + 1;
+                int roll = dice.nextInt(6) + 1;
                 players[i].move(roll);
 
                 // Temporary scanner solution for testing
