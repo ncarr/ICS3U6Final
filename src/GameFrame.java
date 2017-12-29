@@ -14,7 +14,7 @@ public class GameFrame extends JFrame {
     this.state = state;
     // Set the properties of the window
     this.setTitle("Millenialopoly");
-    this.setSize(640, 320);
+    this.pack();
 
     // Make it visible
     this.setVisible(true);
