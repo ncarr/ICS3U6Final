@@ -7,17 +7,14 @@ import java.util.Scanner;
 
 class Millenialopoly {
 
-    // MIL is the currency used in Millenialopoly
-    private static double startingMoneyMIL = 1500;
-
     public static Player[] players;
     public static int numPlayers;
 
     public static Board gameBoard;
 
     // Should actually init at real values
-    public static Currency Bitcoin = new Currency(10000);
-    public static Currency Ethereum = new Currency(500);
+    public Currency Bitcoin = new Currency(5, 20);
+    public Currency Ethereum = new Currency(2, 5);
 
     public static void main(String[] args) {
         // Start the shenanigans!
