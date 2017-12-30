@@ -1,15 +1,17 @@
+package millenialopoly;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 /**
- * Panel to create a new game
+ * Panel to resume a saved game
  * @author Nicholas Carr
  */
-public class NewGamePanel extends JPanel implements ActionListener {
+public class HelpPanel extends JPanel implements ActionListener {
   public WelcomePanel parent;
 
-  public NewGamePanel(WelcomePanel parent) {
+  public HelpPanel(WelcomePanel parent) {
     // Create a JPanel and add the buttons
     super();
     this.parent = parent;

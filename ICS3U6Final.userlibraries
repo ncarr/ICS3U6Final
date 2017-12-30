@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="json">
+    <archive path="./lib/json.jar" />
+  </library>
+  <library name="material-ui-swing">
+    <archive path="./lib/material-ui-swing.jar" />
+  </library>
+</eclipse-userlibraries>
+

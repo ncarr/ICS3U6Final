@@ -1,3 +1,5 @@
+package millenialopoly;
+
 public class Player{
 
     public static String name;
@@ -15,10 +17,10 @@ public class Player{
     }
 
     public double getCurrencyTotal(){
-        double total;
+        double total = 0;
         total += MIL;
-        total += ETH * Ethereum.getFactorRelToMIL();
-        total += BTC * Bitcoin.getFactorRelToMIL();
+        total += ETH * Millenialopoly.Ethereum.getFactorRelToMIL();
+        total += BTC * Millenialopoly.Bitcoin.getFactorRelToMIL();
         return round(total);
     }
 
@@ -26,27 +28,27 @@ public class Player{
     public boolean spendCurrency(String currency, double amountMIL){
         if (currency.equals("ETH")){
             // ETH is a good crypocurrency and has low transaction fees
-            if (MIL < Ethereum.getTransactionFee()){
-                return False;
+            if (MIL < Millenialopoly.Ethereum.getTransactionFee()){
+                return false;
             }
-            if (Ethereum.convertFromMIL(amountMIL) > ETH){
-                return False;
+            if (Millenialopoly.Ethereum.convertFromMIL(amountMIL) > ETH){
+                return false;
             }
-            MIL -= ETH.getTransactionFee;
-            ETH -= Ethereum.convertFromMIL(amountMIL);
+            MIL -= Millenialopoly.Ethereum.getTransactionFee();
+            ETH -= Millenialopoly.Ethereum.convertFromMIL(amountMIL);
         } else if (currency.equals("BTC")){
             // BTC is screwed and transaction fees are ridonkulous
-            if (MIL < Bitcoin.getTransactionFee()){
-                return False;
+            if (MIL < Millenialopoly.Bitcoin.getTransactionFee()){
+                return false;
             }
-            if (Bitcoin.convertToMIL(amountMIL) > BTC){
-                return False;
+            if (Millenialopoly.Bitcoin.convertToMIL(amountMIL) > BTC){
+                return false;
             }
-            MIL -= Bitcoin.getTransactionFee;
-            BTC -= Bitcoin.convertToMIL(amountMIL);
+            MIL -= Millenialopoly.Bitcoin.getTransactionFee();
+            BTC -= Millenialopoly.Bitcoin.convertToMIL(amountMIL);
         } else if (currency.equals("MIL")){
             if (MIL < amountMIL){
-                return False;
+                return false;
             }
             MIL -= amountMIL;
         }
@@ -56,9 +58,9 @@ public class Player{
 
     public void earnCurrency(String currency, double amountMIL){
         if (currency.equals("ETH")){
-            ETH += Ethereum.convertFromMIL(amountMIL);
+            ETH += Millenialopoly.Ethereum.convertFromMIL(amountMIL);
         } else if (currency.equals("BTC")){
-            BTC += Bitcoin.convertFromMIL(amountMIL);
+            BTC += Millenialopoly.Bitcoin.convertFromMIL(amountMIL);
         } else if (currency.equals("MIL")){
             MIL += amountMIL;
         }
@@ -73,42 +75,42 @@ public class Player{
 
         if (fromCurr.equals("ETH")){
             if (toCurr.equals("BTC")){
-                earnCurrency(toCurr, Bitcoin.convertFromMIL(Ethereum.convertToMIL(amount)));
+                earnCurrency(toCurr, Millenialopoly.Bitcoin.convertFromMIL(Millenialopoly.Ethereum.convertToMIL(amount)));
             }
             if (toCurr.equals("MIL")){
-                earnCurrency(toCurr, Ethereum.convertToMIL(amount));
+                earnCurrency(toCurr, Millenialopoly.Ethereum.convertToMIL(amount));
             }
         } else if (fromCurr.equals("BTC")){
             if (toCurr.equals("ETH")){
-                earnCurrency(toCurr, Ethereum.convertFromMIL(Bitcoin.convertToMIL(amount)));
+                earnCurrency(toCurr, Millenialopoly.Ethereum.convertFromMIL(Millenialopoly.Bitcoin.convertToMIL(amount)));
             }
             if (toCurr.equals("MIL")){
-                earnCurrency(toCurr, Bitcoin.convertToMIL(amount));
+                earnCurrency(toCurr, Millenialopoly.Bitcoin.convertToMIL(amount));
             }
         } else if (fromCurr.equals("MIL")){
             if (toCurr.equals("ETH")){
-                earnCurrency(toCurr, Ethereum.convertFromMIL(amount));
+                earnCurrency(toCurr, Millenialopoly.Ethereum.convertFromMIL(amount));
             }
             if (toCurr.equals("BTC")){
-                earnCurrency(toCurr, Bitcoin.convertFromMIL(amount));
+                earnCurrency(toCurr, Millenialopoly.Bitcoin.convertFromMIL(amount));
             }
         }
         return true; 
     }
 
-    public double getMIL(boolean){
+    public double getMIL(){
         return round(MIL);
     }
 
-    public double getBTC(boolean){
+    public double getBTC(){
         return round(BTC);
     }
 
-    public double getETH(boolean){
+    public double getETH(){
         return round(ETH);
     }
 
     private static double round(double val){
-        return Math.round(val * 100.0) / 100.0
+        return Math.round(val * 100.0) / 100.0;
     }
 }

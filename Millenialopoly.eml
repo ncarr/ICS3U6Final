@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inherit-compiler-output="true" inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/out/test/millenialopoly"/>
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$">
+		<excludeFolder url="file://$MODULE_DIR$/dependencies"/>
+		<excludeFolder url="file://$MODULE_DIR$/design"/>
+	</contentEntry>
+	<levels>
+		<level name="json" value="project"/>
+		<level name="material-ui-swing" value="project"/>
+	</levels>
+</component>

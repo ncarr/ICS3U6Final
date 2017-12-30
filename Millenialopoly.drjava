@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<drjava version="drjava-20160913-225446">
+  <project autorefresh="false" build="out/production/" main="millenialopoly.Millenialopoly" root="" work="">
+    <createjar file=""/>
+    <source>
+      <file active="true" name="src/millenialopoly/Millenialopoly.java" package="millenialopoly" timestamp="29-Dec-2017 21:33:06">
+        <select from="231" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="GUIExample4MangatPLUS.java" package="" timestamp="21-Dec-2017 13:18:58">
+        <select from="231" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="src/millenialopoly/WildChance.java" package="millenialopoly" timestamp="29-Dec-2017 21:33:06">
+        <select from="231" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="src/millenialopoly/WelcomePanel.java" package="millenialopoly" timestamp="29-Dec-2017 21:33:06">
+        <select from="231" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="src/millenialopoly/Tile.java" package="millenialopoly" timestamp="29-Dec-2017 21:33:06">
+        <select from="231" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="src/millenialopoly/TaxTile.java" package="millenialopoly" timestamp="29-Dec-2017 21:33:06">
+        <select from="231" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="src/millenialopoly/ResumePanel.java" package="millenialopoly" timestamp="29-Dec-2017 21:33:06">
+        <select from="231" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="src/millenialopoly/Property.java" package="millenialopoly" timestamp="29-Dec-2017 21:33:06">
+        <select from="231" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="src/millenialopoly/Player.java" package="millenialopoly" timestamp="29-Dec-2017 21:33:06">
+        <select from="231" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="src/millenialopoly/NewGamePanel.java" package="millenialopoly" timestamp="29-Dec-2017 21:33:06">
+        <select from="231" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="src/millenialopoly/JailTile.java" package="millenialopoly" timestamp="29-Dec-2017 21:33:06">
+        <select from="231" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="src/millenialopoly/HyperloopTile.java" package="millenialopoly" timestamp="29-Dec-2017 21:33:06">
+        <select from="231" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="src/millenialopoly/HelpPanel.java" package="millenialopoly" timestamp="29-Dec-2017 21:33:06">
+        <select from="231" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="src/millenialopoly/GoTile.java" package="millenialopoly" timestamp="29-Dec-2017 21:33:06">
+        <select from="231" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="src/millenialopoly/GameFrame.java" package="millenialopoly" timestamp="29-Dec-2017 21:33:06">
+        <select from="231" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="src/millenialopoly/Game.java" package="millenialopoly" timestamp="29-Dec-2017 21:33:06">
+        <select from="231" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="src/millenialopoly/Currency.java" package="millenialopoly" timestamp="29-Dec-2017 21:33:06">
+        <select from="231" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="src/millenialopoly/Board.java" package="millenialopoly" timestamp="29-Dec-2017 21:28:13">
+        <select from="231" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+    </source>
+    <included/>
+    <excluded/>
+    <collapsed/>
+    <classpath>
+      <file absolute="false" name="lib/material-ui-swing.jar"/>
+      <file absolute="false" name="lib/json.jar"/>
+    </classpath>
+    <breakpoints/>
+    <watches/>
+    <bookmarks/>
+    <preferences/>
+  </project>
+</drjava>

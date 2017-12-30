@@ -1,3 +1,5 @@
+package millenialopoly;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -14,10 +16,7 @@ public class GameFrame extends JFrame {
     this.state = state;
     // Set the properties of the window
     this.setTitle("Millenialopoly");
-    this.pack();
 
-    // Make it visible
-    this.setVisible(true);
     // End the program when this window is closed
     this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
   }
