@@ -4,7 +4,7 @@
  */
 import java.util.Random;
 import java.util.Scanner;
-import java.swing.*;
+import javax.swing.*;
 import mdlaf.MaterialLookAndFeel;
 
 class Millenialopoly {
@@ -22,8 +22,8 @@ class Millenialopoly {
         // Start the shenanigans!
         Game gameState = new Game();
         try {
-			UIManager.setLookAndFeel (new MaterialLookAndFeel ());
-		} catch (UnsupportedLookAndFeelException e) {}
+            UIManager.setLookAndFeel (new MaterialLookAndFeel ());
+        } catch (UnsupportedLookAndFeelException e) {}
 
         // Start with welcome panel, instructions, etc
         GameFrame gameFrame = new GameFrame(gameState);
