@@ -1,5 +1,3 @@
-package millenialopoly;
-
 import org.json.*;
 
 public class Board{

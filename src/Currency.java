@@ -1,5 +1,3 @@
-package millenialopoly;
-
 import java.util.Random;
 
 public class Currency{
@@ -32,7 +30,7 @@ public class Currency{
         if (rand.nextInt(4) == 0){ // 1/4 chance of the crypto going down
             variationFactor *= -1;
         }
-        factorRelToMIL *= variationFactor;
+        factorRelToMIL *= variation;
     }
 
     public double getFactorRelToMIL(){
@@ -40,7 +38,7 @@ public class Currency{
     }
 
     public double convertToMIL(double val){
-        return val * factorRelToMIL;
+        return curr * factorRelToMIL;
     }
 
     public double convertFromMIL(double val){
@@ -48,10 +46,6 @@ public class Currency{
     }
 
     public double getValInMIL(){
-        return Math.round(factorRelToMIL);
-    }
-
-    public int getTransactionFee() {
-        return transactionFee;
+        return round(factorRelToMIL);
     }
 }

@@ -2,7 +2,6 @@
  * A Monopoly variation adapted to suit "Millenials" a.k.a. Snake People
  * AUTHORS: Carol Chen, Nicholas Carr
  */
-package millenialopoly;
 import java.util.Random;
 import java.util.Scanner;
 import javax.swing.*;
@@ -16,15 +15,15 @@ class Millenialopoly {
     public static Board gameBoard;
 
     // Should actually init at real values
-    public static Currency Bitcoin = new Currency(5, 20);
-    public static Currency Ethereum = new Currency(2, 5);
+    public Currency Bitcoin = new Currency(5, 20);
+    public Currency Ethereum = new Currency(2, 5);
 
     public static void main(String[] args) {
         // Start the shenanigans!
         Game gameState = new Game();
         try {
-			UIManager.setLookAndFeel (new MaterialLookAndFeel ());
-		} catch (UnsupportedLookAndFeelException e) {}
+            UIManager.setLookAndFeel (new MaterialLookAndFeel ());
+        } catch (UnsupportedLookAndFeelException e) {}
 
         // Start with welcome panel, instructions, etc
         GameFrame gameFrame = new GameFrame(gameState);

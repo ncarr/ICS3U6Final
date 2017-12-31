@@ -1,5 +1,3 @@
-package millenialopoly;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -34,10 +32,8 @@ public class WelcomePanel extends JPanel implements ActionListener {
     this.add(helpButton);
     this.add(quitButton);
 
-    // Add the panel to the window and make the window visible
+    // Add the panel to the window
     window.add(this);
-    window.pack();
-    window.setVisible(true);
   }
 
   /**
