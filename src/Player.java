@@ -1,7 +1,8 @@
 public class Player{
 
-    public static String name;
-
+    private static String name;
+    
+    private int location;
     private double MIL, BTC, ETH;
 
     Player(String playerName) {
@@ -93,7 +94,7 @@ public class Player{
                 earnCurrency(toCurr, Bitcoin.convertFromMIL(amount));
             }
         }
-        return true; 
+        return true;
     }
 
     public double getMIL(boolean){
