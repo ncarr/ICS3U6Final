@@ -1,8 +1,7 @@
 {
     "tiles": [
         {
-              "type": "go",
-              "name": "Go",
+              "type": "go"
         },
         {
             "type": "property",
@@ -17,12 +16,11 @@
                 "4_avocadoes": 160,
                 "5_avocadoes": 250,
             },
-            "mortage": 30,
+            "mortgage": 30,
             "avocado_cost": 50
         },
         {
-            "type": "chance",
-            "name": "Chance Card!",
+            "type": "chance"
         },
         {
             "type": "property",
@@ -37,16 +35,16 @@
                 "4_avocadoes": 320,
                 "5_avocadoes": 450,
             },
-            "mortage": 30,
+            "mortgage": 30,
             "avocado_cost": 50
         },
         {
             "type": "tax",
-            "name": "Income Theft! Taxation is theft reee $200",
+            "cost": 200
         },
         {
             "type": "hyperloop",
-            "name": "WATER WATER WATER LOOP",
+            "name": "WATER WATER WATER LOOP"
         },
         {
             "type": "property",
@@ -61,12 +59,11 @@
                 "4_avocadoes": 400,
                 "5_avocadoes": 550,
             },
-            "mortage": 50,
+            "mortgage": 50,
             "avocado_cost": 50
         },
         {
-            "type": "chance",
-            "name": "Chance Card!",
+            "type": "chance"
         },
         {
             "type": "property",
@@ -81,7 +78,7 @@
                 "4_avocadoes": 400,
                 "5_avocadoes": 550,
             },
-            "mortage": 50,
+            "mortgage": 50,
             "avocado_cost": 50
         },
         {
@@ -97,12 +94,11 @@
                 "4_avocadoes": 450,
                 "5_avocadoes": 600,
             },
-            "mortage": 60,
+            "mortgage": 60,
             "avocado_cost": 50
         },
         {
-            "type": "jail",
-            "name": "Visitng the Jail!",
+            "type": "jail"
         },
         {
             "type": "property",
@@ -117,12 +113,11 @@
                 "4_avocadoes": 625,
                 "5_avocadoes": 750,
             },
-            "mortage": 70,
+            "mortgage": 70,
             "avocado_cost": 100
         },
         {
-            "type": "wild_chance",
-            "name": "Wild Chance Card!",
+            "type": "wild_chance"
         },
         {
             "type": "property",
@@ -137,7 +132,7 @@
                 "4_avocadoes": 625,
                 "5_avocadoes": 750,
             },
-            "mortage": 70,
+            "mortgage": 70,
             "avocado_cost": 100
         },
         {
@@ -153,12 +148,12 @@
                 "4_avocadoes": 700,
                 "5_avocadoes": 900,
             },
-            "mortage": 80,
+            "mortgage": 80,
             "avocado_cost": 100
         },
         {
             "type": "hyperloop",
-            "name": "WARR HYPERLOOP",
+            "name": "WARR HYPERLOOP"
         },
         {
             "type": "property",
@@ -173,12 +168,11 @@
                 "4_avocadoes": 750,
                 "5_avocadoes": 950,
             },
-            "mortage": 90,
+            "mortgage": 90,
             "avocado_cost": 100
         },
         {
-            "type": "chance",
-            "name": "Chance Card!",
+            "type": "chance"
         },
         {
             "type": "property",
@@ -193,7 +187,7 @@
                 "4_avocadoes": 750,
                 "5_avocadoes": 950,
             },
-            "mortage": 90,
+            "mortgage": 90,
             "avocado_cost": 100
         },
         {
@@ -209,18 +203,14 @@
                 "4_avocadoes": 800,
                 "5_avocadoes": 1000,
             },
-            "mortage": 100,
+            "mortgage": 100,
             "avocado_cost": 100
         },
         {
-            "type": "hyperloop",
-            "name": "That One Canadian Hyperloop Company",
+            "type": "hyperloop"
         },
         {
-            "type": "theft",
-            "name": "Government Pays You Because Socialism",
-            "info": "You get to claim all paids taxes!",
+            "type": "theft"
         }
-        // Halfway done also TIL you can't have comments in JSON
     ]
 }

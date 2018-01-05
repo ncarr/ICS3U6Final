@@ -1,6 +1,6 @@
 public class TaxTile extends Tile{
 
-    TaxTile() {
+    TaxTile(int taxes) {
     }
 
 }

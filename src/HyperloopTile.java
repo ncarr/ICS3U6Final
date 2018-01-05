@@ -1,6 +1,6 @@
 public class HyperloopTile extends Tile{
 
-    HyperloopTile() {
+    HyperloopTile(String name) {
     }
 
 }
