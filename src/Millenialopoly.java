@@ -15,8 +15,8 @@ class Millenialopoly {
     public static Board gameBoard;
 
     // Should actually init at real values
-    public Currency Bitcoin = new Currency(5, 20);
-    public Currency Ethereum = new Currency(2, 5);
+    public static Currency Bitcoin = new Currency(5, 20);
+    public static Currency Ethereum = new Currency(2, 5);
 
     public static void main(String[] args) {
         // Start the shenanigans!
@@ -29,7 +29,8 @@ class Millenialopoly {
         GameFrame gameFrame = new GameFrame(gameState);
         WelcomePanel welcomePanel = new WelcomePanel(gameFrame);
 
-        numPlayers = gameState.getPlayerCount(); // Change to input
+        // numPlayers = gameState.getPlayerCount();
+        numPlayers = 4; // Change to input
 
         gameBoard = new Board();
 

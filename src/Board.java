@@ -1,4 +1,8 @@
-import org.json.*;
+import org.json.simple.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.FileReader;
 
 public class Board{
 
@@ -17,7 +21,7 @@ public class Board{
             String tileType = tile.getString("type");
             String tileName = tile.getString("name");
             if (tileType.equals("go")){
-                spots[i] = new GoTile():
+                spots[i] = new GoTile();
             } else if (tileType.equals("jail")){
                 spots[i] = new JailTile();
             } else if (tileType.equals("theft")){
@@ -39,28 +43,26 @@ public class Board{
                     tile.getJSONObject("rent").getInt("3_avocadoes"),
                     tile.getJSONObject("rent").getInt("4_avocadoes"),
                     tile.getJSONObject("rent").getInt("5_avocadoes"),
-                }
+                };
                 int mortgage = tile.getInt("mortgage");
                 int cost = tile.getInt("cost");
                 int avocadoCost = tile.getInt("avocado_cost");
-                spots[i] = new Property(tileName, rent,
-                                        mortgage, cost, avocadoCost, color)
+                spots[i] = new Property(tileName, color, rent,
+                                        mortgage, cost, avocadoCost);
             }
         }
 
     }
 
-
-}
-
-static String getJSON() throws IOException{
-    String loc = "data/tiles.json";
-    BufferedReader br = new BufferedReader(new FileReader(loc));
-    String line = br.readLine();
-    String res;
-    while (line != null){
-        res += line;
-        line = br.readLine();
+    private static String getJSON() throws IOException{
+        String loc = "data/tiles.json";
+        BufferedReader br = new BufferedReader(new FileReader(loc));
+        String line = br.readLine();
+        String res;
+        while (line != null){
+            res += line;
+            line = br.readLine();
+        }
+       return res;
     }
-    return str;
 }

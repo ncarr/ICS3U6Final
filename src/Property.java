@@ -1,8 +1,9 @@
 public class Property extends Tile{
 
     private int avocados;
-    Property() {
-        avocados = 0; 
+    Property(String tileName, String color, int[] rent,
+             int mortgage, int cost, int avocadoCost) {
+        avocados = 0;
     }
 
 }
