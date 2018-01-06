@@ -1,4 +1,5 @@
-import org.json.simple.JSONObject;
+// import json_parser.parser;
+import jsonParser.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,7 +36,7 @@ public class Board{
             } else if (tileType.equals("hyperloop")){
                 spots[i] = new HyperloopTile(tileName);
             } else if (tileType.equals("property")){
-                String color = tile.getInt("color");
+                String color = tile.getString("color");
                 int[] rent = {
                     tile.getJSONObject("rent").getInt("0_avocadoes"),
                     tile.getJSONObject("rent").getInt("1_avocadoes"),
