@@ -16,7 +16,7 @@ public class Player{
     }
 
     public double getCurrencyTotal(){
-        double total;
+        double total = 0;
         total += MIL;
         total += ETH * Millenialopoly.Ethereum.getFactorRelToMIL();
         total += BTC * Millenialopoly.Bitcoin.getFactorRelToMIL();

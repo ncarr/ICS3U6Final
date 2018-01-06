@@ -1,4 +1,4 @@
-package jsonParser;
+package JsonParser;
 
 /*
 Copyright (c) 2002 JSON.org

@@ -1,5 +1,5 @@
 // import json_parser.parser;
-import jsonParser.*;
+import JsonParser.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -55,14 +55,18 @@ public class Board{
 
     }
 
-    private static String getJSON() throws IOException{
-        String loc = "data/tiles.json";
-        BufferedReader br = new BufferedReader(new FileReader(loc));
-        String line = br.readLine();
-        String res;
-        while (line != null){
-            res += line;
-            line = br.readLine();
+    private static String getJSON(){
+        String res = "";
+        try {
+            String loc = "data/tiles.json";
+            BufferedReader br = new BufferedReader(new FileReader(loc));
+            String line = br.readLine();
+            while (line != null){
+                res += line;
+                line = br.readLine();
+            }
+        } catch(IOException e){
+            e.printStackTrace();
         }
        return res;
     }

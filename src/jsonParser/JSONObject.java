@@ -1,4 +1,4 @@
-package jsonParser;
+package JsonParser;
 
 import java.io.Closeable;
 

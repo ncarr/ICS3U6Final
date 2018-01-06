@@ -5,7 +5,8 @@
 import java.util.Random;
 import java.util.Scanner;
 import javax.swing.*;
-import mdlaf.MaterialLookAndFeel;
+
+import MaterialSwing.MaterialLookAndFeel;
 
 class Millenialopoly {
 
