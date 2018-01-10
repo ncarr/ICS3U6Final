@@ -1,10 +1,11 @@
 import javax.swing.*;
+import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.*;
 
 /**
  * Main menu panel
- * @author Nicholas Carr
+ * @author Nicholas Carr, Carol Chen
  */
 public class WelcomePanel extends JPanel implements ActionListener {
   public GameFrame window;
@@ -12,9 +13,20 @@ public class WelcomePanel extends JPanel implements ActionListener {
   public WelcomePanel(GameFrame window) {
     // Create a JPanel and add the buttons
     super();
-
+    this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     this.window = window;
 
+    this.window.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+    // Title Text
+    JPanel titlePanel = new JPanel();
+    titlePanel.setBorder(new EmptyBorder(300, 0, 0, 0)); // padding
+    Font titleFont = Fonts.TITLE.deriveFont(100F);
+    JLabel titleLabel = new JLabel("Millenialopoly", SwingConstants.CENTER);
+    titleLabel.setFont(titleFont);
+    titlePanel.add(titleLabel);
+
+    JPanel buttonPanel = new JPanel();
     JButton playButton = new JButton("Play");
     JButton resumeButton = new JButton("Resume saved game");
     JButton helpButton = new JButton("Help");
@@ -27,10 +39,14 @@ public class WelcomePanel extends JPanel implements ActionListener {
     quitButton.addActionListener(this);
 
     // Add the buttons to the JPanel
-    this.add(playButton);
-    this.add(resumeButton);
-    this.add(helpButton);
-    this.add(quitButton);
+    buttonPanel.add(playButton);
+    buttonPanel.add(resumeButton); // Will we ever do this?
+    buttonPanel.add(helpButton);
+    buttonPanel.add(quitButton);
+
+
+    this.add(titlePanel);
+    this.add(buttonPanel);
 
     // Add the panel to the window
     window.add(this);

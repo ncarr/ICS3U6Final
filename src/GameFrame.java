@@ -7,11 +7,10 @@ import java.awt.*;
  */
 public class GameFrame extends JFrame {
   public Game state;
-  
-  public GameFrame(Game state) {
+
+  public GameFrame() {
     super();
 
-    this.state = state;
     // Set the properties of the window
     this.setTitle("Millenialopoly");
     this.pack();

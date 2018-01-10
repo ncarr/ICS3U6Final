@@ -1,4 +1,3 @@
-package MaterialSwing.button;
 
 import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;

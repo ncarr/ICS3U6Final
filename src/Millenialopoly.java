@@ -6,8 +6,6 @@ import java.util.Random;
 import java.util.Scanner;
 import javax.swing.*;
 
-import MaterialSwing.MaterialLookAndFeel;
-
 class Millenialopoly {
 
     public static Player[] players;
@@ -21,13 +19,12 @@ class Millenialopoly {
 
     public static void main(String[] args) {
         // Start the shenanigans!
-        Game gameState = new Game();
         try {
             UIManager.setLookAndFeel (new MaterialLookAndFeel ());
         } catch (UnsupportedLookAndFeelException e) {}
 
         // Start with welcome panel, instructions, etc
-        GameFrame gameFrame = new GameFrame(gameState);
+        GameFrame gameFrame = new GameFrame();
         WelcomePanel welcomePanel = new WelcomePanel(gameFrame);
 
         // numPlayers = gameState.getPlayerCount();

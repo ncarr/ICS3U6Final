@@ -1,7 +1,3 @@
-package MaterialSwing;
-
-import MaterialSwing.button.MaterialButtonUI;
-
 import javax.swing.BorderFactory;
 import javax.swing.UIDefaults;
 import javax.swing.border.Border;
@@ -55,24 +51,21 @@ public class MaterialLookAndFeel extends BasicLookAndFeel {
 	protected void initComponentDefaults (UIDefaults table) {
 		super.initComponentDefaults (table);
 
-		table.put ("Button.font", MaterialFonts.MEDIUM);
-		table.put ("RadioButton.font", MaterialFonts.LIGHT);
-		table.put ("CheckBox.font", MaterialFonts.LIGHT);
-		table.put ("ComboBox.font", MaterialFonts.LIGHT);
-		table.put ("Label.font", MaterialFonts.LIGHT);
-		table.put ("MenuBar.font", MaterialFonts.BOLD);
-		table.put ("MenuItem.font", MaterialFonts.MEDIUM);
-		table.put ("Menu.font", MaterialFonts.BOLD);
-		table.put ("OptionPane.font", MaterialFonts.LIGHT);
-		table.put ("Panel.font", MaterialFonts.LIGHT);
-		table.put ("ScrollPane.font", MaterialFonts.LIGHT);
-		table.put ("Table.font", MaterialFonts.LIGHT);
-		table.put ("TableHeader.font", MaterialFonts.LIGHT);
-		table.put ("TextField.font", MaterialFonts.LIGHT);
-		table.put ("TextArea.font", MaterialFonts.MEDIUM);
-
-		Border menuBorder = new DropShadowBorder (Color.BLACK, 0, 5, 0.3f, 12, true, true, true, true);
-		Border defaultBorder = new DropShadowBorder (Color.BLACK, 5, 5, 0.3f, 12, true, true, true, true);
+		table.put ("Button.font", Fonts.MEDIUM);
+		table.put ("RadioButton.font", Fonts.LIGHT);
+		table.put ("CheckBox.font", Fonts.LIGHT);
+		table.put ("ComboBox.font", Fonts.LIGHT);
+		table.put ("Label.font", Fonts.LIGHT);
+		table.put ("MenuBar.font", Fonts.BOLD);
+		table.put ("MenuItem.font", Fonts.MEDIUM);
+		table.put ("Menu.font", Fonts.BOLD);
+		table.put ("OptionPane.font", Fonts.LIGHT);
+		table.put ("Panel.font", Fonts.LIGHT);
+		table.put ("ScrollPane.font", Fonts.LIGHT);
+		table.put ("Table.font", Fonts.LIGHT);
+		table.put ("TableHeader.font", Fonts.LIGHT);
+		table.put ("TextField.font", Fonts.LIGHT);
+		table.put ("TextArea.font", Fonts.MEDIUM);
 
 		table.put ("Panel.background", Color.WHITE);
 		table.put ("Panel.border", BorderFactory.createEmptyBorder ());
@@ -96,7 +89,6 @@ public class MaterialLookAndFeel extends BasicLookAndFeel {
 		table.put ("Menu.menuPopupOffsetY", 10);
 
 		table.put ("MenuBar.background", Color.WHITE);
-		table.put ("MenuBar.border", menuBorder);
 
 		table.put ("SplitPane.border", BorderFactory.createEmptyBorder ());
 		table.put ("SplitPane.background", Color.WHITE);
@@ -111,11 +103,9 @@ public class MaterialLookAndFeel extends BasicLookAndFeel {
 		table.put ("TextArea.foreground", Color.BLACK);
 
 		table.put ("OptionPane.background", Color.WHITE);
-		table.put ("OptionPane.border", defaultBorder);
 
 		table.put ("Button.background", new Color (25, 181, 254));
 		table.put ("Button.foreground", Color.WHITE);
 		table.put ("Button.highlight", LIGHT_GRAY);
-		//table.put ("Button.border", BorderFactory.createEmptyBorder (10, 10, 10, 10));
 	}
 }

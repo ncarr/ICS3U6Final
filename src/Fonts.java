@@ -1,15 +1,16 @@
-package MaterialSwing;
 
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class MaterialFonts {
+public class Fonts {
 
 	private static final float DEFAULT_FONT_SIZE = 14f;
 
-	public static final Font BLACK = loadFont ("/fonts/Roboto-Black.ttf").deriveFont (DEFAULT_FONT_SIZE);
+    public static final Font TITLE = loadFont ("/fonts/Product Sans Regular.ttf").deriveFont (DEFAULT_FONT_SIZE);
+
+    public static final Font BLACK = loadFont ("/fonts/Roboto-Black.ttf").deriveFont (DEFAULT_FONT_SIZE);
 	public static final Font BLACK_ITALIC = loadFont ("/fonts/Roboto-BlackItalic.ttf").deriveFont (DEFAULT_FONT_SIZE);
 	public static final Font BOLD = loadFont ("/fonts/Roboto-Bold.ttf").deriveFont (DEFAULT_FONT_SIZE);
 	public static final Font BOLD_ITALIC = loadFont ("/fonts/Roboto-BoldItalic.ttf").deriveFont (DEFAULT_FONT_SIZE);
@@ -23,7 +24,7 @@ public class MaterialFonts {
 	public static final Font THIN_ITALIC = loadFont ("/fonts/Roboto-ThinItalic.ttf").deriveFont (DEFAULT_FONT_SIZE);
 
 	private static Font loadFont (String fontPath) {
-		try (InputStream inputStream = MaterialFonts.class.getResourceAsStream (fontPath)) {
+		try (InputStream inputStream = Fonts.class.getResourceAsStream (fontPath)) {
 			return Font.createFont (Font.TRUETYPE_FONT, inputStream);
 		}
 		catch (IOException | FontFormatException e) {

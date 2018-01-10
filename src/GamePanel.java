@@ -4,15 +4,17 @@ import java.awt.event.*;
 
 /**
  * Panel to create a new game
- * @author Nicholas Carr
+ * @author Nicholas Carr, Carol Chen
  */
-public class NewGamePanel extends JPanel implements ActionListener {
+public class GamePanel extends JPanel implements ActionListener {
   public WelcomePanel parent;
 
-  public NewGamePanel(WelcomePanel parent) {
+  public GamePanel(WelcomePanel parent) {
     // Create a JPanel and add the buttons
     super();
     this.parent = parent;
+    Game gameState = new Game();
+
 
     JLabel label = new JLabel("Coming soon");
 

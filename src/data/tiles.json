@@ -207,7 +207,8 @@
             "avocado_cost": 100
         },
         {
-            "type": "hyperloop"
+            "type": "hyperloop",
+            "name": "Elon-Loop"
         },
         {
             "type": "theft"
