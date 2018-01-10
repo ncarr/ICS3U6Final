@@ -1,4 +1,4 @@
-class TilesInit {
+class Tiles {
     public Tile[] tiles = {
       new GoTile(),
       new Property(
