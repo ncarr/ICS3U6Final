@@ -1,4 +1,4 @@
-class Tiles {
+class TilesInit {
     public Tile[] tiles = {
       new GoTile(),
       new Property(
@@ -9,7 +9,7 @@ class Tiles {
         60,
         50
       ),
-      new ChanceTile(),
+      new ChanceTile(false),
       new Property(
         "No World Wars in fifty years™",
         "brown",
@@ -18,8 +18,8 @@ class Tiles {
         60,
         50
       ),
-      new TaxTile(),
-      new HyperloopTile(),
+      new TaxTile(200),
+      new HyperloopTile("WATER WATER WATER LOOP"),
       new Property(
         "Taylor Swift",
         "light blue",
@@ -28,7 +28,7 @@ class Tiles {
         100,
         50
       ),
-      new ChanceTile(),
+      new ChanceTile(false),
       new Property(
         "Miley Cyrus",
         "light blue",
@@ -54,7 +54,7 @@ class Tiles {
         140,
         100
       ),
-      new Wild_chanceTile(),
+      new ChanceTile(true),
       new Property(
         "Using internet acronyms irl™",
         "magenta",
@@ -71,7 +71,7 @@ class Tiles {
         160,
         100
       ),
-      new HyperloopTile(),
+      new HyperloopTile("WARR HYPERLOOP"),
       new Property(
         "Nyan Cat",
         "orange",
@@ -80,7 +80,7 @@ class Tiles {
         180,
         100
       ),
-      new ChanceTile(),
+      new ChanceTile(false),
       new Property(
         "Datboi",
         "orange",
