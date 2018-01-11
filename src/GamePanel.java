@@ -10,8 +10,7 @@ import java.awt.event.*;
 public class GamePanel extends JPanel implements ActionListener {
     private MillenialopolyWindow window;
 
-    private int numUsers;
-    private String[] names;
+    public Game game;
 
     public GamePanel(MillenialopolyWindow window, int users, String[] names) {
         // Create a JPanel and add the buttons
@@ -21,14 +20,14 @@ public class GamePanel extends JPanel implements ActionListener {
         this.setLayout(new BorderLayout());
 
         BoardPanel boardComponent = new BoardPanel(window);
-        ControlPanel ctrlComponent = new ControlPanel(window);
-
-        this.add(boardComponent);
+        this.add(boardComponent); // Add board to window
 
         // Add the panel to the window
         this.window.add(this);
 
+        game = new Game(users, names);
 
+        ControlPanel ctrlComponent = new ControlPanel(this, window);
     }
 
     /**

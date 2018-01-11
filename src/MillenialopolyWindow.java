@@ -6,7 +6,6 @@ import java.awt.*;
  * @author Nicholas Carr
  */
 public class MillenialopolyWindow extends JFrame {
-  public Game state;
 
   public MillenialopolyWindow() {
     super();
