@@ -1,5 +1,5 @@
 public class Game {
-  public Game() {
-    
-  }
+    public Game(int numPlayers, String[] names) {
+        
+    }
 }

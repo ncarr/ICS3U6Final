@@ -62,7 +62,7 @@ public class WelcomePanel extends JPanel implements ActionListener {
     String command = event.getActionCommand();
     if (command.equals("Play")) {
         window.getContentPane().remove(this);
-        window.add(new GamePanel(window));
+        window.add(new SetupPanel(window));
         window.getContentPane().revalidate();
     } else if (command.equals("Resume saved game")) {
         // this.window.add(new ResumePanel(this));
