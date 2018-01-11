@@ -14,13 +14,14 @@ public class WelcomePanel extends JPanel implements ActionListener {
     // Create a JPanel and add the buttons
     super();
 
+    // Set layout to GridBag for easy vertical and horizontal centering
     this.setLayout(new GridBagLayout());
-    GridBagConstraints gbc = new GridBagConstraints();
-    gbc.gridx = 1;
-    gbc.fill = GridBagConstraints.HORIZONTAL;
+    GridBagConstraints gbc = new GridBagConstraints(); // Constraints
+    gbc.gridx = 1; // One column per row
+    gbc.fill = GridBagConstraints.HORIZONTAL; // Have each item fill the row
 
-    this.window = window;
-    this.window.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    this.window = window; // Store window
+    this.window.setExtendedState(JFrame.MAXIMIZED_BOTH); // make sure Panel takes up full height
 
     // Title Text
     JPanel titlePanel = new JPanel();
@@ -29,6 +30,7 @@ public class WelcomePanel extends JPanel implements ActionListener {
     titleLabel.setFont(titleFont);
     titlePanel.add(titleLabel);
 
+    // button options
     JPanel buttonPanel = new JPanel();
     JButton playButton = new JButton("Play");
     JButton resumeButton = new JButton("Resume saved game");
@@ -47,7 +49,7 @@ public class WelcomePanel extends JPanel implements ActionListener {
     buttonPanel.add(helpButton);
     buttonPanel.add(quitButton);
 
-
+    // Add panels to the WelcomePanel
     this.add(titlePanel, gbc);
     this.add(buttonPanel, gbc);
 
@@ -61,9 +63,9 @@ public class WelcomePanel extends JPanel implements ActionListener {
   public void actionPerformed(ActionEvent event) {
     String command = event.getActionCommand();
     if (command.equals("Play")) {
-        window.getContentPane().remove(this);
-        window.add(new SetupPanel(window));
-        window.getContentPane().revalidate();
+        window.getContentPane().remove(this); // remove welcome
+        window.add(new SetupPanel(window)); // Move to setup
+        window.getContentPane().revalidate(); // revalidate to refresh
     } else if (command.equals("Resume saved game")) {
         // this.window.add(new ResumePanel(this));
     } else if (command.equals("Help")) {

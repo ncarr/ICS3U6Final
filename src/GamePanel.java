@@ -24,7 +24,6 @@ public class GamePanel extends JPanel implements ActionListener {
         ControlPanel ctrlComponent = new ControlPanel(window);
 
         this.add(boardComponent);
-        this.add(ctrlComponent);
 
         // Add the panel to the window
         this.window.add(this);

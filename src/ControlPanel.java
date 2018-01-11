@@ -15,10 +15,8 @@ public class ControlPanel extends JDialog implements ActionListener {
         super();
         this.window = window;
 
-        this.setModal(true); // always on top
-
         Rectangle r = window.getBounds();
-        this.setSize(r.width - 300, r.height - 300);
+        this.setSize(r.width - 150, r.height - 150);
         this.setLocationRelativeTo(window);
 
         this.setUndecorated(true);

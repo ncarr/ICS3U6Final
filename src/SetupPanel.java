@@ -11,6 +11,7 @@ public class SetupPanel extends JPanel implements ActionListener {
     private MillenialopolyWindow window;
     private GridBagConstraints gbc;
 
+    // Data to store
     private JTextField usersNumField;
     private JTextField nameField;
     private int numUsers;
@@ -22,12 +23,13 @@ public class SetupPanel extends JPanel implements ActionListener {
         super();
         this.window = window;
 
+        // Use a grid bag layout for centering
         this.setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        window.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        window.setExtendedState(JFrame.MAXIMIZED_BOTH); // Take up full window
 
         // Add the panel to the window
         this.window.add(this);
@@ -47,6 +49,7 @@ public class SetupPanel extends JPanel implements ActionListener {
         // text field
         JPanel inputPanel = new JPanel();
         usersNumField = new JTextField(2);
+        // Create two borders, one to mark the box and another for padding
         Border inputBorder = BorderFactory.createLineBorder(Color.GRAY, 1);
 	    usersNumField.setBorder(BorderFactory.createCompoundBorder(
                                 inputBorder,
@@ -59,7 +62,7 @@ public class SetupPanel extends JPanel implements ActionListener {
         submitButton.addActionListener(this);
         buttonPanel.add(submitButton);
 
-
+        // Add panels to SetupPanel
         this.add(promptPanel, gbc);
         this.add(inputPanel, gbc);
         this.add(buttonPanel, gbc);
@@ -69,12 +72,14 @@ public class SetupPanel extends JPanel implements ActionListener {
     private void getNames(int curr) {
         // Check if all names have been collected
         if (curr > numUsers){
-            window.getContentPane().remove(this);
+            window.getContentPane().remove(this); // Remove setup panel
+            // Pass info into Game Panel
             window.add(new GamePanel(window, numUsers, names));
             window.getContentPane().revalidate();
-            return;
+            return; // Don't continue
         }
-        this.removeAll();
+
+        this.removeAll(); // Remove any panels from the previous view
 
         // prompt
         JPanel promptPanel = new JPanel();
@@ -98,38 +103,40 @@ public class SetupPanel extends JPanel implements ActionListener {
         nextButton.addActionListener(this);
         buttonPanel.add(nextButton);
 
+        // Add all panels
         this.add(promptPanel, gbc);
         this.add(inputPanel, gbc);
         this.add(buttonPanel, gbc);
+
+        // Refresh to ensure that old panels are removed and new ones are addedd.
         this.revalidate();
         this.repaint();
 
         // Add the panel to the window
         this.window.add(this);
-
-
     }
 
     /**
     * Method called when any button is pressed
     */
     public void actionPerformed(ActionEvent event) {
+        // Do nothing if input is not filled
         String command = event.getActionCommand();
         if (command.equals("Go!")) {
-            try {
-                if (!usersNumField.getText().equals("")){
+            try { // Try for integer parse
+                if (!usersNumField.getText().equals("")){ // Must be filled
                     numUsers = Integer.parseInt(usersNumField.getText());
                     if (numUsers > 6){
                         return; // Too many people probably.
                     }
-                    names = new String[numUsers];
+                    names = new String[numUsers]; // Set length of names
                     getNames(namesCollected);
                 }
             } catch(NullPointerException e) {} catch(NumberFormatException e) {}
         } else if (command.equals("Next")) {
             String name = nameField.getText();
             if (!name.equals("")){
-                names[namesCollected - 1] = name;
+                names[namesCollected - 1] = name; // Set name
                 namesCollected++;
                 getNames(namesCollected);
             }
