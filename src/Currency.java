@@ -52,4 +52,8 @@ public class Currency{
     public int getTransactionFee(){
         return transactionFee;
     }
+
+    private static double round(double val){
+        return Math.round(val * 100.0) / 100.0;
+    }
 }

@@ -41,6 +41,6 @@ public class GamePanel extends JPanel implements ActionListener {
     public void endTurn() {
         game.nextTurn();
         // do roll, pay if needed, buy if needed
-        ctrlComponent = new ControlPanel(this, window);        ctrlComponent.repaint();
+        ctrlComponent = new ControlPanel(this, window);
     }
 }
