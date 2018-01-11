@@ -1,5 +1,5 @@
 class TilesInit {
-    public Tile[] tiles = {
+    public static Tile[] tiles = {
         new GoTile(),
         new Property(
             "The Macintosh",
