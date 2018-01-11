@@ -2,8 +2,9 @@ import java.util.Random;
 
 public class Player{
 
-    private static String name;
+    private String name;
 
+    private Property[] properties;
     private int location;
     private double MIL, BTC, ETH;
 

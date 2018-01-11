@@ -9,6 +9,7 @@ import java.awt.event.*;
  */
 public class GamePanel extends JPanel implements ActionListener {
     private MillenialopolyWindow window;
+    private ControlPanel ctrlComponent;
 
     public Game game;
 
@@ -27,7 +28,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
         game = new Game(users, names);
 
-        ControlPanel ctrlComponent = new ControlPanel(this, window);
+        ctrlComponent = new ControlPanel(this, window);
     }
 
     /**
@@ -35,5 +36,11 @@ public class GamePanel extends JPanel implements ActionListener {
     */
     public void actionPerformed(ActionEvent event) {
         String command = event.getActionCommand();
+    }
+
+    public void endTurn() {
+        game.nextTurn();
+        // do roll, pay if needed, buy if needed
+        ctrlComponent = new ControlPanel(this, window);        ctrlComponent.repaint();
     }
 }

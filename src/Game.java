@@ -12,13 +12,11 @@ public class Game {
 
     public Game(int numUsers, String[] names) {
         gameBoard = new Board();
-        System.out.println(numUsers);
         numPlayers = numUsers;
         players = new Player[numPlayers];
         for (int i = 0; i < numPlayers; i++){
             players[i] = new Player(names[i]);
         }
-        System.out.println(players.length);
         currPlayer = 0;
     }
 
@@ -27,6 +25,8 @@ public class Game {
             currPlayer = 0;
             Bitcoin.update();
             Ethereum.update();
+        } else {
+            currPlayer++;
         }
     }
 
@@ -35,7 +35,6 @@ public class Game {
     }
 
     public Player[] getPlayers() {
-        System.out.println(players);
         return players;
     }
 

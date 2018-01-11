@@ -12,6 +12,7 @@ import java.io.*;
  */
 public class ControlPanel extends JDialog implements ActionListener {
     private MillenialopolyWindow window;
+    private GamePanel parent;
     private Game game;
     private Player player;
 
@@ -19,6 +20,7 @@ public class ControlPanel extends JDialog implements ActionListener {
         // Create a JPanel and add the buttons
         super();
         this.window = window;
+        this.parent = parent;
         this.game = parent.game;
         this.player = game.getPlayers()[game.getCurrPlayer()];
 
@@ -79,7 +81,7 @@ public class ControlPanel extends JDialog implements ActionListener {
         JPanel buttonPanel = new JPanel();
         JButton tradeButton = new JButton("Offer a Trade");
         JButton currencyButton = new JButton("Exchange Currencies");
-        JButton avocadoButton = new JButton("Buy avocadoes");
+        JButton avocadoButton = new JButton("Buy Avocadoes");
         JButton endButton = new JButton("End Turn");
 
         // Add action listeners to the buttons
@@ -105,5 +107,10 @@ public class ControlPanel extends JDialog implements ActionListener {
     */
     public void actionPerformed(ActionEvent event) {
         String command = event.getActionCommand();
+        if (command.equals("End Turn")) {
+            parent.endTurn();
+            dispose();
+        }
+
     }
 }
