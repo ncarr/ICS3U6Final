@@ -8,19 +8,22 @@ import java.awt.event.*;
  * @author Nicholas Carr, Carol Chen
  */
 public class WelcomePanel extends JPanel implements ActionListener {
-  public GameFrame window;
+  private MillenialopolyWindow window;
 
-  public WelcomePanel(GameFrame window) {
+  public WelcomePanel(MillenialopolyWindow window) {
     // Create a JPanel and add the buttons
     super();
-    this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-    this.window = window;
 
+    this.setLayout(new GridBagLayout());
+    GridBagConstraints gbc = new GridBagConstraints();
+    gbc.gridx = 1;
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+
+    this.window = window;
     this.window.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
     // Title Text
     JPanel titlePanel = new JPanel();
-    titlePanel.setBorder(new EmptyBorder(300, 0, 0, 0)); // padding
     Font titleFont = Fonts.TITLE.deriveFont(100F);
     JLabel titleLabel = new JLabel("Millenialopoly", SwingConstants.CENTER);
     titleLabel.setFont(titleFont);
@@ -45,8 +48,8 @@ public class WelcomePanel extends JPanel implements ActionListener {
     buttonPanel.add(quitButton);
 
 
-    this.add(titlePanel);
-    this.add(buttonPanel);
+    this.add(titlePanel, gbc);
+    this.add(buttonPanel, gbc);
 
     // Add the panel to the window
     window.add(this);
@@ -57,15 +60,16 @@ public class WelcomePanel extends JPanel implements ActionListener {
    */
   public void actionPerformed(ActionEvent event) {
     String command = event.getActionCommand();
-
     if (command.equals("Play")) {
-      this.window.add(new GamePanel(this));
+        window.getContentPane().remove(this);
+        window.add(new GamePanel(window));
+        window.getContentPane().revalidate();
     } else if (command.equals("Resume saved game")) {
-      this.window.add(new ResumePanel(this));
+        // this.window.add(new ResumePanel(this));
     } else if (command.equals("Help")) {
-      this.window.add(new HelpPanel(this));
+        // this.window.add(new HelpPanel(this));
     } else if (command.equals("Quit")) {
-      this.window.dispose();
+        // this.window.dispose();
     }
   }
 }

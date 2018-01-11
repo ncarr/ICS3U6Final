@@ -5,10 +5,10 @@ import java.awt.*;
  * Main game window
  * @author Nicholas Carr
  */
-public class GameFrame extends JFrame {
+public class MillenialopolyWindow extends JFrame {
   public Game state;
 
-  public GameFrame() {
+  public MillenialopolyWindow() {
     super();
 
     // Set the properties of the window

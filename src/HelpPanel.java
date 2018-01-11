@@ -7,20 +7,19 @@ import java.awt.event.*;
  * @author Nicholas Carr
  */
 public class HelpPanel extends JPanel implements ActionListener {
-  public WelcomePanel parent;
 
-  public HelpPanel(WelcomePanel parent) {
+  public HelpPanel() {
     // Create a JPanel and add the buttons
     super();
-    this.parent = parent;
-
-    JLabel label = new JLabel("Coming soon");
-
-    // Add the buttons to the JPanel
-    this.add(label);
-
-    // Add the panel to the window
-    parent.window.add(this);
+    // this.parent = parent;
+    //
+    // JLabel label = new JLabel("Coming soon");
+    //
+    // // Add the buttons to the JPanel
+    // this.add(label);
+    //
+    // // Add the panel to the window
+    // parent.window.add(this);
   }
 
   /**

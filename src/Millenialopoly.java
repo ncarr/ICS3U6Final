@@ -24,8 +24,8 @@ class Millenialopoly {
         } catch (UnsupportedLookAndFeelException e) {}
 
         // Start with welcome panel, instructions, etc
-        GameFrame gameFrame = new GameFrame();
-        WelcomePanel welcomePanel = new WelcomePanel(gameFrame);
+        MillenialopolyWindow gameWindow = new MillenialopolyWindow();
+        WelcomePanel welcomePanel = new WelcomePanel(gameWindow);
 
         // numPlayers = gameState.getPlayerCount();
         numPlayers = 4; // Change to input
