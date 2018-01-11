@@ -55,6 +55,8 @@ public class WelcomePanel extends JPanel implements ActionListener {
 
     // Add the panel to the window
     window.add(this);
+    window.revalidate();
+    window.repaint();
   }
 
   /**
