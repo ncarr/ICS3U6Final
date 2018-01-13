@@ -1,29 +1,35 @@
 import java.util.Random;
+import java.util.ArrayList;
 
 public class Player{
 
     private String name;
 
-    private Property[] properties;
+    private ArrayList<Property> properties;
     private int location;
     private double MIL, BTC, ETH;
 
     Player(String playerName) {
         name = playerName;
         location = 0; // start at go
+        properties = new ArrayList<Property>();
         MIL = 1500; // Starting money
     }
 
 
     public int move(int roll) {
         location += roll;
+        if (location >= 40){
+            location = location % 40;
+            passGo();
+        }
         return location;
     }
 
-
-    public String getName() {
-        return name;
+    private void passGo(){
+        earnCurrency("MIL", 200);
     }
+
 
     public double getCurrencyTotal(){
         double total = 0;
@@ -34,7 +40,7 @@ public class Player{
     }
 
     // To spend a currency, return False if not possible
-    private boolean spendCurrency(String currency, double amountMIL){
+    public boolean spendCurrency(String currency, double amountMIL){
         if (currency.equals("ETH")){
             // ETH is a good crypocurrency and has low transaction fees
             if (MIL < Game.Ethereum.getTransactionFee()){
@@ -65,7 +71,7 @@ public class Player{
         return true;
     }
 
-    private void earnCurrency(String currency, double amountMIL){
+    public void earnCurrency(String currency, double amountMIL){
         if (currency.equals("ETH")){
             ETH += Game.Ethereum.convertFromMIL(amountMIL);
         } else if (currency.equals("BTC")){
@@ -102,6 +108,18 @@ public class Player{
         return true;
     }
 
+    public void addProperty(Property p){
+        properties.add(p);
+    }
+
+    public void lose(){
+        // die user die
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public double getMIL(){
         return MIL;
     }
@@ -113,7 +131,7 @@ public class Player{
     public double getETH(){
         return ETH;
     }
-    
+
     public static int roll(){
         Random rand = new Random();
         return (rand.nextInt(6) + 1) + (rand.nextInt(6) + 1);

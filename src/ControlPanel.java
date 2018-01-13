@@ -129,9 +129,9 @@ public class ControlPanel extends JDialog implements ActionListener {
         JLabel btcLabel = new JLabel(Double.toString(player.getBTC()), SwingConstants.CENTER);
         JLabel milLabel = new JLabel(Double.toString(player.getMIL()), SwingConstants.CENTER);
         JLabel ethLabel = new JLabel(Double.toString(player.getETH()), SwingConstants.CENTER);
-        currencyPanel.add(btcLabel);
-        currencyPanel.add(milLabel);
         currencyPanel.add(ethLabel);
+        currencyPanel.add(milLabel);
+        currencyPanel.add(btcLabel);
 
         // button options
         JPanel buttonPanel = new JPanel();

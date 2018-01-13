@@ -1,10 +1,10 @@
 import java.util.Random;
 
 public class Game {
-    public static Board gameBoard;
+    public static Board board = new Board();
 
     // Should actually init at real values
-    public static Currency Bitcoin = new Currency(5, 20);
+    public static Currency Bitcoin = new Currency(5, 10);
     public static Currency Ethereum = new Currency(2, 5);
 
     private int numPlayers;
@@ -12,8 +12,9 @@ public class Game {
 
     private int currPlayer; // which player's turn at the current moment
 
+    private int govMoney;
+
     public Game(int numUsers, String[] names) {
-        gameBoard = new Board();
         numPlayers = numUsers;
         players = new Player[numPlayers];
         for (int i = 0; i < numPlayers; i++){
@@ -32,6 +33,11 @@ public class Game {
         }
     }
 
+    public void sellProperty(int propLoc) {
+        ((Property)board.tiles[propLoc]).setOwner(getCurrPlayer()); // set property to be owned
+        getPlayers()[getCurrPlayer()].addProperty((Property)board.tiles[propLoc]);  // add property to user
+    }
+
     public int getCurrPlayer() {
         return currPlayer;
     }
@@ -40,4 +46,13 @@ public class Game {
         return players;
     }
 
+    public void addToTaxes(int taxes){
+        govMoney += taxes;
+    }
+
+    public int performCommunism(){
+        int res = govMoney;
+        govMoney = 0;
+        return res;
+    }
 }
