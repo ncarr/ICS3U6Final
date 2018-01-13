@@ -10,6 +10,7 @@ import java.awt.event.*;
 public class GamePanel extends JPanel implements ActionListener {
     private MillenialopolyWindow window;
     private ControlPanel ctrlComponent;
+    private BoardPanel boardComponent;
     private ForceExchangeDialog forceExchangeDialog;
     public Game game;
 
@@ -20,13 +21,13 @@ public class GamePanel extends JPanel implements ActionListener {
 
         this.setLayout(new BorderLayout());
 
-        BoardPanel boardComponent = new BoardPanel(this, window);
+        game = new Game(users, names);
+
+        boardComponent = new BoardPanel(this, window);
         this.add(boardComponent); // Add board to window
 
         // Add the panel to the window
         this.window.add(this);
-
-        game = new Game(users, names);
 
         ctrlComponent = new ControlPanel(this, window);
     }
@@ -112,6 +113,7 @@ public class GamePanel extends JPanel implements ActionListener {
         if (needExchange){
             forceExchangeDialog(costs, -1);
         }
+        boardComponent.refresh();
     }
 
     public void loadLoseDialog(){

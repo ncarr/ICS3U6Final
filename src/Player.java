@@ -123,6 +123,10 @@ public class Player{
         return ETH;
     }
 
+    public int getLocation() {
+        return location;
+    }
+
     public static int roll(){
         Random rand = new Random();
         return (rand.nextInt(6) + 1) + (rand.nextInt(6) + 1);

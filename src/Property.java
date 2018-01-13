@@ -7,7 +7,6 @@ public class Property extends Tile{
     private int cost;
     private int owner;
     private String color;
-    private String name;
 
     Property(String name, String color, int[] rent,
              int mortgage, int cost, int avocadoCost) {
@@ -26,9 +25,6 @@ public class Property extends Tile{
         return color;
     }
 
-    public String getName() {
-        return name;
-    }
 
     public int getCost() {
         return cost;

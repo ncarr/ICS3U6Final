@@ -2,11 +2,16 @@ import javax.swing.*;
 import java.awt.*;
 
 public class TilePanel extends JPanel {
-    public Tile tile;
+    private Tile tile;
+    private JTextArea titleLabel;
+    private Game game;
+    private int index;
 
-    public TilePanel(Tile tile) {
+    public TilePanel(Game game, int index) {
         super();
-        this.tile = tile;
+        this.index = index;
+        this.tile = TilesInit.tiles[index];
+        this.game = game;
         this.setOpaque(true);
         if (tile instanceof Property) {
             Property property = (Property) tile;
@@ -33,7 +38,7 @@ public class TilePanel extends JPanel {
         // Add the tile's name
         Font titleFont = Fonts.TITLE.deriveFont(15F);
         // JTextAreas support text wrapping
-        JTextArea titleLabel = new JTextArea(tile.getName());
+        titleLabel = new JTextArea(tile.getName());
         // Make it look like a JLabel
         titleLabel.setBackground(null);
         titleLabel.setEditable(false);
@@ -43,5 +48,27 @@ public class TilePanel extends JPanel {
         titleLabel.setFocusable(false);
         titleLabel.setFont(titleFont);
         this.add(titleLabel);
+        // Indicate whether a player is on this tile
+        Player[] players = game.getPlayers();
+        for (int i = 0; i < players.length; i++) {
+            if (players[i].getLocation() == index) {
+                this.add(new JLabel(players[i].getName()));
+            }
+        }
+    }
+
+    /**
+    * Refresh the state of the tile after each turn
+    */
+    public void refresh() {
+        this.removeAll();
+        this.add(this.titleLabel);
+        // Indicate whether a player is on this tile
+        Player[] players = game.getPlayers();
+        for (int i = 0; i < players.length; i++) {
+            if (players[i].getLocation() == index) {
+                this.add(new JLabel(players[i].getName()));
+            }
+        }
     }
 }
