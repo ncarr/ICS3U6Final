@@ -50,9 +50,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
         boolean needExchange = false;
         int costs = 0;
-        if (spot instanceof GoTile){
-            // do nothng
-        } else if (spot instanceof ChanceTile){
+        if (spot instanceof ChanceTile){
             // draw card
         } else if (spot instanceof TaxTile){
             costs = ((TaxTile)spot).getCost();
@@ -72,8 +70,6 @@ public class GamePanel extends JPanel implements ActionListener {
             player.earnCurrency("MIL", game.performCommunism());
         } else if (spot instanceof JailTile){
             // do nothing
-        } else if (spot instanceof GoToJailTile){
-            // send to jail
         } else if (spot instanceof HyperloopTile){
             // pay or buy
         } else if (spot instanceof Property){
