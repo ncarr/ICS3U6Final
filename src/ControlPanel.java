@@ -224,6 +224,7 @@ public class ControlPanel extends JDialog implements ActionListener {
 
         // Show input boxes for currency exchange
         Border inputBorder = BorderFactory.createLineBorder(Color.GRAY, 1);
+        JLabel help = new JLabel("Enter all amount in MIL", SwingConstants.CENTER);
 
         JPanel btcInputPanel = new JPanel();
         btcField = new JTextField(10);
@@ -240,7 +241,7 @@ public class ControlPanel extends JDialog implements ActionListener {
         ethInputPanel.add(ethField);
 
         currencyExchangePanel.add(ethInputPanel);
-        currencyExchangePanel.add(new JPanel());
+        currencyExchangePanel.add(help);
         currencyExchangePanel.add(btcInputPanel);
 
 
@@ -265,6 +266,7 @@ public class ControlPanel extends JDialog implements ActionListener {
         currencyExchangePanel.add(new JPanel());
         currencyExchangePanel.add(buttonBTCPanel);
 
+        // Add help text
 
         // Add back button
         JButton backButton = new JButton("Back");
