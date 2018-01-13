@@ -10,12 +10,14 @@ public class Player{
 
     Player(String playerName) {
         name = playerName;
+        location = 0; // start at go
         MIL = 1500; // Starting money
     }
 
 
-    private void move(int roll) {
-        // MOVE!
+    public int move(int roll) {
+        location += roll;
+        return location;
     }
 
 
@@ -110,6 +112,11 @@ public class Player{
 
     public double getETH(){
         return ETH;
+    }
+    
+    public static int roll(){
+        Random rand = new Random();
+        return (rand.nextInt(6) + 1) + (rand.nextInt(6) + 1);
     }
 
 }
