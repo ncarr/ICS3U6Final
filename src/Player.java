@@ -23,12 +23,12 @@ public class Player{
         return name;
     }
 
-    private double getCurrencyTotal(){
+    public double getCurrencyTotal(){
         double total = 0;
         total += MIL;
         total += ETH * Game.Ethereum.getFactorRelToMIL();
         total += BTC * Game.Bitcoin.getFactorRelToMIL();
-        return round(total);
+        return total;
     }
 
     // To spend a currency, return False if not possible
@@ -74,51 +74,42 @@ public class Player{
     }
 
     // To convert a currency, with the amount being the amount spent
-    private boolean convertCurrency(String fromCurr, String toCurr, double amount){
+    public boolean convertCurrency(String fromCurr, String toCurr, double amount){
         // transaction fee will be charged here
+
         if (!spendCurrency(fromCurr, amount)){
             return false;
         }
 
         if (fromCurr.equals("ETH")){
-            if (toCurr.equals("BTC")){
-                earnCurrency(toCurr,
-                Game.Bitcoin.convertFromMIL(Game.Ethereum.convertToMIL(amount)));
-            }
             if (toCurr.equals("MIL")){
-                earnCurrency(toCurr, Game.Ethereum.convertToMIL(amount));
+                earnCurrency(toCurr, amount);
             }
         } else if (fromCurr.equals("BTC")){
-            if (toCurr.equals("ETH")){
-                earnCurrency(toCurr, Game.Ethereum.convertFromMIL(Game.Bitcoin.convertToMIL(amount)));
-            }
             if (toCurr.equals("MIL")){
-                earnCurrency(toCurr, Game.Bitcoin.convertToMIL(amount));
+                earnCurrency(toCurr, amount);
             }
         } else if (fromCurr.equals("MIL")){
             if (toCurr.equals("ETH")){
-                earnCurrency(toCurr, Game.Ethereum.convertFromMIL(amount));
+                earnCurrency(toCurr, amount);
             }
             if (toCurr.equals("BTC")){
-                earnCurrency(toCurr, Game.Bitcoin.convertFromMIL(amount));
+                earnCurrency(toCurr, amount);
             }
         }
         return true;
     }
 
     public double getMIL(){
-        return round(MIL);
+        return MIL;
     }
 
     public double getBTC(){
-        return round(BTC);
+        return BTC;
     }
 
     public double getETH(){
-        return round(ETH);
+        return ETH;
     }
 
-    private static double round(double val){
-        return Math.round(val * 100.0) / 100.0;
-    }
 }

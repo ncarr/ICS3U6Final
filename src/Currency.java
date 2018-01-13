@@ -14,11 +14,6 @@ public class Currency{
 
         // Init value
         factorRelToMIL = rand.nextDouble() * (100);
-        if (rand.nextInt(2) == 0){ // 1/2 chance of it being lower than MIL
-            factorRelToMIL *= -1;
-        }
-
-
     }
 
     public void update(){
@@ -30,7 +25,7 @@ public class Currency{
         if (rand.nextInt(4) == 0){ // 1/4 chance of the crypto going down
             variationFactor *= -1;
         }
-        factorRelToMIL *= variationFactor;
+        factorRelToMIL += variationFactor;
     }
 
     public double getFactorRelToMIL(){
