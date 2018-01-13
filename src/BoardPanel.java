@@ -33,7 +33,7 @@ public class BoardPanel extends JPanel implements ActionListener {
           this.addTile(i, row, 10);
         }
         this.setOpaque(true);
-        this.setBackground(Color.BLUE);
+        this.setBackground(Color.black);
     }
 
     /**
@@ -49,6 +49,9 @@ public class BoardPanel extends JPanel implements ActionListener {
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = col;
         constraints.gridy = row;
+        constraints.weightx = 1.0;
+        constraints.weighty = 1.0;
+        constraints.fill = GridBagConstraints.BOTH;
         TilePanel tile = new TilePanel(TilesInit.tiles[index]);
         this.add(tile, constraints);
     }
