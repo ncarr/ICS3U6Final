@@ -1,9 +1,7 @@
 public class JailTile extends Tile{
 
-    JailTile() {
+    JailTile(String name) {
+        super(name);
     }
 
-    public String getName() {
-        return "Jail";
-    }
 }

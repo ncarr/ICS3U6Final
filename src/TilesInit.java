@@ -1,6 +1,6 @@
 class TilesInit {
     public static Tile[] tiles = {
-        new GoTile(),
+        new GoTile("Passing Go"),
         new Property(
             "The Macintosh",
             "brown",
@@ -9,7 +9,7 @@ class TilesInit {
             60,
             50
         ),
-        new ChanceTile(false),
+        new ChanceTile("Chance", false),
         new Property(
             "No World Wars in fifty years",
             "brown",
@@ -18,7 +18,7 @@ class TilesInit {
             60,
             50
         ),
-        new TaxTile(200),
+        new TaxTile("Income Tax", 200),
         new HyperloopTile("WATER WATER WATER LOOP"),
         new Property(
             "Taylor Swift",
@@ -28,7 +28,7 @@ class TilesInit {
             100,
             50
         ),
-        new ChanceTile(false),
+        new ChanceTile("Community Chest", false),
         new Property(
             "Miley Cyrus",
             "light blue",
@@ -45,7 +45,7 @@ class TilesInit {
             120,
             50
         ),
-        new JailTile(),
+        new JailTile("Visiting Jail"),
         new Property(
             "Netflix and Chill",
             "magenta",
@@ -54,7 +54,7 @@ class TilesInit {
             140,
             100
         ),
-        new ChanceTile(true),
+        new ChanceTile("Wild Chance", true),
         new Property(
             "Using internet acronyms irl",
             "magenta",
@@ -80,7 +80,7 @@ class TilesInit {
             180,
             100
         ),
-        new ChanceTile(false),
+        new ChanceTile("Chance", false),
         new Property(
             "Datboi",
             "orange",
@@ -97,7 +97,7 @@ class TilesInit {
             200,
             100
         ),
-        new TheftTile(),
+        new TheftTile("Steal Tax Money"),
         new Property(
             "Knuckles",
             "red",
@@ -106,7 +106,7 @@ class TilesInit {
             220,
             150
         ),
-        new ChanceTile(false),
+        new ChanceTile("Community Chest", false),
         new Property(
             "Uganda",
             "red",
@@ -140,7 +140,7 @@ class TilesInit {
             260,
             150
         ),
-        new WaterlooTile(),
+        new UtilityTile("Waterloo"),
         new Property(
             "Nathan Ave",
             "yellow",
@@ -149,7 +149,7 @@ class TilesInit {
             280,
             150
         ),
-        new GoToJailTile(),
+        new GoToJailTile("Go to jail"),
         new Property(
             "Trump",
             "green",
@@ -166,7 +166,7 @@ class TilesInit {
             300,
             200
         ),
-        new ChanceTile(true),
+        new ChanceTile("Wild Chance", true),
         new Property(
             "Bernie can still Win",
             "green",
@@ -176,7 +176,7 @@ class TilesInit {
             200
         ),
         new HyperloopTile("The Boring Company"),
-        new ChanceTile(true),
+        new ChanceTile("Wild Chance", true),
         new Property(
             "Misha inc.",
             "blue",

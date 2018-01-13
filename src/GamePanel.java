@@ -55,8 +55,6 @@ public class GamePanel extends JPanel implements ActionListener {
             // do nothng
         } else if (spot instanceof ChanceTile){
             // draw card
-        } else if (spot instanceof WildChanceTile){
-            // draw card from wild deck
         } else if (spot instanceof TaxTile){
             costs = ((TaxTile)spot).getCost();
             if (player.spendCurrency("MIL", costs)) {

@@ -9,19 +9,17 @@ public class Property extends Tile{
     private String color;
     private String name;
 
-    Property(String tileName, String color, int[] rent,
+    Property(String name, String color, int[] rent,
              int mortgage, int cost, int avocadoCost) {
+        super(name);
         avocados = 0;
         owner = -1;
 
-
-        this.name = tileName;
         this.cost = cost;
         this.rent = rent;
         this.mortgage = mortgage;
         this.avocadoCost = avocadoCost;
         this.color = color;
-        this.tileName = tileName;
     }
 
     public String getColor() {
@@ -42,9 +40,6 @@ public class Property extends Tile{
 
     public void setOwner(int player) {
         owner = player;
-    }
-    public String getName() {
-        return this.tileName;
     }
 
 }

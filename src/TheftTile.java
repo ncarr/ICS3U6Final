@@ -1,9 +1,6 @@
 public class TheftTile extends Tile{
 
-    TheftTile() {
-    }
-
-    public String getName() {
-        return "Theft";
+    TheftTile(String name) {
+        super(name);
     }
 }
