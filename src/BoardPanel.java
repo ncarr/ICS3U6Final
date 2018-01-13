@@ -10,10 +10,16 @@ import java.awt.event.*;
 public class BoardPanel extends JPanel implements ActionListener {
     private MillenialopolyWindow window;
 
-    public BoardPanel(MillenialopolyWindow window) {
+    private GamePanel parent;
+    private Game game;
+    private Player player;
+
+    public BoardPanel(GamePanel parent, MillenialopolyWindow window) {
         // Create a JPanel and add the buttons
         super();
         this.window = window;
+        this.parent = parent;
+        this.game = parent.game;
 
         this.setLayout(new GridBagLayout());
         // Left from bottom right

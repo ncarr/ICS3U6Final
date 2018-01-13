@@ -20,7 +20,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
         this.setLayout(new BorderLayout());
 
-        BoardPanel boardComponent = new BoardPanel(window);
+        BoardPanel boardComponent = new BoardPanel(this, window);
         this.add(boardComponent); // Add board to window
 
         // Add the panel to the window
@@ -39,8 +39,15 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     public void endTurn() {
+        Player player = game.getPlayers()[game.getCurrPlayer()];
         game.nextTurn();
-        // do roll, pay if needed, buy if needed
+        ctrlComponent.dispose();
+        int roll = Player.roll();
+        int newLoc = player.move(roll);
+        JOptionPane.showMessageDialog(null, "You just rolled a " + roll, player.getName() + "'s turn!", JOptionPane.INFORMATION_MESSAGE);
+
+        // handle the new location, pay if needed, prompt for purchase if needed
+
         ctrlComponent = new ControlPanel(this, window);
     }
 }
