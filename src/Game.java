@@ -21,6 +21,10 @@ public class Game {
             players[i] = new Player(names[i]);
         }
         currPlayer = 0;
+
+        ChancesInit chanceInit = new ChancesInit(this);
+        ChancesInit.ChanceAction[] chanceCards = ChancesInit.chances;
+        ChancesInit.ChanceAction[] wildChanceCards = ChancesInit.wildChances;
     }
 
     public void nextTurn() {
