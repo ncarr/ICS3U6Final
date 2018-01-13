@@ -45,7 +45,6 @@ public class GamePanel extends JPanel implements ActionListener {
         int roll = Player.roll();
         int newLoc = player.move(roll);
         JOptionPane.showMessageDialog(null, "You just rolled a " + roll, player.getName() + "'s turn!", JOptionPane.INFORMATION_MESSAGE);
-        System.out.println(newLoc);
         // handle the new location, pay if needed, prompt for purchase if needed
         Tile spot = game.board.tiles[newLoc];
 
@@ -115,7 +114,7 @@ public class GamePanel extends JPanel implements ActionListener {
         }
         ctrlComponent = new ControlPanel(this, window);
         if (needExchange){
-            forceExchangeDialog = new ForceExchangeDialog(this, window, costs, -1);
+            forceExchangeDialog(costs, -1);
         }
     }
 
@@ -127,5 +126,6 @@ public class GamePanel extends JPanel implements ActionListener {
     public void forceExchangeDialog(int cost, int receiver){
         forceExchangeDialog = new ForceExchangeDialog(this, window, cost, receiver);
         forceExchangeDialog.setModal(true);
+        forceExchangeDialog.setVisible(true);
     }
 }

@@ -35,6 +35,8 @@ public class ForceExchangeDialog extends JDialog implements ActionListener {
         this.cost = cost;
         this.receiver = receiver;
 
+        Rectangle r = window.getBounds();
+        this.setSize(r.width - 250, r.height - 200);  // Don't have it take up full width
         this.setLocationRelativeTo(window);
 
         this.setUndecorated(true); // No standard dialog decorations
@@ -52,13 +54,6 @@ public class ForceExchangeDialog extends JDialog implements ActionListener {
         currencyExchangePanel.setLayout(new GridLayout(0, 3));
         currencyExchangePanel.setBorder(new EmptyBorder(20, 20, 20, 20));
 
-        JPanel titlePanel = new JPanel();
-        titlePanel.setBorder(new EmptyBorder(50, 50, 50, 50));
-        Font titleFont = Fonts.TITLE.deriveFont(20F);
-        JLabel titleLabel = new JLabel("Exchange some currency to get " + Integer.toString(cost) + "MIL", SwingConstants.CENTER);
-        titleLabel.setFont(titleFont);
-        titlePanel.add(titleLabel);
-        currencyExchangePanel.add(titlePanel);
 
         // How much money they have in total
         currencyExchangePanel.add(new JLabel()); // Empty panel to padd
@@ -74,7 +69,7 @@ public class ForceExchangeDialog extends JDialog implements ActionListener {
 
             currencyExchangePanel.add(new JPanel()); // Empty panel to padd
             currencyExchangePanel.add(milImageLabel);
-            currencyExchangePanel.add(new JLabel(Double.toString(player.getMIL())));
+            currencyExchangePanel.add(new JLabel(Double.toString(player.getMIL()) + ". You need $" + Integer.toString(cost)));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -138,7 +133,7 @@ public class ForceExchangeDialog extends JDialog implements ActionListener {
         currencyExchangePanel.add(btcInputPanel);
 
 
-        // Show sell buttons
+        // Show purchase buttons
         JPanel buttonETHPanel = new JPanel();
         JButton sellETHButton = new JButton("Sell ETH");
         sellETHButton.addActionListener(this);
