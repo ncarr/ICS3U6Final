@@ -39,11 +39,12 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     public void endTurn() {
+        Player player = game.getPlayers()[game.getCurrPlayer()];
         game.nextTurn();
         ctrlComponent.dispose();
         int roll = Player.roll();
-        int newLoc = game.getPlayers()[game.getCurrPlayer()].move(roll);
-        JOptionPane.showMessageDialog(null, "nthnthuntoheu", "InfoBox: ", JOptionPane.INFORMATION_MESSAGE);
+        int newLoc = player.move(roll);
+        JOptionPane.showMessageDialog(null, "You just rolled a " + roll, player.getName() + "'s turn!", JOptionPane.INFORMATION_MESSAGE);
 
         // handle the new location, pay if needed, prompt for purchase if needed
 
