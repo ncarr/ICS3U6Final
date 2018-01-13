@@ -4,8 +4,8 @@ public class Game {
     public static Board board = new Board();
 
     // Should actually init at real values
-    public static Currency Bitcoin = new Currency(5, 10);
-    public static Currency Ethereum = new Currency(2, 5);
+    public static Currency Bitcoin = new Currency(5);
+    public static Currency Ethereum = new Currency(2);
 
     private int numPlayers;
     private Player[] players;

@@ -8,9 +8,8 @@ public class Currency{
 
     private Random rand = new Random();
 
-    Currency(int volatility, int fee) {
+    Currency(int volatility) {
         maxVariationFactor = volatility;
-        transactionFee = fee;
 
         // Init value
         factorRelToMIL = rand.nextDouble() * (100);

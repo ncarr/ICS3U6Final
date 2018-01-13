@@ -42,25 +42,15 @@ public class Player{
     // To spend a currency, return False if not possible
     public boolean spendCurrency(String currency, double amountMIL){
         if (currency.equals("ETH")){
-            // ETH is a good crypocurrency and has low transaction fees
-            if (MIL < Game.Ethereum.getTransactionFee()){
-                return false;
-            }
             if (Game.Ethereum.convertFromMIL(amountMIL) > ETH){
                 return false;
             }
-            MIL -= Game.Ethereum.getTransactionFee();
             ETH -= Game.Ethereum.convertFromMIL(amountMIL);
         } else if (currency.equals("BTC")){
-            // BTC is screwed and transaction fees are ridonkulous
-            if (MIL < Game.Bitcoin.getTransactionFee()){
-                return false;
-            }
             if (Game.Bitcoin.convertToMIL(amountMIL) > BTC){
                 return false;
             }
-            MIL -= Game.Bitcoin.getTransactionFee();
-            BTC -= Game.Bitcoin.convertToMIL(amountMIL);
+            BTC -= Game.Bitcoin.convertFromMIL(amountMIL);
         } else if (currency.equals("MIL")){
             if (MIL < amountMIL){
                 return false;
@@ -83,9 +73,9 @@ public class Player{
 
     // To convert a currency, with the amount being the amount spent
     public boolean convertCurrency(String fromCurr, String toCurr, double amount){
-        // transaction fee will be charged here
 
         if (!spendCurrency(fromCurr, amount)){
+            System.out.println("rip?");
             return false;
         }
 
@@ -95,6 +85,7 @@ public class Player{
             }
         } else if (fromCurr.equals("BTC")){
             if (toCurr.equals("MIL")){
+                System.out.println("ok wtf" + amount);
                 earnCurrency(toCurr, amount);
             }
         } else if (fromCurr.equals("MIL")){
