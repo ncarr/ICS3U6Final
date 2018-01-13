@@ -100,6 +100,7 @@ public class ControlPanel extends JDialog implements ActionListener {
         JLabel titleLabel = new JLabel(player.getName(),
                                        SwingConstants.CENTER);
         titleLabel.setFont(titleFont);
+        titleLabel.setForeground(player.getColour());
         titlePanel.add(titleLabel);
 
 

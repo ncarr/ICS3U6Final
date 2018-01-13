@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.*;
 import java.awt.*;
 
 public class TilePanel extends JPanel {
@@ -49,30 +50,30 @@ public class TilePanel extends JPanel {
         titleLabel.setFont(titleFont);
         this.add(titleLabel);
         // Indicate whether a player is on this tile
-        Player[] players = game.getPlayers();
-        for (int i = 0; i < players.length; i++) {
-            if (players[i].getLocation() == index) {
-                JLabel name = new JLabel(players[i].getName());
-                name.setForeground(players[i].getColour());
-                this.add(name);
-            }
-        }
+        this.refreshBorder();
     }
 
     /**
     * Refresh the state of the tile after each turn
     */
     public void refresh() {
-        this.removeAll();
-        this.add(this.titleLabel);
-        // Indicate whether a player is on this tile
+        this.refreshBorder();
+    }
+
+    /**
+    * Reset the border to the current players
+    */
+    public void refreshBorder() {
+        Border border = BorderFactory.createLineBorder(Color.white);
         Player[] players = game.getPlayers();
         for (int i = 0; i < players.length; i++) {
             if (players[i].getLocation() == index) {
-                JLabel name = new JLabel(players[i].getName());
-                name.setForeground(players[i].getColour());
-                this.add(name);
+                Border outer = BorderFactory.createLineBorder(players[i].getColour(), 2);
+                border = BorderFactory.createCompoundBorder(border, outer);
             }
         }
+        Border outer = BorderFactory.createLineBorder(Color.white);
+        border = BorderFactory.createCompoundBorder(border, outer);
+        this.setBorder(border);
     }
 }
