@@ -14,9 +14,11 @@ public class SetupPanel extends JPanel implements ActionListener {
     // Data to store
     private JTextField usersNumField;
     private JTextField nameField;
+    private JColorChooser chooser;
     private int numUsers;
     private int namesCollected = 1;
     private String[] names;
+    private Color[] colours;
 
     public SetupPanel(MillenialopolyWindow window) {
         // Create a JPanel and add the buttons
@@ -74,7 +76,7 @@ public class SetupPanel extends JPanel implements ActionListener {
         if (curr > numUsers){
             window.getContentPane().remove(this); // Remove setup panel
             // Pass info into Game Panel
-            window.add(new GamePanel(window, numUsers, names));
+            window.add(new GamePanel(window, numUsers, names, colours));
             window.getContentPane().revalidate();
             return; // Don't continue
         }
@@ -96,6 +98,10 @@ public class SetupPanel extends JPanel implements ActionListener {
                                 inputBorder,
                                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         inputPanel.add(nameField);
+
+        // colour picker
+        chooser = new JColorChooser(Color.red);
+        this.add(chooser);
 
         // button
         JPanel buttonPanel = new JPanel();
@@ -130,6 +136,7 @@ public class SetupPanel extends JPanel implements ActionListener {
                         return; // Too many people probably.
                     }
                     names = new String[numUsers]; // Set length of names
+                    colours = new Color[numUsers]; // Set length of colours
                     getNames(namesCollected);
                 }
             } catch(NullPointerException e) {} catch(NumberFormatException e) {}
@@ -137,6 +144,7 @@ public class SetupPanel extends JPanel implements ActionListener {
             String name = nameField.getText();
             if (!name.equals("")){
                 names[namesCollected - 1] = name; // Set name
+                colours[namesCollected - 1] = chooser.getColor();
                 namesCollected++;
                 getNames(namesCollected);
             }

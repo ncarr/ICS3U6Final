@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.awt.Color;
 
 public class Game {
     public static Board board = new Board();
@@ -14,11 +15,11 @@ public class Game {
 
     private int govMoney;
 
-    public Game(int numUsers, String[] names) {
+    public Game(int numUsers, String[] names, Color[] colours) {
         numPlayers = numUsers;
         players = new Player[numPlayers];
         for (int i = 0; i < numPlayers; i++){
-            players[i] = new Player(names[i]);
+            players[i] = new Player(names[i], colours[i]);
         }
         currPlayer = 0;
 

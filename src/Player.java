@@ -1,5 +1,6 @@
 import java.util.Random;
 import java.util.ArrayList;
+import java.awt.Color;
 
 public class Player{
 
@@ -8,9 +9,11 @@ public class Player{
     private ArrayList<Property> properties;
     private int location;
     private double MIL, BTC, ETH;
+    private Color colour;
 
-    Player(String playerName) {
+    Player(String playerName, Color colour) {
         name = playerName;
+        this.colour = colour;
         location = 0; // start at go
         properties = new ArrayList<Property>();
         MIL = 1500; // Starting money
@@ -109,6 +112,10 @@ public class Player{
 
     public String getName() {
         return name;
+    }
+
+    public Color getColour() {
+        return colour;
     }
 
     public double getMIL(){

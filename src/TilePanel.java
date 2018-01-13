@@ -52,7 +52,9 @@ public class TilePanel extends JPanel {
         Player[] players = game.getPlayers();
         for (int i = 0; i < players.length; i++) {
             if (players[i].getLocation() == index) {
-                this.add(new JLabel(players[i].getName()));
+                JLabel name = new JLabel(players[i].getName());
+                name.setForeground(players[i].getColour());
+                this.add(name);
             }
         }
     }
@@ -67,7 +69,9 @@ public class TilePanel extends JPanel {
         Player[] players = game.getPlayers();
         for (int i = 0; i < players.length; i++) {
             if (players[i].getLocation() == index) {
-                this.add(new JLabel(players[i].getName()));
+                JLabel name = new JLabel(players[i].getName());
+                name.setForeground(players[i].getColour());
+                this.add(name);
             }
         }
     }

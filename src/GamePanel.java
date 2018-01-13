@@ -14,14 +14,14 @@ public class GamePanel extends JPanel implements ActionListener {
     private ForceExchangeDialog forceExchangeDialog;
     public Game game;
 
-    public GamePanel(MillenialopolyWindow window, int users, String[] names) {
+    public GamePanel(MillenialopolyWindow window, int users, String[] names, Color[] colours) {
         // Create a JPanel and add the buttons
         super();
         this.window = window;
 
         this.setLayout(new BorderLayout());
 
-        game = new Game(users, names);
+        game = new Game(users, names, colours);
 
         boardComponent = new BoardPanel(this, window);
         this.add(boardComponent); // Add board to window
