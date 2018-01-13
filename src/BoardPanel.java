@@ -21,22 +21,30 @@ public class BoardPanel extends JPanel implements ActionListener {
         this.parent = parent;
         this.game = parent.game;
 
-        this.setLayout(new GridBagLayout());
-        // Left from bottom right
-        for (int i = 0, col = 10; i < 10; i++, col--) {
-          this.addTile(i, 10, col);
-        }
-        // Up from bottom left
-        for (int i = 10, row = 10; i < 20; i++, row--) {
-          this.addTile(i, row, 0);
-        }
-        // Right from top left
-        for (int i = 20, col = 0; i < 30; i++, col++) {
-          this.addTile(i, 0, col);
-        }
-        // Down from top right
-        for (int i = 30, row = 0; i < 40; i++, row++) {
-          this.addTile(i, row, 10);
+        // Grid layout forces all rows and columns to be equally sized
+        this.setLayout(new GridLayout(11, 11));
+        // Iterate through all cells
+        for (int y = 0; y < 11; y++) {
+            for (int x = 0; x < 11; x++) {
+                if (y == 0) {
+                    // Top row of tiles
+                    this.add(new TilePanel(TilesInit.tiles[x + 20]));
+                } else if (y == 10) {
+                    // Bottom row of tiles
+                    this.add(new TilePanel(TilesInit.tiles[10 - x]));
+                } else {
+                    if (x == 0) {
+                        // Left column of tiles
+                        this.add(new TilePanel(TilesInit.tiles[20 - y]));
+                    } else if (x == 10) {
+                        // Right column of tiles
+                        this.add(new TilePanel(TilesInit.tiles[y + 30]));
+                    } else {
+                        // Empty inner area
+                        this.add(new JPanel());
+                    }
+                }
+            }
         }
         this.setOpaque(true);
         this.setBackground(Color.black);
@@ -47,18 +55,5 @@ public class BoardPanel extends JPanel implements ActionListener {
     */
     public void actionPerformed(ActionEvent event) {
         String command = event.getActionCommand();
-    }
-    /**
-    * Add a tile to the board in the given position
-    */
-    private void addTile(int index, int row, int col) {
-        GridBagConstraints constraints = new GridBagConstraints();
-        constraints.gridx = col;
-        constraints.gridy = row;
-        constraints.weightx = 1.0;
-        constraints.weighty = 1.0;
-        constraints.fill = GridBagConstraints.BOTH;
-        TilePanel tile = new TilePanel(TilesInit.tiles[index]);
-        this.add(tile, constraints);
     }
 }

@@ -11,7 +11,7 @@ class TilesInit {
         ),
         new ChanceTile(false),
         new Property(
-            "No World Wars in fifty years�",
+            "No World Wars in fifty years",
             "brown",
             new int[] { 4, 20, 60, 180, 320, 450 },
             30,
@@ -47,7 +47,7 @@ class TilesInit {
         ),
         new JailTile(),
         new Property(
-            "Netflix and Chill�",
+            "Netflix and Chill",
             "magenta",
             new int[] { 10, 50, 150, 450, 625, 750 },
             70,
@@ -56,7 +56,7 @@ class TilesInit {
         ),
         new ChanceTile(true),
         new Property(
-            "Using internet acronyms irl�",
+            "Using internet acronyms irl",
             "magenta",
             new int[] { 10, 50, 150, 450, 625, 750 },
             70,
@@ -64,7 +64,7 @@ class TilesInit {
             100
         ),
         new Property(
-            "Paying a friend to take care of your Snap streaks�",
+            "Paying a friend to take care of your Snap streaks",
             "magenta",
             new int[] { 12, 60, 180, 500, 700, 900 },
             80,

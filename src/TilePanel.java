@@ -30,5 +30,18 @@ public class TilePanel extends JPanel {
         } else {
             this.setBackground(Color.white);
         }
+        // Add the tile's name
+        Font titleFont = Fonts.TITLE.deriveFont(15F);
+        // JTextAreas support text wrapping
+        JTextArea titleLabel = new JTextArea(tile.getName());
+        // Make it look like a JLabel
+        titleLabel.setBackground(null);
+        titleLabel.setEditable(false);
+        titleLabel.setBorder(null);
+        titleLabel.setLineWrap(true);
+        titleLabel.setWrapStyleWord(true);
+        titleLabel.setFocusable(false);
+        titleLabel.setFont(titleFont);
+        this.add(titleLabel);
     }
 }
