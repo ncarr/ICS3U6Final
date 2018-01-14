@@ -60,6 +60,7 @@ public class TilePanel extends JPanel {
     public void refresh() {
         this.refreshBorder();
         this.removeAll();
+        this.add(titleLabel);
         this.refreshAvocados();
     }
 
