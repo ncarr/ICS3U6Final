@@ -51,6 +51,7 @@ public class TilePanel extends JPanel {
         this.add(titleLabel);
         // Indicate whether a player is on this tile
         this.refreshBorder();
+        this.refreshAvocados();
     }
 
     /**
@@ -58,6 +59,8 @@ public class TilePanel extends JPanel {
     */
     public void refresh() {
         this.refreshBorder();
+        this.removeAll();
+        this.refreshAvocados();
     }
 
     /**
@@ -75,5 +78,16 @@ public class TilePanel extends JPanel {
         Border outer = BorderFactory.createLineBorder(Color.white);
         border = BorderFactory.createCompoundBorder(border, outer);
         this.setBorder(border);
+    }
+
+    public void refreshAvocados() {
+        if (tile instanceof Property) {
+            Property property = (Property) tile;
+            for (int i = 0; i < property.getAvocados(); i++) {
+                JLabel label = new JLabel("O");
+                label.setForeground(Color.green);
+                this.add(label);
+            }
+        }
     }
 }

@@ -30,6 +30,10 @@ public class Property extends Tile{
         return cost;
     }
 
+    public int getAvocados() {
+        return avocados;
+    }
+
     public int getOwner() {
         return owner;
     }
