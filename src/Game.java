@@ -43,6 +43,11 @@ public class Game {
         getPlayers()[getCurrPlayer()].addProperty((Property)board.tiles[propLoc]);  // add property to user
     }
 
+    public void sellHyperloop(int propLoc) {
+        ((HyperloopTile)board.tiles[propLoc]).setOwner(getCurrPlayer()); // set property to be owned
+        getPlayers()[getCurrPlayer()].addHyperloop((HyperloopTile)board.tiles[propLoc]);  // add property to user
+    }
+
     public int getCurrPlayer() {
         return currPlayer;
     }

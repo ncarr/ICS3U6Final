@@ -7,6 +7,7 @@ public class Player{
     private String name;
 
     private ArrayList<Property> properties;
+    private ArrayList<HyperloopTile> hyperloops;
     private int location;
     private double MIL, BTC, ETH;
     private Color colour;
@@ -16,6 +17,7 @@ public class Player{
         this.colour = colour;
         location = 0; // start at go
         properties = new ArrayList<Property>();
+        hyperloops = new ArrayList<HyperloopTile>();
         MIL = 1500; // Starting money
     }
 
@@ -33,6 +35,23 @@ public class Player{
         earnCurrency("MIL", 200);
     }
 
+    public double getAssetTotal(){
+        return getPropertyValue() + getCurrencyTotal();
+    }
+
+    // To get the value of selling avocadoes
+    public int getPropertyValue(){
+        int res = 0;
+        for (Property p: properties){
+            if (!p.isMortgaged()){
+                res += p.getMortgage();
+            }
+            if (p.getAvocados() > 0){
+                res += p.getAvocadoCost() * p.getAvocados();
+            }
+        }
+        return res;
+    }
 
     public double getCurrencyTotal(){
         double total = 0;
@@ -104,6 +123,14 @@ public class Player{
 
     public void addProperty(Property p){
         properties.add(p);
+    }
+
+    public void addHyperloop(HyperloopTile h){
+        hyperloops.add(h);
+    }
+
+    public int getHyperloops(){
+        return hyperloops.size();
     }
 
     public void lose(){

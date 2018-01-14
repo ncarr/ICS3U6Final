@@ -69,16 +69,72 @@ public class GamePanel extends JPanel implements ActionListener {
             }
         } else if (spot instanceof TheftTile){
             player.earnCurrency("MIL", game.performCommunism());
-        } else if (spot instanceof JailTile){
-            // do nothing
         } else if (spot instanceof HyperloopTile){
-            // pay or buy
+            HyperloopTile h = (HyperloopTile)spot;
+            if (h.getOwner() > -1){ // there is an owner, then rent should be paid
+                costs = HyperloopTile.fares[player.getHyperloops()];
+                Player owner = game.getPlayers()[h.getOwner()];
+                JOptionPane.showMessageDialog(null, "You need to pay " + costs + " to " + owner.getName(), "Pay up!", JOptionPane.INFORMATION_MESSAGE);
+                if (player.getAssetTotal() < costs){
+                    player.lose();
+                    loadLoseDialog();
+                } else { // they need to exchang currency to be able to pay
+                    if (player.spendCurrency("MIL", costs)) {
+                        JOptionPane.showMessageDialog(null, "You just paid " + costs, "Rippy dippy", JOptionPane.INFORMATION_MESSAGE);
+                        owner.earnCurrency("MIL", costs);
+                    } else {
+                        needExchange = true;
+                        player.spendCurrency("MIL", costs);
+                        owner.earnCurrency("MIL", costs);
+                    }
+                }
+            } else {
+                costs = HyperloopTile.cost;
+                Object[] options = {"Buy!", "Don't Buy"};
+                int choice = JOptionPane.showOptionDialog(window,
+                    "Would you like to buy " + h.getName() + " for " + costs + "MIL?",
+                    "This property can be purchased!",
+                    JOptionPane.YES_NO_CANCEL_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    options,
+                    options[0]);
+                if (choice == 0){
+                    if (player.getAssetTotal() < costs){
+                        player.lose();
+                        loadLoseDialog();
+                    } else { // they need to exchang currency to be able to pay
+                        if (player.spendCurrency("MIL", costs)) {
+                            JOptionPane.showMessageDialog(null, "You just paid " + costs, "Yay!", JOptionPane.INFORMATION_MESSAGE);
+                            game.sellHyperloop(newLoc);
+                        } else {
+                            needExchange = true;
+                            game.sellHyperloop(newLoc);
+                        }
+                    }
+                }
+            }
         } else if (spot instanceof Property){
             Property p = (Property)spot;
-            costs = p.getCost();
-            if (p.getOwner() > -1){ // there is an owner
-
+            if (p.getOwner() > -1){ // there is an owner, then rent should be paid
+                costs = p.getRent();
+                Player owner = game.getPlayers()[p.getOwner()];
+                JOptionPane.showMessageDialog(null, "You need to pay " + costs + " to " + owner.getName(), "Pay up!", JOptionPane.INFORMATION_MESSAGE);
+                if (player.getAssetTotal() < costs){
+                    player.lose();
+                    loadLoseDialog();
+                } else { // they need to exchang currency to be able to pay
+                    if (player.spendCurrency("MIL", costs)) {
+                        JOptionPane.showMessageDialog(null, "You just paid " + costs, "Rippy dippy", JOptionPane.INFORMATION_MESSAGE);
+                        owner.earnCurrency("MIL", costs);
+                    } else {
+                        needExchange = true;
+                        player.spendCurrency("MIL", costs);
+                        owner.earnCurrency("MIL", costs);
+                    }
+                }
             } else {
+                costs = p.getCost();
                 Object[] options = {"Buy!", "Don't Buy"};
                 int choice = JOptionPane.showOptionDialog(window,
                     "Would you like to buy " + p.getName() + " for " + costs + "MIL?",
@@ -89,7 +145,7 @@ public class GamePanel extends JPanel implements ActionListener {
                     options,
                     options[0]);
                 if (choice == 0){
-                    if (player.getCurrencyTotal() < costs + 10){ // Approximate death
+                    if (player.getAssetTotal() < costs){
                         player.lose();
                         loadLoseDialog();
                     } else { // they need to exchang currency to be able to pay
@@ -97,13 +153,8 @@ public class GamePanel extends JPanel implements ActionListener {
                             JOptionPane.showMessageDialog(null, "You just paid " + costs, "Yay!", JOptionPane.INFORMATION_MESSAGE);
                             game.sellProperty(newLoc);
                         } else {
-                            if (player.getCurrencyTotal() < costs + 10){ // Approximate death
-                                player.lose();
-                                loadLoseDialog();
-                            } else {
-                                needExchange = true;
-                                game.sellProperty(newLoc);
-                            }
+                            needExchange = true;
+                            game.sellProperty(newLoc);
                         }
                     }
                 }
