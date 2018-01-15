@@ -55,9 +55,6 @@ public class SetupPanel extends JPanel implements ActionListener {
         usersNumField = new JTextField(2);
         // Create two borders, one to mark the box and another for padding
         Border inputBorder = BorderFactory.createLineBorder(Color.GRAY, 1);
-	    usersNumField.setBorder(BorderFactory.createCompoundBorder(
-                                inputBorder,
-                                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         inputPanel.add(usersNumField);
 
         // button
@@ -96,9 +93,6 @@ public class SetupPanel extends JPanel implements ActionListener {
         JPanel inputPanel = new JPanel();
         nameField = new JTextField(30);
         Border inputBorder = BorderFactory.createLineBorder(Color.GRAY, 1);
-        nameField.setBorder(BorderFactory.createCompoundBorder(
-                                inputBorder,
-                                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         inputPanel.add(nameField);
 
         // colour picker

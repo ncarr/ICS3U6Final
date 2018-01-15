@@ -50,7 +50,7 @@ public class ForceExchangeDialog extends JDialog implements ActionListener {
         this.setAlwaysOnTop(true); // Make sure that it's always on top
         this.setModal(true);
 
-        // Layout 
+        // Layout
         this.setLayout(new GridBagLayout());
         gbc = new GridBagConstraints(); // Constraints
         gbc.gridx = 1; // One column per row
@@ -123,16 +123,10 @@ public class ForceExchangeDialog extends JDialog implements ActionListener {
 
         JPanel btcInputPanel = new JPanel();
         btcField = new JTextField(10);
-        btcField.setBorder(BorderFactory.createCompoundBorder(
-                                inputBorder,
-                                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         btcInputPanel.add(btcField);
 
         JPanel ethInputPanel = new JPanel();
         ethField = new JTextField(10);
-        ethField.setBorder(BorderFactory.createCompoundBorder(
-                                inputBorder,
-                                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         ethInputPanel.add(ethField);
 
         currencyExchangePanel.add(ethInputPanel);
