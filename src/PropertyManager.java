@@ -49,7 +49,7 @@ public class PropertyManager extends JPanel implements ActionListener {
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         int idx = 0;
-        for (Property p: player.getProperties()){
+        for (Ownable p: player.getOwnables()){
             JPanel propertyPanel = new JPanel();
             propertyPanel.setLayout(new GridBagLayout());
             propertyPanel.setBorder(new EmptyBorder(10, 0, 25, 0));
@@ -58,33 +58,51 @@ public class PropertyManager extends JPanel implements ActionListener {
             Font titleFont = Fonts.TITLE.deriveFont(25F);
             JLabel titleLabel = new JLabel(p.getName(), SwingConstants.CENTER);
             titleLabel.setFont(titleFont);
-            titlePanel.setBackground(p.getColor());
+            if (p instanceof Property){titlePanel.setBackground(((Property)p).getColor());}
             if (p.isMortgaged()){
                 titlePanel.add(new JLabel("(mortgaged)"));
             }
             titlePanel.add(titleLabel);
+            propertyPanel.add(titlePanel, gbc);
 
-            JLabel rentLabel = new JLabel("rent", SwingConstants.CENTER);
+            if (p instanceof Property){
+                Property prop = (Property)p;
+                JLabel rentLabel = new JLabel(Integer.toString(prop.getRentVals()[0]),
+                                              SwingConstants.CENTER);
 
-            JPanel avocadoPanel = new JPanel();
-            avocadoPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-            avocadoPanel.setLayout(new GridLayout(4, 2));
-            for (int i = 0; i < 4; i++){
-                avocadoPanel.add(new JLabel("With " + Integer.toString(i)+ " avocado"));
-                avocadoPanel.add(new JLabel("$" + Integer.toString(p.getRentVals()[i]) + " ", SwingConstants.RIGHT));
+                JPanel avocadoPanel = new JPanel();
+                avocadoPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+                avocadoPanel.setLayout(new GridLayout(4, 2));
+                for (int i = 1; i < 6; i++){
+                    avocadoPanel.add(new JLabel("With " + Integer.toString(i)+ " avocado"));
+                    avocadoPanel.add(new JLabel("$" + Integer.toString(prop.getRentVals()[i]) + " ", SwingConstants.RIGHT));
+                }
+
+                JLabel avocadoCostLabel = new JLabel("Avocado cost: $" + Integer.toString(prop.getAvocadoCost()),
+                                                     SwingConstants.CENTER);
+
+                propertyPanel.add(rentLabel, gbc);
+                propertyPanel.add(avocadoPanel, gbc);
+                propertyPanel.add(avocadoCostLabel, gbc);
+            } else if (p instanceof UtilityTile){
+                JLabel rentLabel = new JLabel("If one Utility is owned, then rent is 4 times the die roll. If two Utilities are owned, then retn is 10 times the die roll.", SwingConstants.CENTER);
+                propertyPanel.add(rentLabel, gbc);
+            } else if (p instanceof HyperloopTile){
+                JPanel rentPanel = new JPanel();
+                rentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+                rentPanel.setLayout(new GridLayout(4, 2));
+                for (int i = 0; i < 4; i++){
+                    rentPanel.add(new JLabel("With " + Integer.toString(i)+ " Hyperloop owned "));
+                    rentPanel.add(new JLabel("$" + Integer.toString(HyperloopTile.fares[i]) + " ", SwingConstants.RIGHT));
+                }
+                propertyPanel.add(rentPanel, gbc);
             }
 
             JLabel mortgageLabel = new JLabel("Mortgage value: $" + Integer.toString(p.getMortgage()), SwingConstants.CENTER);
-            JLabel avocadoCostLabel = new JLabel("Avocado cost: $" + Integer.toString(p.getAvocadoCost()), SwingConstants.CENTER);
-
-
-            propertyPanel.add(titlePanel, gbc);
-            propertyPanel.add(rentLabel, gbc);
-            propertyPanel.add(avocadoPanel, gbc);
             propertyPanel.add(mortgageLabel, gbc);
-            propertyPanel.add(avocadoCostLabel, gbc);
 
-            if (p.getAvocados() > 0){
+
+            if (p instanceof Property && ((Property)p).getAvocados() > 0){
                 JButton sellAvocadoButton = new JButton("Sell Avocado");
                 sellAvocadoButton.putClientProperty("index", idx);
                 sellAvocadoButton.addActionListener(this);
@@ -101,7 +119,7 @@ public class PropertyManager extends JPanel implements ActionListener {
                 propertyPanel.add(mortgageButton, gbc);
             }
 
-            if (player.canBuyAvocados(p) && !p.isMortgaged()){
+            if (p instanceof Property && player.canBuyAvocados((Property)p) && !((Property)p).isMortgaged()){
                 JButton buyAvocadoButton = new JButton("Buy Avocado");
                 buyAvocadoButton.putClientProperty("index", idx);
                 buyAvocadoButton.addActionListener(this);

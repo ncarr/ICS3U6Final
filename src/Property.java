@@ -63,7 +63,4 @@ public class Property extends Ownable {
         avocados--;
     }
 
-    public int getMortgage() {
-        return mortgage;
-    }
 }

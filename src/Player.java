@@ -179,6 +179,14 @@ public class Player{
         return properties;
     }
 
+    public ArrayList<Ownable> getOwnables(){
+        ArrayList<Ownable> res = new ArrayList<Ownable>();
+        res.addAll(properties);
+        res.addAll(hyperloops);
+        res.addAll(properties);
+        return res;
+    }
+
     public void lose(){
         // die user die
     }

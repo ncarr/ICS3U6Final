@@ -8,6 +8,7 @@ public abstract class Ownable extends Tile {
 
     private int owner;
     private boolean mortgaged;
+    private int mortgage;
 
     Ownable(String name) {
         super(name);
@@ -21,7 +22,7 @@ public abstract class Ownable extends Tile {
 
     public boolean changeMortgage() { // returns initial state
         mortgaged = !mortgaged;
-        return !mortgaged; 
+        return !mortgaged;
     }
 
     public int getOwner() {
@@ -30,5 +31,9 @@ public abstract class Ownable extends Tile {
 
     public void setOwner(int player) {
         owner = player;
+    }
+
+    public int getMortgage() {
+        return mortgage;
     }
 }
