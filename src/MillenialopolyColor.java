@@ -12,7 +12,6 @@ public class MillenialopolyColor extends Color {
     private MillenialopolyColor(Color color, int index) {
         super(color.getRGB());
         this.index = index;
-        System.out.println(this.equals(color));
     }
     private MillenialopolyColor(int r, int g, int b, int index) {
         super(r, g, b);

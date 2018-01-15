@@ -106,7 +106,6 @@ public class Player{
     public boolean convertCurrency(String fromCurr, String toCurr, double amount){
 
         if (!spendCurrency(fromCurr, amount)){
-            System.out.println("rip?");
             return false;
         }
 

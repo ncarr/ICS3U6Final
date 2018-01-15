@@ -13,7 +13,7 @@ import java.awt.image.*;
 
 import java.io.*;
 
-public class ForceExchangeDialog extends JDialog implements ActionListener {
+public class ForceExchangeDialog extends MillenialopolyDialog implements ActionListener {
 
     private MillenialopolyWindow window;
     private GridBagConstraints gbc;
@@ -30,32 +30,13 @@ public class ForceExchangeDialog extends JDialog implements ActionListener {
 
     public ForceExchangeDialog(GamePanel parent, MillenialopolyWindow window, int cost, int receiver) {
         // Create a JPanel and add the buttons
-        super();
-        this.window = window;
-        this.parent = parent;
-        this.game = parent.game;
-        this.player = game.getPlayers()[game.getCurrPlayer()];
+        super(parent, window);
 
         this.cost = cost;
         this.receiver = receiver;
+    }
 
-        // Set window
-        Rectangle r = window.getBounds();
-        this.setSize(r.width - 250, r.height - 200);  // Don't have it take up full width
-        this.setLocationRelativeTo(window);
-
-        // Set window properties
-        this.setUndecorated(true); // No standard dialog decorations
-        this.setVisible(true);
-        this.setAlwaysOnTop(true); // Make sure that it's always on top
-        this.setModal(true);
-
-        // Layout
-        this.setLayout(new GridBagLayout());
-        gbc = new GridBagConstraints(); // Constraints
-        gbc.gridx = 1; // One column per row
-        gbc.fill = GridBagConstraints.HORIZONTAL; // Have each item fill the row
-
+    public void loadMain(){
         JPanel currencyExchangePanel = new JPanel();
 
         currencyExchangePanel.setLayout(new GridLayout(0, 3));
@@ -158,9 +139,8 @@ public class ForceExchangeDialog extends JDialog implements ActionListener {
         currencyExchangePanel.add(backButton);
         currencyExchangePanel.add(new JPanel());
 
-        this.add(currencyExchangePanel);
+        mainPanel.add(currencyExchangePanel);
     }
-
     /**
     * Method called when any button is pressed
     */
