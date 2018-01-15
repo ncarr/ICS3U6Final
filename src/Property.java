@@ -12,9 +12,9 @@ public class Property extends Ownable {
     private int mortgage;
     private int cost;
 
-    private String color;
+    private MillenialopolyColor color;
 
-    Property(String name, String color, int[] rent,
+    Property(String name, MillenialopolyColor color, int[] rent,
              int mortgage, int cost, int avocadoCost) {
         // Init
         super(name);
@@ -27,7 +27,7 @@ public class Property extends Ownable {
         this.color = color;
     }
 
-    public String getColor() {
+    public MillenialopolyColor getColor() {
         return color;
     }
 

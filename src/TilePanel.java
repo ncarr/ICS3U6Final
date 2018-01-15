@@ -21,24 +21,7 @@ public class TilePanel extends JPanel {
         this.game = game;
         this.setOpaque(true);
         if (tile instanceof Property) {
-            Property property = (Property) tile;
-            if (property.getColor().equals("brown")) {
-                this.setBackground(new Color(165, 42, 42));
-            } else if (property.getColor().equals("light blue")) {
-                this.setBackground(new Color(173, 216, 230));
-            } else if (property.getColor().equals("magenta")) {
-                this.setBackground(Color.magenta);
-            } else if (property.getColor().equals("orange")) {
-                this.setBackground(Color.orange);
-            } else if (property.getColor().equals("red")) {
-                this.setBackground(Color.red);
-            } else if (property.getColor().equals("yellow")) {
-                this.setBackground(Color.yellow);
-            } else if (property.getColor().equals("green")) {
-                this.setBackground(Color.green);
-            } else if (property.getColor().equals("blue")) {
-                this.setBackground(new Color(0, 128, 255));
-            }
+            this.setBackground(((Property) tile).getColor());
         } else {
             this.setBackground(Color.white);
         }

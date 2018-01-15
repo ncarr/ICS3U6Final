@@ -19,8 +19,8 @@ public abstract class Ownable extends Tile {
         return mortgaged;
     }
 
-    public void changeMortgage() {
-        mortgaged = !mortgaged;
+    public boolean changeMortgage() {
+        return mortgaged = !mortgaged;
     }
 
     public int getOwner() {

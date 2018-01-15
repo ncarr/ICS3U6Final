@@ -58,23 +58,7 @@ public class PropertyManager extends JPanel implements ActionListener {
             Font titleFont = Fonts.TITLE.deriveFont(25F);
             JLabel titleLabel = new JLabel(p.getName(), SwingConstants.CENTER);
             titleLabel.setFont(titleFont);
-            if (p.getColor().equals("brown")) {
-                titlePanel.setBackground(new Color(165, 42, 42));
-            } else if (p.getColor().equals("light blue")) {
-                titlePanel.setBackground(new Color(173, 216, 230));
-            } else if (p.getColor().equals("magenta")) {
-                titlePanel.setBackground(Color.magenta);
-            } else if (p.getColor().equals("orange")) {
-                titlePanel.setBackground(Color.orange);
-            } else if (p.getColor().equals("red")) {
-                titlePanel.setBackground(Color.red);
-            } else if (p.getColor().equals("yellow")) {
-                titlePanel.setBackground(Color.yellow);
-            } else if (p.getColor().equals("green")) {
-                titlePanel.setBackground(Color.green);
-            } else if (p.getColor().equals("blue")) {
-                titlePanel.setBackground(new Color(0, 128, 255));
-            }
+            titlePanel.setBackground(p.getColor());
             if (p.isMortgaged()){
                 titlePanel.add(new JLabel("(mortgaged)"));
             }
