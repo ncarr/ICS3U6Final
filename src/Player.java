@@ -15,6 +15,7 @@ public class Player{
 
     private ArrayList<Property> properties;
     private ArrayList<HyperloopTile> hyperloops;
+    private ArrayList<UtilityTile> utilities;
     private int location;
     private double MIL, BTC, ETH;
     private Color colour;
@@ -25,6 +26,7 @@ public class Player{
         location = 0; // start at go
         properties = new ArrayList<Property>();
         hyperloops = new ArrayList<HyperloopTile>();
+        utilities = new ArrayList<UtilityTile>();
         MIL = 1500; // Starting money
     }
 
@@ -136,8 +138,16 @@ public class Player{
         hyperloops.add(h);
     }
 
+    public void addUtility(UtilityTile u){
+        utilities.add(u);
+    }
+
     public int getHyperloops(){
         return hyperloops.size();
+    }
+
+    public int getUtilities(){
+        return utilities.size();
     }
 
     public void lose(){

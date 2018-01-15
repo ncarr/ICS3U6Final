@@ -62,7 +62,7 @@ public class GamePanel extends JPanel implements ActionListener {
                 message("Uh oh, taxes!", "You just paid " + costs);
                 game.addToTaxes(costs);
             } else {
-                if (player.getCurrencyTotal() < costs + 10){ // Approximate death
+                if (player.getAssetTotal() < costs){ // Approximate death
                     lose(player);
                 } else { // they need to exchange currency to be able to pay
                     needExchange = true;
@@ -71,11 +71,49 @@ public class GamePanel extends JPanel implements ActionListener {
             }
         } else if (spot instanceof TheftTile){
             player.earnCurrency("MIL", game.performCommunism());
+        } else if (spot instanceof UtilityTile){
+            UtilityTile u = (UtilityTile)spot;
+            if (u.getOwner() > -1){ // there is an owner, then rent should be paid
+                Player owner = game.getPlayers()[u.getOwner()];
+                if (owner.getUtilities() == 1){
+                    costs = roll * 4;
+                } else {
+                    costs = roll * 10;
+                }
+                payToMessage(costs, owner.getName());
+                if (player.getAssetTotal() < costs){
+                    lose(player);
+                } else { // they need to exchang currency to be able to pay
+                    if (player.spendCurrency("MIL", costs)) {
+                        message("Rippy dippy", "You just paid " + costs);
+                    } else {
+                        needExchange = true;
+                        player.spendCurrency("MIL", costs);
+                    }
+                    owner.earnCurrency("MIL", costs);
+                }
+            } else {
+                costs = UtilityTile.cost;
+                int choice = buyOption(costs, u.getName());
+
+                if (choice == 0){
+                    if (player.getAssetTotal() < costs){
+                        lose(player);
+                    } else { // they need to exchang currency to be able to pay
+                        if (player.spendCurrency("MIL", costs)) {
+                            message( "Yay!", "You just paid " + costs);
+                        } else {
+                            needExchange = true;
+                        }
+                        game.sellHyperloop(newLoc);
+                    }
+                }
+            }
         } else if (spot instanceof HyperloopTile){
             HyperloopTile h = (HyperloopTile)spot;
             if (h.getOwner() > -1){ // there is an owner, then rent should be paid
-                costs = HyperloopTile.fares[player.getHyperloops()];
                 Player owner = game.getPlayers()[h.getOwner()];
+                costs = HyperloopTile.fares[owner.getHyperloops()];
 
                 payToMessage(costs, owner.getName());
                 if (player.getAssetTotal() < costs){
@@ -184,7 +222,7 @@ public class GamePanel extends JPanel implements ActionListener {
     public void message(String title, String message){
         JOptionPane.showMessageDialog(
             null,
-            "YOU LOST HAHAHHA", "Die!",
+            message, title,
             JOptionPane.INFORMATION_MESSAGE
         );
     }
