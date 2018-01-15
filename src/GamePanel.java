@@ -62,9 +62,7 @@ public class GamePanel extends JPanel implements ActionListener {
                 message("Uh oh, taxes!", "You just paid " + costs);
                 game.addToTaxes(costs);
             } else {
-                if (player.getAssetTotal() < costs){ // Approximate death
-                    lose(player);
-                } else { // they need to exchange currency to be able to pay
+                if (checkDeath(player, costs)) { // they need to exchange currency to be able to pay
                     needExchange = true;
                     game.addToTaxes(costs);
                 }
@@ -81,9 +79,7 @@ public class GamePanel extends JPanel implements ActionListener {
                     costs = roll * 10;
                 }
                 payToMessage(costs, owner.getName());
-                if (player.getAssetTotal() < costs){
-                    lose(player);
-                } else { // they need to exchang currency to be able to pay
+                if (checkDeath(player, costs)) { // they need to exchange currency to be able to pay
                     if (player.spendCurrency("MIL", costs)) {
                         message("Rippy dippy", "You just paid " + costs);
                     } else {
@@ -97,9 +93,7 @@ public class GamePanel extends JPanel implements ActionListener {
                 int choice = buyOption(costs, u.getName());
 
                 if (choice == 0){
-                    if (player.getAssetTotal() < costs){
-                        lose(player);
-                    } else { // they need to exchang currency to be able to pay
+                    if (checkDeath(player, costs)) { // they need to exchange currency to be able to pay
                         if (player.spendCurrency("MIL", costs)) {
                             message( "Yay!", "You just paid " + costs);
                         } else {
@@ -116,9 +110,7 @@ public class GamePanel extends JPanel implements ActionListener {
                 costs = HyperloopTile.fares[owner.getHyperloops()];
 
                 payToMessage(costs, owner.getName());
-                if (player.getAssetTotal() < costs){
-                    lose(player);
-                } else { // they need to exchang currency to be able to pay
+                if (checkDeath(player, costs)) { // they need to exchange currency to be able to pay
                     if (player.spendCurrency("MIL", costs)) {
                         message("Rippy dippy", "You just paid " + costs);
                     } else {
@@ -132,9 +124,7 @@ public class GamePanel extends JPanel implements ActionListener {
                 int choice = buyOption(costs, h.getName());
 
                 if (choice == 0){
-                    if (player.getAssetTotal() < costs){
-                        lose(player);
-                    } else { // they need to exchang currency to be able to pay
+                    if (checkDeath(player, costs)) { // they need to exchange currency to be able to pay
                         if (player.spendCurrency("MIL", costs)) {
                             message( "Yay!", "You just paid " + costs);
                         } else {
@@ -152,9 +142,7 @@ public class GamePanel extends JPanel implements ActionListener {
                 Player owner = game.getPlayers()[p.getOwner()];
 
                 payToMessage(costs, owner.getName());
-                if (player.getAssetTotal() < costs){
-                    lose(player);
-                } else { // they need to exchange currency to be able to pay
+                if (checkDeath(player, costs)) { // they need to exchange currency to be able to pay
                     if (player.spendCurrency("MIL", costs)) {
                         message("Rippy dippy", "You just paid " + costs);
                     } else {
@@ -168,9 +156,7 @@ public class GamePanel extends JPanel implements ActionListener {
                 int choice = buyOption(costs, p.getName());
 
                 if (choice == 0){
-                    if (player.getAssetTotal() < costs){
-                        lose(player);
-                    } else { // they need to exchange currency to be able to pay
+                    if (checkDeath(player, costs)) { // they need to exchange currency to be able to pay
                         if (player.spendCurrency("MIL", costs)) { // if enough money
                             message("Yay!", "You just paid " + costs);
                         } else { // if not  enough money
@@ -188,6 +174,14 @@ public class GamePanel extends JPanel implements ActionListener {
         boardComponent.refresh();
     }
 
+    private boolean checkDeath(Player player, int costs){
+        if (player.getAssetTotal() < costs){
+            lose(player);
+            return false;
+        }
+        return true;
+    }
+
     private void lose(Player player){
         player.lose();
         loadLoseDialog();
@@ -197,7 +191,7 @@ public class GamePanel extends JPanel implements ActionListener {
         forceExchangeDialog = new ForceExchangeDialog(this, window, cost, receiver);
     }
 
-    public int buyOption(int costs, String name){
+    private int buyOption(int costs, String name){
         Object[] options =  {"Buy!", "Don't Buy"};
         return JOptionPane.showOptionDialog(
             window,
@@ -211,15 +205,15 @@ public class GamePanel extends JPanel implements ActionListener {
         );
     }
 
-    public void payToMessage(int costs, String name){
+    private void payToMessage(int costs, String name){
         message( "Pay up!", "You need to pay " + costs + " to " + name);
     }
 
-    public void loadLoseDialog(){
+    private void loadLoseDialog(){
         message("Die!", "YOU LOST HAHAHHA");
     }
 
-    public void message(String title, String message){
+    private void message(String title, String message){
         JOptionPane.showMessageDialog(
             null,
             message, title,
