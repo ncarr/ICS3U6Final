@@ -43,6 +43,10 @@ public class Property extends Ownable {
         }
     }
 
+    public int[] getRentVals() {
+        return rent;
+    }
+
     public int getAvocados() {
         return avocados;
     }

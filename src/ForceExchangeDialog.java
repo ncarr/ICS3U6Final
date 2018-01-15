@@ -176,7 +176,7 @@ public class ForceExchangeDialog extends JDialog implements ActionListener {
                 }
                 dispose();
             }
-        }  else if (command.equals("Sell BTC")){
+        } else if (command.equals("Sell BTC")){
             try{
                 player.convertCurrency("BTC", "MIL", Double.parseDouble(btcField.getText()));
                 parent.forceExchangeDialog(cost, receiver);

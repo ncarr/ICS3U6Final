@@ -73,7 +73,7 @@ public class GamePanel extends JPanel implements ActionListener {
             UtilityTile u = (UtilityTile)spot;
             if (u.getOwner() > -1){ // there is an owner, then rent should be paid
                 Player owner = game.getPlayers()[u.getOwner()];
-                if (owner.getUtilities() == 1){
+                if (owner.getNumUtilities() == 1){
                     costs = roll * 4;
                 } else {
                     costs = roll * 10;
@@ -99,7 +99,7 @@ public class GamePanel extends JPanel implements ActionListener {
                         } else {
                             needExchange = true;
                         }
-                        game.sellHyperloop(newLoc);
+                        game.sellUtility(newLoc);
                     }
                 }
             }
@@ -107,7 +107,7 @@ public class GamePanel extends JPanel implements ActionListener {
             HyperloopTile h = (HyperloopTile)spot;
             if (h.getOwner() > -1){ // there is an owner, then rent should be paid
                 Player owner = game.getPlayers()[h.getOwner()];
-                costs = HyperloopTile.fares[owner.getHyperloops()];
+                costs = HyperloopTile.fares[owner.getNumHyperloops()];
 
                 payToMessage(costs, owner.getName());
                 if (checkDeath(player, costs)) { // they need to exchange currency to be able to pay

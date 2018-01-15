@@ -19,7 +19,7 @@ public class ControlPanel extends JDialog implements ActionListener {
     private JPanel mainPanel;
 
     private GamePanel parent;
-    private Game game;
+    public Game game;
     private Player player;
 
     // Fields for currency exchange
@@ -37,7 +37,7 @@ public class ControlPanel extends JDialog implements ActionListener {
         this.player = game.getPlayers()[game.getCurrPlayer()];
 
         Rectangle r = window.getBounds();
-        this.setSize(r.width - 250, r.height - 200);  // Don't have it take up full width
+        this.setSize(r.width - 350, r.height - 250);  // Don't have it take up full width
         this.setLocationRelativeTo(window);
 
         this.setUndecorated(true); // No standard dialog decorations
@@ -71,8 +71,8 @@ public class ControlPanel extends JDialog implements ActionListener {
             dispose();
         } else if (command.equals("Exchange Currencies")){
             loadCurrencyExchange();
-        } else if (command.equals("Buy Avocadoes")){
-
+        } else if (command.equals("Manage Properties")){
+            loadPropertyManager();
         } else if (command.equals("Back")){
             mainPanel.removeAll(); // Remove any panels from the previous view
             loadMain();
@@ -153,19 +153,19 @@ public class ControlPanel extends JDialog implements ActionListener {
         JPanel buttonPanel = new JPanel();
         JButton tradeButton = new JButton("Offer a Trade");
         JButton currencyButton = new JButton("Exchange Currencies");
-        JButton avocadoButton = new JButton("Buy Avocadoes");
+        JButton propertyButton = new JButton("Manage Properties");
         JButton endButton = new JButton("End Turn");
 
         // Add action listeners to the buttons
         tradeButton.addActionListener(this);
         currencyButton.addActionListener(this);
-        avocadoButton.addActionListener(this);
+        propertyButton.addActionListener(this);
         endButton.addActionListener(this);
 
         // Add the buttons to the JPanel
         buttonPanel.add(tradeButton);
         buttonPanel.add(currencyButton);
-        buttonPanel.add(avocadoButton);
+        buttonPanel.add(propertyButton);
         buttonPanel.add(endButton);
 
         mainPanel.removeAll(); // Remove any panels from the previous view
@@ -286,6 +286,14 @@ public class ControlPanel extends JDialog implements ActionListener {
 
         mainPanel.removeAll(); // Remove any panels from the previous view
         mainPanel.add(currencyExchangePanel);
+        mainPanel.revalidate();
+        mainPanel.repaint();
+    }
+
+    public void loadPropertyManager(){
+
+        mainPanel.removeAll(); // Remove any panels from the previous view
+        mainPanel.add(new PropertyManager(this, window));
         mainPanel.revalidate();
         mainPanel.repaint();
     }

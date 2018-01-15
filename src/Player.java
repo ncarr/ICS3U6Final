@@ -116,7 +116,6 @@ public class Player{
             }
         } else if (fromCurr.equals("BTC")){
             if (toCurr.equals("MIL")){
-                System.out.println("ok wtf" + amount);
                 earnCurrency(toCurr, amount);
             }
         } else if (fromCurr.equals("MIL")){
@@ -128,6 +127,33 @@ public class Player{
             }
         }
         return true;
+    }
+
+    public boolean canBuyAvocados(Property p){
+        if (p.getAvocados() < 6){
+            String col = p.getColor();
+            int count = 0;
+            for (Property prop: getProperties()){
+                if (prop.getColor().equals(col)){
+                    count++;
+                }
+            }
+            if (col.equals("brown")){
+                if (count == 2) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                if (count == 3){
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        } else {
+            return false;
+        }
     }
 
     public void addProperty(Property p){
@@ -142,12 +168,16 @@ public class Player{
         utilities.add(u);
     }
 
-    public int getHyperloops(){
+    public int getNumHyperloops(){
         return hyperloops.size();
     }
 
-    public int getUtilities(){
+    public int getNumUtilities(){
         return utilities.size();
+    }
+
+    public ArrayList<Property> getProperties(){
+        return properties;
     }
 
     public void lose(){
