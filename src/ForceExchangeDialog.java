@@ -169,7 +169,7 @@ public class ForceExchangeDialog extends JDialog implements ActionListener {
 
         // Main commands
         if (command.equals("Finish")) {
-            if (player.getCurrencyTotal() < cost){
+            if (player.getMIL() > cost){
                 player.spendCurrency("MIL", cost);
                 if (receiver > -1){
                     game.getPlayers()[receiver].earnCurrency("MIL", cost);
