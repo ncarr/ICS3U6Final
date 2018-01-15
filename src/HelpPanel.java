@@ -1,11 +1,13 @@
+/**
+ * [HelpPanel.java]
+ * Provides user with instructions 
+ * @author Nicholas Carr, Carol Chen
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-/**
- * Panel to resume a saved game
- * @author Nicholas Carr
- */
 public class HelpPanel extends JPanel implements ActionListener {
 
   public HelpPanel() {

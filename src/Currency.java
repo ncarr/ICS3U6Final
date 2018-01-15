@@ -1,3 +1,9 @@
+/**
+ * [Currency.java]
+ * Currency class for cryptos
+ * @author Nicholas Carr, Carol Chen
+ */
+
 import java.util.Random;
 
 public class Currency{

@@ -1,12 +1,14 @@
+/**
+ * [Setup.java]
+ * Setups a game with users and their names
+ * @author Nicholas Carr, Carol Chen
+ */
+
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.*;
 
-/**
- * Panel to setup the game
- * @author Nicholas Carr, Carol Chen
- */
 public class SetupPanel extends JPanel implements ActionListener {
     private MillenialopolyWindow window;
     private GridBagConstraints gbc;

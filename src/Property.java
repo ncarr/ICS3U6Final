@@ -1,3 +1,9 @@
+/**
+ * [Property.java]
+ * Stores a property class
+ * @author Nicholas Carr, Carol Chen
+ */
+
 public class Property extends Tile{
 
     private int[] rent;
@@ -5,12 +11,15 @@ public class Property extends Tile{
     private int avocadoCost;
     private int mortgage;
     private int cost;
+
     private int owner;
+
     private String color;
     private boolean mortgaged;
 
     Property(String name, String color, int[] rent,
              int mortgage, int cost, int avocadoCost) {
+        // Init 
         super(name);
         avocados = 0;
         owner = -1;

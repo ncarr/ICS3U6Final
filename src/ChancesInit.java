@@ -1,3 +1,9 @@
+/**
+ * [ChanesInit.java]
+ * Creates an array of methods that can be called 
+ * @author Nathan Shen, Carol Chen
+ */
+
 public class ChancesInit{
 
     private static Game game;

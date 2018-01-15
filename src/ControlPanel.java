@@ -1,3 +1,9 @@
+/**
+ * [ControlPanel.java]
+ * This panel shows up for users to manage properties and currencies after making their move
+ * @author Nicholas Carr, Carol Chen
+ */
+
 import javax.imageio.*;
 import javax.swing.*;
 import javax.swing.border.*;
@@ -6,10 +12,7 @@ import java.awt.event.*;
 import java.awt.image.*;
 
 import java.io.*;
-/**
- * Panel that contains options for users to take during a move
- * @author Nicholas Carr, Carol Chen
- */
+
 public class ControlPanel extends JDialog implements ActionListener {
     private MillenialopolyWindow window;
     private GridBagConstraints gbc;
@@ -19,12 +22,15 @@ public class ControlPanel extends JDialog implements ActionListener {
     private Game game;
     private Player player;
 
+    // Fields for currency exchange
     private JTextField ethField;
     private JTextField btcField;
 
     public ControlPanel(GamePanel parent, MillenialopolyWindow window) {
         // Create a JPanel and add the buttons
         super();
+
+        // Store game info
         this.window = window;
         this.parent = parent;
         this.game = parent.game;
@@ -35,16 +41,21 @@ public class ControlPanel extends JDialog implements ActionListener {
         this.setLocationRelativeTo(window);
 
         this.setUndecorated(true); // No standard dialog decorations
-        this.setVisible(true);
+        this.setVisible(true); // will make sure that the program stops until this closes
         this.setAlwaysOnTop(true); // Make sure that it's always on top
 
+        // panel in the dialog
         mainPanel = new JPanel();
         mainPanel.setLayout(new GridBagLayout());
+
+        // Layouting
         gbc = new GridBagConstraints(); // Constraints
         gbc.gridx = 1; // One column per row
         gbc.fill = GridBagConstraints.HORIZONTAL; // Have each item fill the row
 
         this.add(mainPanel);
+
+        // Init
         loadMain();
     }
 
@@ -69,7 +80,7 @@ public class ControlPanel extends JDialog implements ActionListener {
 
         // Exchange commands
         else if (command.equals("Buy BTC")) {
-            try{
+            try{ // try for number porsing
                 player.convertCurrency("MIL", "BTC", Double.parseDouble(btcField.getText()));
                 loadCurrencyExchange();
             } catch(Exception e){};
@@ -92,8 +103,10 @@ public class ControlPanel extends JDialog implements ActionListener {
 
     }
 
-    // Start all the formatting fun !
-    public void loadMain(){
+    // Start all the formatting fun!
+    public void loadMain(){ // Main contains the base view
+
+        // Title, which is also the name
         JPanel titlePanel = new JPanel();
         titlePanel.setBorder(new EmptyBorder(50, 50, 50, 50));
         Font titleFont = Fonts.TITLE.deriveFont(50F);
@@ -103,10 +116,12 @@ public class ControlPanel extends JDialog implements ActionListener {
         titleLabel.setForeground(player.getColour());
         titlePanel.add(titleLabel);
 
-
+        // Display currency in a grid layout
         JPanel currencyPanel = new JPanel();
         currencyPanel.setLayout(new GridLayout(0, 3));
         currencyPanel.setBorder(new EmptyBorder(20, 20, 20, 20));
+
+        // Add images
         try{
             Image ethImage = ImageIO.read(new File("img/ethereum.png"));
             ethImage = ethImage.getScaledInstance(100, 100, Image.SCALE_DEFAULT);
@@ -126,7 +141,7 @@ public class ControlPanel extends JDialog implements ActionListener {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        // Show owned currency
         JLabel btcLabel = new JLabel(Double.toString(player.getBTC()), SwingConstants.CENTER);
         JLabel milLabel = new JLabel(Double.toString(player.getMIL()), SwingConstants.CENTER);
         JLabel ethLabel = new JLabel(Double.toString(player.getETH()), SwingConstants.CENTER);
@@ -161,18 +176,16 @@ public class ControlPanel extends JDialog implements ActionListener {
         mainPanel.repaint();
     }
 
-    public void loadCurrencyExchange(){
+    public void loadCurrencyExchange(){ // loaded when user wants to exchange currency
         JPanel currencyExchangePanel = new JPanel();
 
         currencyExchangePanel.setLayout(new GridLayout(0, 3));
         currencyExchangePanel.setBorder(new EmptyBorder(20, 20, 20, 20));
 
-
         // How much money they have in total
         currencyExchangePanel.add(new JLabel()); // Empty panel to padd
         currencyExchangePanel.add(new JLabel("You have " + Double.toString(player.getCurrencyTotal()) + " MIL in total"), SwingConstants.CENTER);
         currencyExchangePanel.add(new JLabel()); // empty panel
-
 
         // Show image of MIL and the amount they have
         try{
@@ -216,8 +229,10 @@ public class ControlPanel extends JDialog implements ActionListener {
 
 
         // Show amounts of cryptos
-        JLabel btcLabel = new JLabel(Double.toString(player.getBTC()), SwingConstants.CENTER);
-        JLabel ethLabel = new JLabel(Double.toString(player.getETH()), SwingConstants.CENTER);
+        JLabel btcLabel = new JLabel(Double.toString(player.getBTC()),
+                                     SwingConstants.CENTER);
+        JLabel ethLabel = new JLabel(Double.toString(player.getETH()),
+                                     SwingConstants.CENTER);
         currencyExchangePanel.add(ethLabel);
         currencyExchangePanel.add(new JLabel());
         currencyExchangePanel.add(btcLabel);
@@ -262,12 +277,10 @@ public class ControlPanel extends JDialog implements ActionListener {
         sellBTCButton.addActionListener(this);
         buttonBTCPanel.add(buyBTCButton);
         buttonBTCPanel.add(sellBTCButton);
-
+        // Add buttons to panel
         currencyExchangePanel.add(buttonETHPanel);
         currencyExchangePanel.add(new JPanel());
         currencyExchangePanel.add(buttonBTCPanel);
-
-        // Add help text
 
         // Add back button
         JButton backButton = new JButton("Back");

@@ -1,7 +1,8 @@
 /* [Millenialopoly.java]
  * A Monopoly variation adapted to suit "Millenials" a.k.a. Snake People
- * AUTHORS: Carol Chen, Nicholas Carr
+ * @author Atharva Washimkar, adapted by Carol
  */
+
 import java.util.Scanner;
 import javax.swing.*;
 

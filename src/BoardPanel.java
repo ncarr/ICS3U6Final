@@ -1,12 +1,13 @@
+/**
+ * [BoardPanel.java]
+ * Controls the game board visually
+ * @author Nicholas Carr, Carol Chen
+ */
+
 import javax.swing.*;
-import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.*;
 
-/**
- * Panel to create a new game
- * @author Nicholas Carr, Carol Chen
- */
 public class BoardPanel extends JPanel implements ActionListener {
     private MillenialopolyWindow window;
 

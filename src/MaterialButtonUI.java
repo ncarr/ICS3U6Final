@@ -1,3 +1,9 @@
+/**
+ * [MaterialButtonUI.java]
+ * ButtonUI
+ * @author Atharva Washimkar, adapted by Carol
+ */
+
 
 import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;

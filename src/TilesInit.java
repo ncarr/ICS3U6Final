@@ -1,6 +1,12 @@
+/**
+ * [TilesInit.java]
+ * Creates a list of all the tiles
+ * @author Nicholas Carr, Carol Chen
+ */
+
 class TilesInit {
     public static Tile[] tiles = {
-        new GoTile("Passing Go"),
+        new Tile("Passing Go"),
         new Property(
             "The Macintosh",
             "brown",
@@ -45,7 +51,7 @@ class TilesInit {
             120,
             50
         ),
-        new JailTile("Visiting Jail"),
+        new Tile("Visiting Jail"),
         new Property(
             "Netflix and Chill",
             "magenta",

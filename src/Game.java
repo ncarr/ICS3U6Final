@@ -1,8 +1,14 @@
+/**
+ * [Game.java]
+ * Stores the general game proprerties
+ * @author Nicholas Carr, Carol Chen
+ */
+
 import java.util.Random;
 import java.awt.Color;
 
 public class Game {
-    public static Board board = new Board();
+    public static Tile[] board = TilesInit.tiles; // fake
 
     // Should actually init at real values
     public static Currency Bitcoin = new Currency(5);
@@ -13,7 +19,7 @@ public class Game {
 
     private int currPlayer; // which player's turn at the current moment
 
-    private int govMoney;
+    private int govMoney; // where the taxes go
 
     public Game(int numUsers, String[] names, Color[] colours) {
         numPlayers = numUsers;
@@ -23,6 +29,7 @@ public class Game {
         }
         currPlayer = 0;
 
+        // Init chances
         ChancesInit chanceInit = new ChancesInit(this);
         ChancesInit.ChanceAction[] chanceCards = ChancesInit.chances;
         ChancesInit.ChanceAction[] wildChanceCards = ChancesInit.wildChances;
@@ -39,13 +46,13 @@ public class Game {
     }
 
     public void sellProperty(int propLoc) {
-        ((Property)board.tiles[propLoc]).setOwner(getCurrPlayer()); // set property to be owned
-        getPlayers()[getCurrPlayer()].addProperty((Property)board.tiles[propLoc]);  // add property to user
+        ((Property)board[propLoc]).setOwner(getCurrPlayer()); // set property to be owned
+        getPlayers()[getCurrPlayer()].addProperty((Property)board[propLoc]);  // add property to user
     }
 
     public void sellHyperloop(int propLoc) {
-        ((HyperloopTile)board.tiles[propLoc]).setOwner(getCurrPlayer()); // set property to be owned
-        getPlayers()[getCurrPlayer()].addHyperloop((HyperloopTile)board.tiles[propLoc]);  // add property to user
+        ((HyperloopTile)board[propLoc]).setOwner(getCurrPlayer()); // set property to be owned
+        getPlayers()[getCurrPlayer()].addHyperloop((HyperloopTile)board[propLoc]);  // add property to user
     }
 
     public int getCurrPlayer() {

@@ -1,3 +1,9 @@
+/**
+ * [ForceExchangeDialog.java]
+ * This panel shows up for users to sell currency, mortgage proprties and sell avocades when needed
+ * @author Nicholas Carr, Carol Chen
+ */
+
 import javax.imageio.*;
 import javax.swing.*;
 import javax.swing.border.*;
@@ -6,11 +12,9 @@ import java.awt.event.*;
 import java.awt.image.*;
 
 import java.io.*;
-/**
- * Panel that will force the user to exchange currency to be able to pay for x
- * @author Nicholas Carr, Carol Chen
- */
+
 public class ForceExchangeDialog extends JDialog implements ActionListener {
+
     private MillenialopolyWindow window;
     private GridBagConstraints gbc;
     private JPanel mainPanel;
@@ -22,7 +26,7 @@ public class ForceExchangeDialog extends JDialog implements ActionListener {
     private JTextField ethField;
     private JTextField btcField;
 
-    private int cost, receiver;
+    private int cost, receiver; // the amount that needs to be paid an the index of the receiver, -1 if none
 
     public ForceExchangeDialog(GamePanel parent, MillenialopolyWindow window, int cost, int receiver) {
         // Create a JPanel and add the buttons
@@ -35,15 +39,18 @@ public class ForceExchangeDialog extends JDialog implements ActionListener {
         this.cost = cost;
         this.receiver = receiver;
 
+        // Set window
         Rectangle r = window.getBounds();
         this.setSize(r.width - 250, r.height - 200);  // Don't have it take up full width
         this.setLocationRelativeTo(window);
 
+        // Set window properties
         this.setUndecorated(true); // No standard dialog decorations
         this.setVisible(true);
         this.setAlwaysOnTop(true); // Make sure that it's always on top
         this.setModal(true);
 
+        // Layout 
         this.setLayout(new GridBagLayout());
         gbc = new GridBagConstraints(); // Constraints
         gbc.gridx = 1; // One column per row

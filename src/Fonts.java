@@ -1,3 +1,8 @@
+/**
+ * [Fonts.java]
+ * Class to make fonts easier to work with
+ * @author Atharva Washimkar, adapted by Carol
+ */
 
 import java.awt.Font;
 import java.awt.FontFormatException;
@@ -6,7 +11,7 @@ import java.io.InputStream;
 
 public class Fonts {
 
-	private static final float DEFAULT_FONT_SIZE = 14f;
+	private static final float DEFAULT_FONT_SIZE = 15F;
 
     public static final Font TITLE = loadFont ("/fonts/Product Sans Regular.ttf").deriveFont (DEFAULT_FONT_SIZE);
 

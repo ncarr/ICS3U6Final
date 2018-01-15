@@ -1,11 +1,13 @@
+/**
+ * [ResumePanel.java]
+ * Panel to resume a saved game
+ * @author Nicholas Carr, Carol Chen
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-/**
- * Panel to resume a saved game
- * @author Nicholas Carr
- */
 public class ResumePanel extends JPanel implements ActionListener {
 
   public ResumePanel() {

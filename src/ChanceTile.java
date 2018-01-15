@@ -1,3 +1,9 @@
+/**
+ * [ChanceTile.java]
+ * Class for a chance tile
+ * @author Nicholas Carr, Carol Chen
+ */
+
 public class ChanceTile extends Tile{
 
     private boolean isWild;

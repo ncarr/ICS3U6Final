@@ -1,3 +1,9 @@
+/**
+ * [TilePanel.java]
+ * Panel to resume a saved game
+ * @author Nicholas Carr, Carol Chen
+ */
+
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;

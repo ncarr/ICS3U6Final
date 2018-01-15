@@ -1,3 +1,9 @@
+/**
+ * [MillenialopolyWindow.java]
+ * Main window / frame
+ * @author Nicholas Carr, Carol Chen
+ */
+
 import javax.swing.*;
 import java.awt.*;
 

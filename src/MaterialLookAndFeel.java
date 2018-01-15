@@ -1,3 +1,9 @@
+/**
+ * [MaterialLookAndFeel.java]
+ * General Material styles
+ * @author Atharva Washimkar, adapted by Carol
+ */
+
 import javax.swing.BorderFactory;
 import javax.swing.UIDefaults;
 import javax.swing.border.Border;
