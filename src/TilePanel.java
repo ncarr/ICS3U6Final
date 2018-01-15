@@ -78,7 +78,7 @@ public class TilePanel extends JPanel {
         Player[] players = game.getPlayers();
         for (int i = 0; i < players.length; i++) {
             if (players[i].getLocation() == index) {
-                Border outer = BorderFactory.createLineBorder(players[i].getColour(), 2);
+                Border outer = BorderFactory.createLineBorder(players[i].getColour(), 5);
                 border = BorderFactory.createCompoundBorder(border, outer);
             }
         }
