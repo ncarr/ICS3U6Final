@@ -64,6 +64,7 @@ public class TilePanel extends JPanel {
     * Refresh the state of the tile after each turn
     */
     public void refresh() {
+        this.refreshOwner();
         this.refreshBorder();
         this.removeAll();
         this.add(titleLabel);
@@ -71,19 +72,36 @@ public class TilePanel extends JPanel {
     }
 
     /**
-    * Reset the border to the current players
+    * Reset the outer border to the current owner
+    */
+    public void refreshOwner() {
+        Border border = BorderFactory.createEmptyBorder();
+        if (tile instanceof Ownable) {
+            int owner = ((Ownable) tile).getOwner();
+            if (owner != -1) {
+                Border outer = BorderFactory.createLineBorder(game.getPlayers()[owner].getColour(), 5);
+                border = BorderFactory.createCompoundBorder(border, outer);
+                outer = BorderFactory.createMatteBorder(1, 2, 1, 2, Color.white);
+                border = BorderFactory.createCompoundBorder(border, outer);
+                this.setBorder(border);
+            }
+        }
+    }
+
+    /**
+    * Reset the bottom border to the current players
     */
     public void refreshBorder() {
-        Border border = BorderFactory.createLineBorder(Color.white);
+        Border border = this.getBorder();
         Player[] players = game.getPlayers();
         for (int i = 0; i < players.length; i++) {
-            if (players[i].getLocation() == index) {
-                Border outer = BorderFactory.createLineBorder(players[i].getColour(), 5);
+            if (players[i] != null && players[i].getLocation() == index) {
+                Border outer = BorderFactory.createMatteBorder(0, 0, 5, 0, players[i].getColour());
+                border = BorderFactory.createCompoundBorder(border, outer);
+                outer = BorderFactory.createMatteBorder(0, 0, 1, 0, Color.white);
                 border = BorderFactory.createCompoundBorder(border, outer);
             }
         }
-        Border outer = BorderFactory.createLineBorder(Color.white);
-        border = BorderFactory.createCompoundBorder(border, outer);
         this.setBorder(border);
     }
 
