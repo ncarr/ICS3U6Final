@@ -37,7 +37,7 @@ public class TilePanel extends JPanel {
             } else if (property.getColor().equals("green")) {
                 this.setBackground(Color.green);
             } else if (property.getColor().equals("blue")) {
-                this.setBackground(Color.blue);
+                this.setBackground(new Color(0, 128, 255));
             }
         } else {
             this.setBackground(Color.white);
