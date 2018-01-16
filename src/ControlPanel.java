@@ -157,7 +157,7 @@ public class ControlPanel extends MillennialopolyDialog implements ActionListene
         // Show image of MIL and the amount they have
         try{
             Image milImage = ImageIO.read(new File("img/mil.png"));
-            milImage = milImage.getScaledInstance(100, 100, Image.SCALE_DEFAULT);
+            milImage = milImage.getScaledInstance(60, 60, Image.SCALE_DEFAULT);
             JLabel milImageLabel = new JLabel(new ImageIcon(milImage));
 
             currencyExchangePanel.add(new JPanel()); // Empty panel to padd
@@ -180,11 +180,11 @@ public class ControlPanel extends MillennialopolyDialog implements ActionListene
         // Show crypto costs
         try{
             Image ethImage = ImageIO.read(new File("img/ethereum.png"));
-            ethImage = ethImage.getScaledInstance(100, 100, Image.SCALE_DEFAULT);
+            ethImage = ethImage.getScaledInstance(60, 60, Image.SCALE_DEFAULT);
             JLabel ethImageLabel = new JLabel(new ImageIcon(ethImage));
 
             Image btcImage = ImageIO.read(new File("img/bitcoin.png"));
-            btcImage = btcImage.getScaledInstance(100, 100, Image.SCALE_DEFAULT);
+            btcImage = btcImage.getScaledInstance(60, 60, Image.SCALE_DEFAULT);
             JLabel btcImageLabel = new JLabel(new ImageIcon(btcImage));
 
             currencyExchangePanel.add(ethImageLabel);
