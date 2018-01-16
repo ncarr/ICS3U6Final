@@ -12,4 +12,8 @@ public class ChanceTile extends Tile{
         super(name);
         this.isWild = isWild;
     }
+
+    public boolean isWild(){
+         return isWild;
+    }
 }

@@ -80,6 +80,7 @@ public class GamePanel extends JPanel implements ActionListener {
             landOnOwnable(o, player, payCosts, buyCosts, newLoc);
         } else {
             if (spot instanceof ChanceTile){
+                message(spot.getName(), game.drawCard(((ChanceTile)spot).isWild()));
                 // do stuff
             } else if (spot instanceof TaxTile){
                 int costs = ((TaxTile)spot).getCost();
@@ -125,7 +126,7 @@ public class GamePanel extends JPanel implements ActionListener {
             }
         } else { // Then they can buy!
             if (player.getAssetTotal() < buyCosts){
-                message("Not enough money to buy this!", "Sorry");
+                message("Sorry", "Not enough money to buy this!");
             } else {
                 int choice = buyOption(buyCosts, o.getName());
 

@@ -21,6 +21,9 @@ public class Game {
 
     private int govMoney; // where the taxes go
 
+    private static ChancesInit.ChanceAction[] chanceCards;
+    private static ChancesInit.ChanceAction[] wildChanceCards;
+
     public Game(int numUsers, String[] names, Color[] colours) {
         numPlayers = numUsers;
         players = new Player[numPlayers];
@@ -31,8 +34,8 @@ public class Game {
 
         // Init chances
         ChancesInit chanceInit = new ChancesInit(this);
-        ChancesInit.ChanceAction[] chanceCards = ChancesInit.chances;
-        ChancesInit.ChanceAction[] wildChanceCards = ChancesInit.wildChances;
+        chanceCards = ChancesInit.chances;
+        wildChanceCards = ChancesInit.wildChances;
     }
 
     public void nextTurn() {
@@ -72,5 +75,18 @@ public class Game {
         int res = govMoney;
         govMoney = 0;
         return res;
+    }
+
+    public String drawCard(boolean wild){
+        Random rand = new Random();
+        if (wild){
+            int len = wildChanceCards.length;
+            ChancesInit.ChanceAction card = wildChanceCards[rand.nextInt(len)];
+            return card.execute();
+        } else {
+            int len = chanceCards.length;
+            ChancesInit.ChanceAction card = chanceCards[rand.nextInt(len)];
+            return card.execute();
+        }
     }
 }
