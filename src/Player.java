@@ -183,7 +183,7 @@ public class Player{
         ArrayList<Ownable> res = new ArrayList<Ownable>();
         res.addAll(properties);
         res.addAll(hyperloops);
-        res.addAll(properties);
+        res.addAll(utilities);
         return res;
     }
 

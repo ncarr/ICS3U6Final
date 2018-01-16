@@ -257,11 +257,4 @@ public class ControlPanel extends MillenialopolyDialog implements ActionListener
         mainPanel.repaint();
     }
 
-    public void loadPropertyManager(){
-
-        mainPanel.removeAll(); // Remove any panels from the previous view
-        mainPanel.add(new PropertyManager(this, window));
-        mainPanel.revalidate();
-        mainPanel.repaint();
-    }
 }

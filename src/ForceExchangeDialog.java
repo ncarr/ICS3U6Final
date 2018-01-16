@@ -15,14 +15,6 @@ import java.io.*;
 
 public class ForceExchangeDialog extends MillenialopolyDialog implements ActionListener {
 
-    private MillenialopolyWindow window;
-    private GridBagConstraints gbc;
-    private JPanel mainPanel;
-
-    private GamePanel parent;
-    private Game game;
-    private Player player;
-
     private JTextField ethField;
     private JTextField btcField;
 
@@ -34,6 +26,7 @@ public class ForceExchangeDialog extends MillenialopolyDialog implements ActionL
 
         this.cost = cost;
         this.receiver = receiver;
+        loadMain();
     }
 
     public void loadMain(){
@@ -135,11 +128,16 @@ public class ForceExchangeDialog extends MillenialopolyDialog implements ActionL
         // Add finish button
         JButton backButton = new JButton("Finish");
         backButton.addActionListener(this);
+        JButton propertyButton = new JButton("Manage Properties");
+        propertyButton.addActionListener(this);
         currencyExchangePanel.add(new JPanel());
         currencyExchangePanel.add(backButton);
-        currencyExchangePanel.add(new JPanel());
+        currencyExchangePanel.add(propertyButton);
 
-        mainPanel.add(currencyExchangePanel);
+        mainPanel.removeAll(); // Remove any panels from the previous view
+        mainPanel.add(currencyExchangePanel, gbc);
+        mainPanel.revalidate();
+        mainPanel.repaint();
     }
     /**
     * Method called when any button is pressed
@@ -156,6 +154,8 @@ public class ForceExchangeDialog extends MillenialopolyDialog implements ActionL
                 }
                 dispose();
             }
+        } if (command.equals("Manage Properties")) {
+            loadPropertyManager();
         } else if (command.equals("Sell BTC")){
             try{
                 player.convertCurrency("BTC", "MIL", Double.parseDouble(btcField.getText()));
@@ -168,4 +168,5 @@ public class ForceExchangeDialog extends MillenialopolyDialog implements ActionL
             } catch(Exception e){};
         }
     }
+
 }
