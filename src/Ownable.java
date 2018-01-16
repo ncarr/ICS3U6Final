@@ -7,8 +7,8 @@
 public abstract class Ownable extends Tile {
 
     private int owner;
+    protected int mortgage;
     private boolean mortgaged;
-    private int mortgage;
 
     Ownable(String name) {
         super(name);

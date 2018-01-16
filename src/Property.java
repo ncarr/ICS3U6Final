@@ -6,10 +6,10 @@
 
 public class Property extends Ownable {
 
+
     private int[] rent;
     private int avocados;
     private int avocadoCost;
-    private int mortgage;
     private int cost;
 
     private MillenialopolyColor color;

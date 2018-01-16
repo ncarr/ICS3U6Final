@@ -6,10 +6,10 @@
 
  public class UtilityTile extends Ownable {
 
-     public static int mortgage = 75;
      public static int cost = 150;
 
      UtilityTile(String name) {
-         super(name);
+        super(name);
+        this.mortgage = 75;
      }
  }
