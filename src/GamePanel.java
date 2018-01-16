@@ -136,9 +136,14 @@ public class GamePanel extends JPanel implements ActionListener {
                             message( "Yay!", "You just paid " + buyCosts);
                         } else {
                             forceExchangeDialog(buyCosts, -1);
+                            forceExchangeDialog.addWindowListener(new WindowAdapter() {
+                                @Override
+                                public void windowClosed(WindowEvent e) {
+                                    game.sellOwnable(loc);
+                                }
+                            });
                             forceExchange = true;
                         }
-                        game.sellOwnable(loc);
                     }
                 }
             }
