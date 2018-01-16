@@ -4,11 +4,11 @@
  * @author Nicholas Carr, Carol Chen
  */
 
-public abstract class Ownable extends Tile {
+public abstract class Ownable extends Tile implements Comparable<Ownable> {
 
     private int owner;
+    protected int mortgage;
     private boolean mortgaged;
-    private int mortgage;
 
     Ownable(String name) {
         super(name);
@@ -35,5 +35,12 @@ public abstract class Ownable extends Tile {
 
     public int getMortgage() {
         return mortgage;
+    }
+
+    /**
+     * Alphabetical sort
+     */
+    public int compareTo(Ownable o) {
+        return this.getName().compareTo(o.getName());
     }
 }

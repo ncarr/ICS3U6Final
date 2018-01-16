@@ -4,12 +4,12 @@
  * @author Nicholas Carr, Carol Chen
  */
 
-public class Property extends Ownable {
+public class Property extends Ownable implements Comparable<Ownable> {
+
 
     private int[] rent;
     private int avocados;
     private int avocadoCost;
-    private int mortgage;
     private int cost;
 
     private MillenialopolyColor color;
@@ -61,6 +61,15 @@ public class Property extends Ownable {
 
     public void sellAvocado() {
         avocados--;
+    }
+
+    public int compareTo(Ownable o) {
+        if (o instanceof Property) {
+            int colordiff = this.getColor().getIndex() - ((Property) o).getColor().getIndex();
+            if (colordiff == 0) return super.compareTo(o);
+            return colordiff;
+        }
+        return -1;
     }
 
 }

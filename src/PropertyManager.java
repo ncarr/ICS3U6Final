@@ -11,6 +11,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
 
+import java.util.*;
 import java.io.*;
 
 public class PropertyManager extends JPanel implements ActionListener {
@@ -49,6 +50,7 @@ public class PropertyManager extends JPanel implements ActionListener {
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         int idx = 0;
+        Collections.sort(player.getOwnables());
         for (Ownable p: player.getOwnables()){
             JPanel propertyPanel = new JPanel();
             propertyPanel.setLayout(new GridBagLayout());
@@ -151,22 +153,22 @@ public class PropertyManager extends JPanel implements ActionListener {
             parent.loadMain();
         } else if (command.equals("Mortgage") || command.equals("Unmortgage")){
             int i = (Integer)btn.getClientProperty("index");
-            boolean spent = player.getProperties().get(i).changeMortgage();
+            boolean spent = player.getOwnables().get(i).changeMortgage();
             if (spent){
-                player.earnCurrency("MIL", player.getProperties().get(i).getMortgage());
+                player.spendCurrency("MIL", player.getOwnables().get(i).getMortgage());
             } else {
-                player.spendCurrency("MIL", player.getProperties().get(i).getMortgage());
+                player.earnCurrency("MIL", player.getOwnables().get(i).getMortgage());
             }
             parent.loadPropertyManager();
         } else if (command.equals("Sell Avocado")){
             int i = (Integer)btn.getClientProperty("index");
             player.getProperties().get(i).sellAvocado();
-            player.earnCurrency("MIL", player.getProperties().get(i).getAvocadoCost());
+            player.earnCurrency("MIL", ((Property)player.getOwnables().get(i)).getAvocadoCost());
             parent.loadPropertyManager();
         } else if (command.equals("Buy Avocado")){
             int i = (Integer)btn.getClientProperty("index");
             player.getProperties().get(i).addAvocado();
-            player.spendCurrency("MIL", player.getProperties().get(i).getAvocadoCost());
+            player.spendCurrency("MIL", ((Property)player.getOwnables().get(i)).getAvocadoCost());
             parent.loadPropertyManager();
         }
     }

@@ -66,9 +66,9 @@ public class TilePanel extends JPanel {
                 border = BorderFactory.createCompoundBorder(border, outer);
                 outer = BorderFactory.createMatteBorder(1, 2, 1, 2, Color.white);
                 border = BorderFactory.createCompoundBorder(border, outer);
-                this.setBorder(border);
             }
         }
+        this.setBorder(border);
     }
 
     /**
