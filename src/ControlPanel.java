@@ -246,13 +246,10 @@ public class ControlPanel extends MillenialopolyDialog implements ActionListener
         // Add back button
         JButton backButton = new JButton("Back");
         backButton.addActionListener(this);
-        currencyExchangePanel.add(new JPanel());
-        currencyExchangePanel.add(backButton);
-        currencyExchangePanel.add(new JPanel());
-
 
         mainPanel.removeAll(); // Remove any panels from the previous view
-        mainPanel.add(currencyExchangePanel);
+        mainPanel.add(currencyExchangePanel, gbc);
+        mainPanel.add(backButton, gbc);
         mainPanel.revalidate();
         mainPanel.repaint();
     }

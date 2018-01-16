@@ -87,8 +87,10 @@ public class PropertyManager extends JPanel implements ActionListener {
                 propertyPanel.add(avocadoPanel, gbc);
                 propertyPanel.add(avocadoCostLabel, gbc);
             } else if (p instanceof UtilityTile){
-                JLabel rentLabel = new JLabel("If one Utility is owned, then rent is 4 times the die roll. If two Utilities are owned, then retn is 10 times the die roll.", SwingConstants.CENTER);
+                JLabel rentLabel = new JLabel("If one Utility is owned, then rent is 4 times the die roll.", SwingConstants.CENTER);
+                JLabel rentLabel2 = new JLabel("If two Utilities are owned, then retn is 10 times the die roll.", SwingConstants.CENTER);
                 propertyPanel.add(rentLabel, gbc);
+                propertyPanel.add(rentLabel2, gbc);
             } else if (p instanceof HyperloopTile){
                 JPanel rentPanel = new JPanel();
                 rentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -111,14 +113,16 @@ public class PropertyManager extends JPanel implements ActionListener {
                 propertyPanel.add(sellAvocadoButton, gbc);
             } else {
                 JButton mortgageButton;
-                if (p.isMortgaged() && player.getMIL() > p.getMortgage()){
+                if (p.isMortgaged()){
                     mortgageButton = new JButton("Unmortgage");
                 } else {
                     mortgageButton = new JButton("Mortgage");
                 }
                 mortgageButton.putClientProperty("index", idx);
                 mortgageButton.addActionListener(this);
-                propertyPanel.add(mortgageButton, gbc);
+                if (player.getMIL() >= p.getMortgage() && p.isMortgaged() || !p.isMortgaged()){
+                    propertyPanel.add(mortgageButton, gbc);
+                }
             }
 
             if (p instanceof Property && player.canBuyAvocados((Property)p) && !((Property)p).isMortgaged()){
@@ -133,7 +137,7 @@ public class PropertyManager extends JPanel implements ActionListener {
         }
 
         JScrollPane scrollPane = new JScrollPane(propertyManagePanel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        scrollPane.setPreferredSize(new Dimension(window.getBounds().width - 600, window.getBounds().height - 300));
+        scrollPane.setPreferredSize(new Dimension(window.getBounds().width - 400, window.getBounds().height - 300));
 
         this.add(scrollPane, gbc);
 

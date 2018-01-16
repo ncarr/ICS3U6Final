@@ -126,16 +126,19 @@ public class ForceExchangeDialog extends MillenialopolyDialog implements ActionL
         // Add help text
 
         // Add finish button
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new GridLayout(0, 2));
+
         JButton backButton = new JButton("Finish");
         backButton.addActionListener(this);
         JButton propertyButton = new JButton("Manage Properties");
         propertyButton.addActionListener(this);
-        currencyExchangePanel.add(new JPanel());
-        currencyExchangePanel.add(backButton);
-        currencyExchangePanel.add(propertyButton);
+        buttonPanel.add(backButton);
+        buttonPanel.add(propertyButton);
 
         mainPanel.removeAll(); // Remove any panels from the previous view
         mainPanel.add(currencyExchangePanel, gbc);
+        mainPanel.add(buttonPanel, gbc);
         mainPanel.revalidate();
         mainPanel.repaint();
     }

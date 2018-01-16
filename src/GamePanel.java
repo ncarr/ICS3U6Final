@@ -53,22 +53,7 @@ public class GamePanel extends JPanel implements ActionListener {
         Tile spot = game.board[newLoc];
 
         boolean needExchange = false;
-        if (spot instanceof ChanceTile){
-            // draw card
-        } else if (spot instanceof TaxTile){
-            int costs = ((TaxTile)spot).getCost();
-            if (player.spendCurrency("MIL", costs)) {
-                message("Uh oh, taxes!", "You just paid " + costs);
-                game.addToTaxes(costs);
-            } else {
-                if (checkDeath(player, costs)) { // they need to exchange currency to be able to pay
-                    needExchange = true;
-                    game.addToTaxes(costs);
-                }
-            }
-        } else if (spot instanceof TheftTile){
-            player.earnCurrency("MIL", game.performCommunism());
-        } else if (spot instanceof Ownable){
+        if (spot instanceof Ownable){
             Ownable o = (Ownable)spot;
             int buyCosts = 0; // costs to purchase the tile
             int payCosts = 0; // Costs if the tile is owned
@@ -86,13 +71,34 @@ public class GamePanel extends JPanel implements ActionListener {
                 if (o.getOwner() > -1){
                     Player owner = game.getPlayers()[o.getOwner()];
                     payCosts = HyperloopTile.fares[owner.getNumHyperloops()];
-                    buyCosts = HyperloopTile.cost;
                 }
+                buyCosts = HyperloopTile.cost;
             } else if (spot instanceof Property){
                 payCosts = ((Property)o).getRent();
                 buyCosts = ((Property)o).getCost();
             }
             landOnOwnable(o, player, payCosts, buyCosts, newLoc);
+        } else {
+            if (spot instanceof ChanceTile){
+                // do stuff
+            } else if (spot instanceof TaxTile){
+                int costs = ((TaxTile)spot).getCost();
+                if (player.spendCurrency("MIL", costs)) {
+                    message("Uh oh, taxes!", "You just paid " + costs);
+                    game.addToTaxes(costs);
+                } else {
+                    if (checkDeath(player, costs)) { // they need to exchange currency to be able to pay
+                        ctrlComponent.setVisible(false);
+                        forceExchangeDialog(costs, -1);
+                        game.addToTaxes(costs);
+                    }
+                }
+            } else if (spot instanceof TheftTile){
+                int earnings = game.performCommunism();
+                message( "Lucky!", "You just earned " + Integer.toString(earnings) + " in taxes!");
+                player.earnCurrency("MIL", earnings);
+            }
+            ctrlComponent = new ControlPanel(this, window);
         }
         boardComponent.refresh();
     }
@@ -101,6 +107,7 @@ public class GamePanel extends JPanel implements ActionListener {
     public void landOnOwnable(Ownable o, Player player, int payCosts, int buyCosts, int loc){
         ctrlComponent = new ControlPanel(this, window);
         ctrlComponent.setVisible(false);
+        boolean forceExchange = false;
         if (o.getOwner() > -1){ // there is an owner, then rent should be paid
             if (!(o.getOwner() == game.getCurrPlayer())){ // make sure it's not owned by the user
                 Player owner = game.getPlayers()[o.getOwner()];
@@ -110,6 +117,7 @@ public class GamePanel extends JPanel implements ActionListener {
                         message("Rippy dippy", "You just paid " + payCosts);
                     } else {
                         forceExchangeDialog(payCosts, o.getOwner());
+                        forceExchange = true;
                         player.spendCurrency("MIL", payCosts);
                     }
                     owner.earnCurrency("MIL", payCosts);
@@ -127,11 +135,15 @@ public class GamePanel extends JPanel implements ActionListener {
                             message( "Yay!", "You just paid " + buyCosts);
                         } else {
                             forceExchangeDialog(buyCosts, -1);
+                            forceExchange = true;
                         }
                         game.sellOwnable(loc);
                     }
                 }
             }
+        }
+        if (!forceExchange){
+            ctrlComponent.setVisible(true);
         }
     }
 
