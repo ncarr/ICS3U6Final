@@ -153,18 +153,19 @@ public class ForceExchangeDialog extends MillenialopolyDialog implements ActionL
                     game.getPlayers()[receiver].earnCurrency("MIL", cost);
                 }
                 dispose();
+                parent.ctrlComponent.setVisible(true);
             }
         } if (command.equals("Manage Properties")) {
             loadPropertyManager();
         } else if (command.equals("Sell BTC")){
             try{
                 player.convertCurrency("BTC", "MIL", Double.parseDouble(btcField.getText()));
-                parent.forceExchangeDialog(cost, receiver);
+                loadMain();
             } catch(Exception e){};
         } else if (command.equals("Sell ETH")){
             try{
                 player.convertCurrency("ETH", "MIL", Double.parseDouble(ethField.getText()));
-                parent.forceExchangeDialog(cost, receiver);
+                loadMain();
             } catch(Exception e){};
         }
     }

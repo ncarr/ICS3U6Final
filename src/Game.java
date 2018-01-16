@@ -45,19 +45,15 @@ public class Game {
         }
     }
 
-    public void sellProperty(int propLoc) {
-        ((Property)board[propLoc]).setOwner(getCurrPlayer()); // set property to be owned
-        getPlayers()[getCurrPlayer()].addProperty((Property)board[propLoc]);  // add property to user
-    }
-
-    public void sellHyperloop(int propLoc) {
-        ((HyperloopTile)board[propLoc]).setOwner(getCurrPlayer()); // set property to be owned
-        getPlayers()[getCurrPlayer()].addHyperloop((HyperloopTile)board[propLoc]);  // add property to user
-    }
-
-    public void sellUtility(int propLoc) {
-        ((UtilityTile)board[propLoc]).setOwner(getCurrPlayer()); // set property to be owned
-        getPlayers()[getCurrPlayer()].addUtility((UtilityTile)board[propLoc]);  // add property to user
+    public void sellOwnable(int propLoc) {
+        ((Ownable)board[propLoc]).setOwner(getCurrPlayer()); // set property to be owned
+        if (board[propLoc] instanceof Property){
+            getPlayers()[getCurrPlayer()].addProperty((Property)board[propLoc]);
+        } else if (board[propLoc] instanceof UtilityTile){
+            getPlayers()[getCurrPlayer()].addUtility((UtilityTile)board[propLoc]);
+        } else if (board[propLoc] instanceof HyperloopTile){
+            getPlayers()[getCurrPlayer()].addHyperloop((HyperloopTile)board[propLoc]);
+        }
     }
 
     public int getCurrPlayer() {

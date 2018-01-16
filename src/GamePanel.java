@@ -11,7 +11,7 @@ import java.awt.event.*;
 
 public class GamePanel extends JPanel implements ActionListener {
     private MillenialopolyWindow window;
-    private ControlPanel ctrlComponent;
+    protected ControlPanel ctrlComponent;
     private BoardPanel boardComponent;
     private ForceExchangeDialog forceExchangeDialog;
     public Game game;
@@ -53,11 +53,10 @@ public class GamePanel extends JPanel implements ActionListener {
         Tile spot = game.board[newLoc];
 
         boolean needExchange = false;
-        int costs = 0;
         if (spot instanceof ChanceTile){
             // draw card
         } else if (spot instanceof TaxTile){
-            costs = ((TaxTile)spot).getCost();
+            int costs = ((TaxTile)spot).getCost();
             if (player.spendCurrency("MIL", costs)) {
                 message("Uh oh, taxes!", "You just paid " + costs);
                 game.addToTaxes(costs);
@@ -69,109 +68,71 @@ public class GamePanel extends JPanel implements ActionListener {
             }
         } else if (spot instanceof TheftTile){
             player.earnCurrency("MIL", game.performCommunism());
-        } else if (spot instanceof UtilityTile){
-            UtilityTile u = (UtilityTile)spot;
-            if (u.getOwner() > -1){ // there is an owner, then rent should be paid
-                Player owner = game.getPlayers()[u.getOwner()];
-                if (owner.getNumUtilities() == 1){
-                    costs = roll * 4;
-                } else {
-                    costs = roll * 10;
-                }
-                payToMessage(costs, owner.getName());
-                if (checkDeath(player, costs)) { // they need to exchange currency to be able to pay
-                    if (player.spendCurrency("MIL", costs)) {
-                        message("Rippy dippy", "You just paid " + costs);
+        } else if (spot instanceof Ownable){
+            Ownable o = (Ownable)spot;
+            int buyCosts = 0; // costs to purchase the tile
+            int payCosts = 0; // Costs if the tile is owned
+            if (spot instanceof UtilityTile){
+                if (o.getOwner() > -1){
+                    Player owner = game.getPlayers()[o.getOwner()];
+                    if (owner.getNumUtilities() == 1){
+                        payCosts = roll * 4;
                     } else {
-                        needExchange = true;
-                        player.spendCurrency("MIL", costs);
-                    }
-                    owner.earnCurrency("MIL", costs);
-                }
-            } else {
-                costs = UtilityTile.cost;
-                int choice = buyOption(costs, u.getName());
-
-                if (choice == 0){
-                    if (checkDeath(player, costs)) { // they need to exchange currency to be able to pay
-                        if (player.spendCurrency("MIL", costs)) {
-                            message( "Yay!", "You just paid " + costs);
-                        } else {
-                            needExchange = true;
-                        }
-                        game.sellUtility(newLoc);
+                        payCosts = roll * 10;
                     }
                 }
+                buyCosts = UtilityTile.cost;
+            } else if (spot instanceof HyperloopTile){
+                if (o.getOwner() > -1){
+                    Player owner = game.getPlayers()[o.getOwner()];
+                    payCosts = HyperloopTile.fares[owner.getNumHyperloops()];
+                    buyCosts = HyperloopTile.cost;
+                }
+            } else if (spot instanceof Property){
+                payCosts = ((Property)o).getRent();
+                buyCosts = ((Property)o).getCost();
             }
-        } else if (spot instanceof HyperloopTile){
-            HyperloopTile h = (HyperloopTile)spot;
-            if (h.getOwner() > -1){ // there is an owner, then rent should be paid
-                Player owner = game.getPlayers()[h.getOwner()];
-                costs = HyperloopTile.fares[owner.getNumHyperloops()];
-
-                payToMessage(costs, owner.getName());
-                if (checkDeath(player, costs)) { // they need to exchange currency to be able to pay
-                    if (player.spendCurrency("MIL", costs)) {
-                        message("Rippy dippy", "You just paid " + costs);
-                    } else {
-                        needExchange = true;
-                        player.spendCurrency("MIL", costs);
-                    }
-                    owner.earnCurrency("MIL", costs);
-                }
-            } else {
-                costs = HyperloopTile.cost;
-                int choice = buyOption(costs, h.getName());
-
-                if (choice == 0){
-                    if (checkDeath(player, costs)) { // they need to exchange currency to be able to pay
-                        if (player.spendCurrency("MIL", costs)) {
-                            message( "Yay!", "You just paid " + costs);
-                        } else {
-                            needExchange = true;
-                        }
-                        game.sellHyperloop(newLoc);
-                    }
-                }
-            }
-        } else if (spot instanceof Property){
-            Property p = (Property)spot;
-
-            if (p.getOwner() > -1){ // there is an owner, then rent should be paid
-                costs = p.getRent();
-                Player owner = game.getPlayers()[p.getOwner()];
-
-                payToMessage(costs, owner.getName());
-                if (checkDeath(player, costs)) { // they need to exchange currency to be able to pay
-                    if (player.spendCurrency("MIL", costs)) {
-                        message("Rippy dippy", "You just paid " + costs);
-                    } else {
-                        needExchange = true;
-                        player.spendCurrency("MIL", costs);
-                    }
-                    owner.earnCurrency("MIL", costs);
-                }
-            } else { // give option to purchase the property
-                costs = p.getCost();
-                int choice = buyOption(costs, p.getName());
-
-                if (choice == 0){
-                    if (checkDeath(player, costs)) { // they need to exchange currency to be able to pay
-                        if (player.spendCurrency("MIL", costs)) { // if enough money
-                            message("Yay!", "You just paid " + costs);
-                        } else { // if not  enough money
-                            needExchange = true;
-                        }
-                        game.sellProperty(newLoc);
-                    }
-                }
-            }
-        }
-        ctrlComponent = new ControlPanel(this, window);
-        if (needExchange){
-            forceExchangeDialog(costs, -1);
+            landOnOwnable(o, player, payCosts, buyCosts, newLoc);
         }
         boardComponent.refresh();
+    }
+
+    // returns 0 if no exchange needed, 1 if for purchase and 2 if for
+    public void landOnOwnable(Ownable o, Player player, int payCosts, int buyCosts, int loc){
+        ctrlComponent = new ControlPanel(this, window);
+        ctrlComponent.setVisible(false);
+        if (o.getOwner() > -1){ // there is an owner, then rent should be paid
+            if (!(o.getOwner() == game.getCurrPlayer())){ // make sure it's not owned by the user
+                Player owner = game.getPlayers()[o.getOwner()];
+                payToMessage(payCosts, owner.getName());
+                if (checkDeath(player, payCosts)) { // they need to exchange currency to be able to pay
+                    if (player.spendCurrency("MIL", payCosts)) {
+                        message("Rippy dippy", "You just paid " + payCosts);
+                    } else {
+                        forceExchangeDialog(payCosts, o.getOwner());
+                        player.spendCurrency("MIL", payCosts);
+                    }
+                    owner.earnCurrency("MIL", payCosts);
+                }
+            }
+        } else { // Then they can buy!
+            if (player.getAssetTotal() < buyCosts){
+                message("Not enough money to buy this!", "Sorry");
+            } else {
+                int choice = buyOption(buyCosts, o.getName());
+
+                if (choice == 0){
+                    if (checkDeath(player, buyCosts)) { // they need to exchange currency to be able to pay
+                        if (player.spendCurrency("MIL", buyCosts)) {
+                            message( "Yay!", "You just paid " + buyCosts);
+                        } else {
+                            forceExchangeDialog(buyCosts, -1);
+                        }
+                        game.sellOwnable(loc);
+                    }
+                }
+            }
+        }
     }
 
     private boolean checkDeath(Player player, int costs){
