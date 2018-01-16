@@ -30,7 +30,11 @@ public abstract class MillennialopolyDialog extends JDialog implements ActionLis
         this.player = game.getPlayers()[game.getCurrPlayer()];
 
         Rectangle r = window.getBounds();
-        this.setSize(r.width - 350, r.height - 250);  // Don't have it take up full width
+
+        // Each tile is 1/11 of the screen
+        int height = (int)(r.height * (9.0 / 11) - 50);
+        int width = (int)(r.width * (9.0 / 11) - 50);
+        this.setSize(width, height);  // Don't have it take up full width
         this.setLocationRelativeTo(window);
 
         this.setUndecorated(true); // No standard dialog decorations
