@@ -125,7 +125,7 @@ public class GamePanel extends JPanel implements ActionListener {
                 }
             }
         } else { // Then they can buy!
-            if (player.getAssetTotal() < buyCosts){
+            if (player.getAssetTotal() <= buyCosts){
                 message("Sorry", "Not enough money to buy this!");
             } else {
                 int choice = buyOption(buyCosts, o.getName());
@@ -154,7 +154,7 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     private boolean checkDeath(Player player, int costs){
-        if (player.getAssetTotal() < costs){
+        if (player.getAssetTotal() <= costs){
             lose(player);
             return false;
         }
