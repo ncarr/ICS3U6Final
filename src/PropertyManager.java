@@ -125,7 +125,10 @@ public class PropertyManager extends JPanel implements ActionListener {
                 }
             }
 
-            if (p instanceof Property && player.canBuyAvocados((Property)p) && !((Property)p).isMortgaged()){
+            if (p instanceof Property &&
+                player.canBuyAvocados((Property)p) &&
+                !((Property)p).isMortgaged() &&
+                player.getMIL() >= ((Property)p).getAvocadoCost()){
                 JButton buyAvocadoButton = new JButton("Buy Avocado");
                 buyAvocadoButton.putClientProperty("index", idx);
                 buyAvocadoButton.addActionListener(this);
