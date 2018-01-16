@@ -16,10 +16,10 @@ import java.io.*;
 
 public class PropertyManager extends JPanel implements ActionListener {
 
-    private MillenialopolyWindow window;
+    private MillennialopolyWindow window;
     private GridBagConstraints gbc;
 
-    private MillenialopolyDialog parent;
+    private MillennialopolyDialog parent;
     private Game game;
     private Player player;
 
@@ -28,7 +28,7 @@ public class PropertyManager extends JPanel implements ActionListener {
 
     private int cost, receiver; // the amount that needs to be paid an the index of the receiver, -1 if none
 
-    public PropertyManager(MillenialopolyDialog parent, MillenialopolyWindow window) {
+    public PropertyManager(MillennialopolyDialog parent, MillennialopolyWindow window) {
         // Create a JPanel and add the buttons
         super();
         this.window = window;

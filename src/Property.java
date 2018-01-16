@@ -12,9 +12,9 @@ public class Property extends Ownable implements Comparable<Ownable> {
     private int avocadoCost;
     private int cost;
 
-    private MillenialopolyColor color;
+    private MillennialopolyColor color;
 
-    Property(String name, MillenialopolyColor color, int[] rent,
+    Property(String name, MillennialopolyColor color, int[] rent,
              int mortgage, int cost, int avocadoCost) {
         // Init
         super(name);
@@ -27,7 +27,7 @@ public class Property extends Ownable implements Comparable<Ownable> {
         this.color = color;
     }
 
-    public MillenialopolyColor getColor() {
+    public MillennialopolyColor getColor() {
         return color;
     }
 

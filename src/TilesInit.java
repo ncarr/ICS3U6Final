@@ -9,7 +9,7 @@ class TilesInit {
         new Tile("Passing Go"),
         new Property(
             "The Macintosh",
-            MillenialopolyColor.brown,
+            MillennialopolyColor.brown,
             new int[] { 2, 10, 30, 90, 160, 250 },
             30,
             60,
@@ -18,7 +18,7 @@ class TilesInit {
         new ChanceTile("Chance", false),
         new Property(
             "No World Wars in fifty years",
-            MillenialopolyColor.brown,
+            MillennialopolyColor.brown,
             new int[] { 4, 20, 60, 180, 320, 450 },
             30,
             60,
@@ -28,7 +28,7 @@ class TilesInit {
         new HyperloopTile("WATER WATER WATER LOOP"),
         new Property(
             "Taylor Swift",
-            MillenialopolyColor.lightBlue,
+            MillennialopolyColor.lightBlue,
             new int[] { 6, 30, 90, 270, 400, 550 },
             50,
             100,
@@ -37,7 +37,7 @@ class TilesInit {
         new ChanceTile("Community Chest", false),
         new Property(
             "Miley Cyrus",
-            MillenialopolyColor.lightBlue,
+            MillennialopolyColor.lightBlue,
             new int[] { 6, 30, 90, 270, 400, 550 },
             50,
             100,
@@ -45,7 +45,7 @@ class TilesInit {
         ),
         new Property(
             "Kanye West",
-            MillenialopolyColor.lightBlue,
+            MillennialopolyColor.lightBlue,
             new int[] { 8, 40, 100, 300, 450, 600 },
             60,
             120,
@@ -54,7 +54,7 @@ class TilesInit {
         new Tile("Visiting Jail"),
         new Property(
             "Netflix and Chill",
-            MillenialopolyColor.magenta,
+            MillennialopolyColor.magenta,
             new int[] { 10, 50, 150, 450, 625, 750 },
             70,
             140,
@@ -63,7 +63,7 @@ class TilesInit {
         new ChanceTile("Wild Chance", true),
         new Property(
             "Using internet acronyms irl",
-            MillenialopolyColor.magenta,
+            MillennialopolyColor.magenta,
             new int[] { 10, 50, 150, 450, 625, 750 },
             70,
             140,
@@ -71,7 +71,7 @@ class TilesInit {
         ),
         new Property(
             "Paying a friend to take care of your Snap streaks",
-            MillenialopolyColor.magenta,
+            MillennialopolyColor.magenta,
             new int[] { 12, 60, 180, 500, 700, 900 },
             80,
             160,
@@ -80,7 +80,7 @@ class TilesInit {
         new HyperloopTile("WARR HYPERLOOP"),
         new Property(
             "Nyan Cat",
-            MillenialopolyColor.orange,
+            MillennialopolyColor.orange,
             new int[] { 14, 70, 200, 550, 750, 950 },
             90,
             180,
@@ -89,7 +89,7 @@ class TilesInit {
         new ChanceTile("Chance", false),
         new Property(
             "Datboi",
-            MillenialopolyColor.orange,
+            MillennialopolyColor.orange,
             new int[] { 14, 70, 200, 550, 750, 950 },
             90,
             180,
@@ -97,7 +97,7 @@ class TilesInit {
         ),
         new Property(
             "It's Wednesday my dudes",
-            MillenialopolyColor.orange,
+            MillennialopolyColor.orange,
             new int[] { 16, 80, 220, 600, 800, 1000 },
             100,
             200,
@@ -106,7 +106,7 @@ class TilesInit {
         new TheftTile("Steal Tax Money"),
         new Property(
             "Knuckles",
-            MillenialopolyColor.red,
+            MillennialopolyColor.red,
             new int[]{18,90,250,700,875,1050},
             110,
             220,
@@ -115,7 +115,7 @@ class TilesInit {
         new ChanceTile("Community Chest", false),
         new Property(
             "Uganda",
-            MillenialopolyColor.red,
+            MillennialopolyColor.red,
             new int[]{18,90,250,700,875,1050},
             110,
             220,
@@ -123,7 +123,7 @@ class TilesInit {
         ),
         new Property(
             "memes",
-            MillenialopolyColor.red,
+            MillennialopolyColor.red,
             new int[]{20,100,300,750,925,1100},
             120,
             240,
@@ -132,7 +132,7 @@ class TilesInit {
         new HyperloopTile("Hyperloop One"),
         new Property(
             "Carol Cresent",
-            MillenialopolyColor.yellow,
+            MillennialopolyColor.yellow,
             new int[]{22,110,330,800,975,1150},
             130,
             260,
@@ -140,7 +140,7 @@ class TilesInit {
         ),
         new Property(
             "Nicholas Lane",
-            MillenialopolyColor.yellow,
+            MillennialopolyColor.yellow,
             new int[]{22,110,330,800,975,1150},
             130,
             260,
@@ -149,7 +149,7 @@ class TilesInit {
         new UtilityTile("Waterloo"),
         new Property(
             "Nathan Ave",
-            MillenialopolyColor.yellow,
+            MillennialopolyColor.yellow,
             new int[]{24,120,360,850,1025,1200},
             140,
             280,
@@ -158,7 +158,7 @@ class TilesInit {
         new GoToJailTile("Go to jail"),
         new Property(
             "Trump",
-            MillenialopolyColor.green,
+            MillennialopolyColor.green,
             new int[]{26,130,390,900,1100,1275},
             150,
             300,
@@ -166,7 +166,7 @@ class TilesInit {
         ),
         new Property(
             "Hillary",
-            MillenialopolyColor.green,
+            MillennialopolyColor.green,
             new int[]{26,130,390,900,1100,1275},
             150,
             300,
@@ -175,7 +175,7 @@ class TilesInit {
         new ChanceTile("Wild Chance", true),
         new Property(
             "Bernie can still Win",
-            MillenialopolyColor.green,
+            MillennialopolyColor.green,
             new int[]{28,150,450,1000,1200,1400},
             160,
             320,
@@ -185,7 +185,7 @@ class TilesInit {
         new ChanceTile("Wild Chance", true),
         new Property(
             "Misha inc.",
-            MillenialopolyColor.blue,
+            MillennialopolyColor.blue,
             new int[]{35,175,500,1100,1300,1500},
             175,
             350,
@@ -194,7 +194,7 @@ class TilesInit {
         // TODO: make this luxury tax
         new Property(
             "CBC",
-            MillenialopolyColor.blue,
+            MillennialopolyColor.blue,
             new int[]{50,200,600,1400,1700,2000},
             200,
             400,
@@ -202,7 +202,7 @@ class TilesInit {
         ),
         new Property(
             "dHack",
-            MillenialopolyColor.blue,
+            MillennialopolyColor.blue,
             new int[]{50,200,600,1400,1700,2000},
             200,
             400,

@@ -13,13 +13,13 @@ import java.awt.image.*;
 
 import java.io.*;
 
-public class ControlPanel extends MillenialopolyDialog implements ActionListener {
+public class ControlPanel extends MillennialopolyDialog implements ActionListener {
 
     // Fields for currency exchange
     private JTextField ethField;
     private JTextField btcField;
 
-    public ControlPanel(GamePanel parent, MillenialopolyWindow window) {
+    public ControlPanel(GamePanel parent, MillennialopolyWindow window) {
         // Create a JPanel and add the buttons
         super(parent, window);
         loadMain();

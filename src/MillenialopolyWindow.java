@@ -1,5 +1,5 @@
 /**
- * [MillenialopolyWindow.java]
+ * [MillennialopolyWindow.java]
  * Main window / frame
  * @author Nicholas Carr, Carol Chen
  */
@@ -11,13 +11,13 @@ import java.awt.*;
  * Main game window
  * @author Nicholas Carr
  */
-public class MillenialopolyWindow extends JFrame {
+public class MillennialopolyWindow extends JFrame {
 
-  public MillenialopolyWindow() {
+  public MillennialopolyWindow() {
     super();
 
     // Set the properties of the window
-    this.setTitle("Millenialopoly");
+    this.setTitle("Millennialopoly");
     this.pack();
 
     // Make it visible

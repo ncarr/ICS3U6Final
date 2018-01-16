@@ -9,14 +9,14 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class BoardPanel extends JPanel implements ActionListener {
-    private MillenialopolyWindow window;
+    private MillennialopolyWindow window;
 
     private GamePanel parent;
     private Game game;
     private Player player;
     private TilePanel[] tiles;
 
-    public BoardPanel(GamePanel parent, MillenialopolyWindow window) {
+    public BoardPanel(GamePanel parent, MillennialopolyWindow window) {
         // Create a JPanel and add the buttons
         super();
         this.window = window;

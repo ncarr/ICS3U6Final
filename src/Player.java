@@ -130,14 +130,14 @@ public class Player{
 
     public boolean canBuyAvocados(Property p){
         if (p.getAvocados() < 6){
-            MillenialopolyColor col = p.getColor();
+            MillennialopolyColor col = p.getColor();
             int count = 0;
             for (Property prop: getProperties()){
                 if (prop.getColor().equals(col)){
                     count++;
                 }
             }
-            if (col.equals(MillenialopolyColor.brown)){
+            if (col.equals(MillennialopolyColor.brown)){
                 if (count == 2) {
                     return true;
                 } else {

@@ -14,9 +14,9 @@ import java.awt.event.*;
  * @author Nicholas Carr, Carol Chen
  */
 public class WelcomePanel extends JPanel implements ActionListener {
-  private MillenialopolyWindow window;
+  private MillennialopolyWindow window;
 
-  public WelcomePanel(MillenialopolyWindow window) {
+  public WelcomePanel(MillennialopolyWindow window) {
     // Create a JPanel and add the buttons
     super();
 
@@ -32,7 +32,7 @@ public class WelcomePanel extends JPanel implements ActionListener {
     // Title Text
     JPanel titlePanel = new JPanel();
     Font titleFont = Fonts.TITLE.deriveFont(100F);
-    JLabel titleLabel = new JLabel("Millenialopoly", SwingConstants.CENTER);
+    JLabel titleLabel = new JLabel("Millennialopoly", SwingConstants.CENTER);
     titleLabel.setFont(titleFont);
     titlePanel.add(titleLabel);
 

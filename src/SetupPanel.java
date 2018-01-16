@@ -10,7 +10,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class SetupPanel extends JPanel implements ActionListener {
-    private MillenialopolyWindow window;
+    private MillennialopolyWindow window;
     private GridBagConstraints gbc;
 
     // Data to store
@@ -22,7 +22,7 @@ public class SetupPanel extends JPanel implements ActionListener {
     private String[] names;
     private Color[] colours;
 
-    public SetupPanel(MillenialopolyWindow window) {
+    public SetupPanel(MillennialopolyWindow window) {
         // Create a JPanel and add the buttons
         super();
         this.window = window;

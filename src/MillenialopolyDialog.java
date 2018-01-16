@@ -1,5 +1,5 @@
 /**
- * [MillenialopolyDialog.java]
+ * [MillennialopolyDialog.java]
  * Abstract class for JDialogs
  * @author Nicholas Carr, Carol Chen
  */
@@ -10,8 +10,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
 
-public abstract class MillenialopolyDialog extends JDialog implements ActionListener {
-    protected MillenialopolyWindow window;
+public abstract class MillennialopolyDialog extends JDialog implements ActionListener {
+    protected MillennialopolyWindow window;
     protected GridBagConstraints gbc;
     protected JPanel mainPanel;
 
@@ -19,7 +19,7 @@ public abstract class MillenialopolyDialog extends JDialog implements ActionList
     protected Game game;
     protected Player player;
 
-    public MillenialopolyDialog(GamePanel parent, MillenialopolyWindow window) {
+    public MillennialopolyDialog(GamePanel parent, MillennialopolyWindow window) {
         // Create a JPanel and add the buttons
         super();
 

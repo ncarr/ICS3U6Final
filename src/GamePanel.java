@@ -10,13 +10,13 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class GamePanel extends JPanel implements ActionListener {
-    private MillenialopolyWindow window;
+    private MillennialopolyWindow window;
     protected ControlPanel ctrlComponent;
     private BoardPanel boardComponent;
     private ForceExchangeDialog forceExchangeDialog;
     public Game game;
 
-    public GamePanel(MillenialopolyWindow window, int users, String[] names, Color[] colours) {
+    public GamePanel(MillennialopolyWindow window, int users, String[] names, Color[] colours) {
         // Create a JPanel and add the buttons
         super();
         this.window = window;

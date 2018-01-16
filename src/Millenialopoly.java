@@ -1,12 +1,12 @@
-/* [Millenialopoly.java]
- * A Monopoly variation adapted to suit "Millenials" a.k.a. Snake People
+/* [Millennialopoly.java]
+ * A Monopoly variation adapted to suit "Millennials" a.k.a. Snake People
  * @author Atharva Washimkar, adapted by Carol
  */
 
 import java.util.Scanner;
 import javax.swing.*;
 
-class Millenialopoly {
+class Millennialopoly {
 
     public static void main(String[] args) {
         // Start the shenanigans!
@@ -15,7 +15,7 @@ class Millenialopoly {
         } catch (UnsupportedLookAndFeelException e) {}
 
         // Start with welcome panel, instructions, etc
-        MillenialopolyWindow gameWindow = new MillenialopolyWindow();
+        MillennialopolyWindow gameWindow = new MillennialopolyWindow();
         WelcomePanel welcomePanel = new WelcomePanel(gameWindow);
     }
 }

@@ -1,19 +1,19 @@
 /**
- * [MillenialopolyColor.java]
+ * [MillennialopolyColor.java]
  * Game-specific colours
  * @author Nicholas Carr, Carol Chen
  */
 
 import java.awt.Color;
 
-public class MillenialopolyColor extends Color {
+public class MillennialopolyColor extends Color {
     private int index;
 
-    private MillenialopolyColor(Color color, int index) {
+    private MillennialopolyColor(Color color, int index) {
         super(color.getRGB());
         this.index = index;
     }
-    private MillenialopolyColor(int r, int g, int b, int index) {
+    private MillennialopolyColor(int r, int g, int b, int index) {
         super(r, g, b);
         this.index = index;
     }
@@ -22,16 +22,16 @@ public class MillenialopolyColor extends Color {
         return this.index;
     }
 
-    public static final MillenialopolyColor brown = new MillenialopolyColor(165, 42, 42, 0);
-    public static final MillenialopolyColor lightBlue = new MillenialopolyColor(173, 216, 230, 1);
-    public static final MillenialopolyColor magenta = new MillenialopolyColor(Color.magenta, 2);
-    public static final MillenialopolyColor orange = new MillenialopolyColor(Color.orange, 3);
-    public static final MillenialopolyColor red = new MillenialopolyColor(Color.red, 4);
-    public static final MillenialopolyColor yellow = new MillenialopolyColor(Color.yellow, 5);
-    public static final MillenialopolyColor green = new MillenialopolyColor(Color.green, 6);
-    public static final MillenialopolyColor blue = new MillenialopolyColor(0, 128, 255, 7);
+    public static final MillennialopolyColor brown = new MillennialopolyColor(165, 42, 42, 0);
+    public static final MillennialopolyColor lightBlue = new MillennialopolyColor(173, 216, 230, 1);
+    public static final MillennialopolyColor magenta = new MillennialopolyColor(Color.magenta, 2);
+    public static final MillennialopolyColor orange = new MillennialopolyColor(Color.orange, 3);
+    public static final MillennialopolyColor red = new MillennialopolyColor(Color.red, 4);
+    public static final MillennialopolyColor yellow = new MillennialopolyColor(Color.yellow, 5);
+    public static final MillennialopolyColor green = new MillennialopolyColor(Color.green, 6);
+    public static final MillennialopolyColor blue = new MillennialopolyColor(0, 128, 255, 7);
 
-    public static MillenialopolyColor[] colors = {
+    public static MillennialopolyColor[] colors = {
         brown,
         lightBlue,
         magenta,

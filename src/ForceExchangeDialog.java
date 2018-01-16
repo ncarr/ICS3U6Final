@@ -13,14 +13,14 @@ import java.awt.image.*;
 
 import java.io.*;
 
-public class ForceExchangeDialog extends MillenialopolyDialog implements ActionListener {
+public class ForceExchangeDialog extends MillennialopolyDialog implements ActionListener {
 
     private JTextField ethField;
     private JTextField btcField;
 
     private int cost, receiver; // the amount that needs to be paid an the index of the receiver, -1 if none
 
-    public ForceExchangeDialog(GamePanel parent, MillenialopolyWindow window, int cost, int receiver) {
+    public ForceExchangeDialog(GamePanel parent, MillennialopolyWindow window, int cost, int receiver) {
         // Create a JPanel and add the buttons
         super(parent, window);
 
