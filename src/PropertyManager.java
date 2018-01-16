@@ -74,7 +74,7 @@ public class PropertyManager extends JPanel implements ActionListener {
 
                 JPanel avocadoPanel = new JPanel();
                 avocadoPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-                avocadoPanel.setLayout(new GridLayout(4, 2));
+                avocadoPanel.setLayout(new GridLayout(5, 2));
                 for (int i = 1; i < 6; i++){
                     avocadoPanel.add(new JLabel("With " + Integer.toString(i)+ " avocado"));
                     avocadoPanel.add(new JLabel("$" + Integer.toString(prop.getRentVals()[i]) + " ", SwingConstants.RIGHT));
@@ -111,7 +111,7 @@ public class PropertyManager extends JPanel implements ActionListener {
                 propertyPanel.add(sellAvocadoButton, gbc);
             } else {
                 JButton mortgageButton;
-                if (p.isMortgaged()){
+                if (p.isMortgaged() && player.getMIL() > p.getMortgage()){
                     mortgageButton = new JButton("Unmortgage");
                 } else {
                     mortgageButton = new JButton("Mortgage");
