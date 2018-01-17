@@ -44,7 +44,12 @@ public class GamePanel extends JPanel implements ActionListener {
 
     public void endTurn() {
         Player player = game.getPlayers()[game.getCurrPlayer()];
-        game.nextTurn();
+
+        if (player == null){
+            game.nextTurn();
+            endTurn();
+            return;
+        }
         ctrlComponent.dispose();
         if (player.inJail()) {
             message("In Jail", "You're still in jail for a few turns");
@@ -141,6 +146,7 @@ public class GamePanel extends JPanel implements ActionListener {
                     if (checkDeath(player, buyCosts)) { // they need to exchange currency to be able to pay
                         if (player.spendCurrency("MIL", buyCosts)) {
                             message( "Yay!", "You just paid " + buyCosts);
+                            game.sellOwnable(loc);
                         } else {
                             forceExchangeDialog(buyCosts, -1);
                             forceExchangeDialog.addWindowListener(new WindowAdapter() {

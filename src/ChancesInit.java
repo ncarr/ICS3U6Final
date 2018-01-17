@@ -1,6 +1,6 @@
 /**
  * [ChanesInit.java]
- * Creates an array of methods that can be called 
+ * Creates an array of methods that can be called
  * @author Nathan Shen, Carol Chen
  */
 
@@ -12,18 +12,19 @@ public class ChancesInit{
     public interface ChanceAction {
         String execute();
     }
-
-    public static ChanceAction[] chances = new ChanceAction[] {
-        new ChanceAction() { public String execute() { return a(); } },
-    };
-
-    public static ChanceAction[] wildChances = new ChanceAction[] {
-        new ChanceAction() { public String execute() { return b(); } },
-    };
+    public static ChanceAction[] wildChances;
+    public static ChanceAction[] chances;
 
     public ChancesInit(Game game){
         this.game = game;
-        this.players = players;
+        this.players = game.getPlayers();
+        chances = new ChanceAction[] {
+            new ChanceAction() { public String execute() { return a(); } },
+        };
+
+        wildChances = new ChanceAction[] {
+            new ChanceAction() { public String execute() { return b(); } },
+        };
         return;
     }
 

@@ -33,6 +33,10 @@ public abstract class Ownable extends Tile implements Comparable<Ownable> {
         owner = player;
     }
 
+    public void clearOwner() {
+        owner = -1;
+    }
+
     public int getMortgage() {
         return mortgage;
     }

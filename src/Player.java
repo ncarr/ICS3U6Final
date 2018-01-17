@@ -84,7 +84,7 @@ public class Player{
             }
             ETH -= Game.Ethereum.convertFromMIL(amountMIL);
         } else if (currency.equals("BTC")){
-            if (Game.Bitcoin.convertToMIL(amountMIL) > BTC){
+            if (Game.Bitcoin.convertFromMIL(amountMIL) > BTC){
                 return false;
             }
             BTC -= Game.Bitcoin.convertFromMIL(amountMIL);
@@ -209,7 +209,12 @@ public class Player{
     }
 
     public void lose(){
-        // die user die
+        for (Ownable o: getOwnables()){
+            o.clearOwner();
+            if (o instanceof Property){
+                ((Property)o).removeAvocados();
+            }
+        }
     }
 
     public String getName() {
