@@ -46,60 +46,67 @@ public class GamePanel extends JPanel implements ActionListener {
         Player player = game.getPlayers()[game.getCurrPlayer()];
         game.nextTurn();
         ctrlComponent.dispose();
-        int roll = Player.roll();
-        int newLoc = player.move(roll);
-        message(player.getName() + "'s turn!", "You just rolled a " + roll);
-        // handle the new location, pay if needed, prompt for purchase if needed
-        Tile spot = game.board[newLoc];
-
-        boolean needExchange = false;
-        if (spot instanceof Ownable){
-            Ownable o = (Ownable)spot;
-            int buyCosts = 0; // costs to purchase the tile
-            int payCosts = 0; // Costs if the tile is owned
-            if (spot instanceof UtilityTile){
-                if (o.getOwner() > -1){
-                    Player owner = game.getPlayers()[o.getOwner()];
-                    if (owner.getNumUtilities() == 1){
-                        payCosts = roll * 4;
-                    } else {
-                        payCosts = roll * 10;
-                    }
-                }
-                buyCosts = UtilityTile.cost;
-            } else if (spot instanceof HyperloopTile){
-                if (o.getOwner() > -1){
-                    Player owner = game.getPlayers()[o.getOwner()];
-                    payCosts = HyperloopTile.fares[owner.getNumHyperloops()];
-                }
-                buyCosts = HyperloopTile.cost;
-            } else if (spot instanceof Property){
-                payCosts = ((Property)o).getRent();
-                buyCosts = ((Property)o).getCost();
-            }
-            landOnOwnable(o, player, payCosts, buyCosts, newLoc);
+        if (player.inJail()) {
+            message("In Jail", "You're still in jail for a few turns");
         } else {
-            if (spot instanceof ChanceTile){
-                message(spot.getName(), game.drawCard(((ChanceTile)spot).isWild()));
-                // do stuff
-            } else if (spot instanceof TaxTile){
-                int costs = ((TaxTile)spot).getCost();
-                if (player.spendCurrency("MIL", costs)) {
-                    message("Uh oh, taxes!", "You just paid " + costs);
-                    game.addToTaxes(costs);
-                } else {
-                    if (checkDeath(player, costs)) { // they need to exchange currency to be able to pay
-                        ctrlComponent.setVisible(false);
-                        forceExchangeDialog(costs, -1);
-                        game.addToTaxes(costs);
+            int roll = Player.roll();
+            int newLoc = player.move(roll);
+            message(player.getName() + "'s turn!", "You just rolled a " + roll);
+            // handle the new location, pay if needed, prompt for purchase if needed
+            Tile spot = game.board[newLoc];
+
+            boolean needExchange = false;
+            if (spot instanceof Ownable){
+                Ownable o = (Ownable)spot;
+                int buyCosts = 0; // costs to purchase the tile
+                int payCosts = 0; // Costs if the tile is owned
+                if (spot instanceof UtilityTile){
+                    if (o.getOwner() > -1){
+                        Player owner = game.getPlayers()[o.getOwner()];
+                        if (owner.getNumUtilities() == 1){
+                            payCosts = roll * 4;
+                        } else {
+                            payCosts = roll * 10;
+                        }
                     }
+                    buyCosts = UtilityTile.cost;
+                } else if (spot instanceof HyperloopTile){
+                    if (o.getOwner() > -1){
+                        Player owner = game.getPlayers()[o.getOwner()];
+                        payCosts = HyperloopTile.fares[owner.getNumHyperloops()];
+                    }
+                    buyCosts = HyperloopTile.cost;
+                } else if (spot instanceof Property){
+                    payCosts = ((Property)o).getRent();
+                    buyCosts = ((Property)o).getCost();
                 }
-            } else if (spot instanceof TheftTile){
-                int earnings = game.performCommunism();
-                message( "Lucky!", "You just earned " + Integer.toString(earnings) + " in taxes!");
-                player.earnCurrency("MIL", earnings);
+                landOnOwnable(o, player, payCosts, buyCosts, newLoc);
+            } else {
+                if (spot instanceof ChanceTile){
+                    message(spot.getName(), game.drawCard(((ChanceTile)spot).isWild()));
+                    // do stuff
+                } else if (spot instanceof TaxTile){
+                    int costs = ((TaxTile)spot).getCost();
+                    if (player.spendCurrency("MIL", costs)) {
+                        message("Uh oh, taxes!", "You just paid " + costs);
+                        game.addToTaxes(costs);
+                    } else {
+                        if (checkDeath(player, costs)) { // they need to exchange currency to be able to pay
+                            ctrlComponent.setVisible(false);
+                            forceExchangeDialog(costs, -1);
+                            game.addToTaxes(costs);
+                        }
+                    }
+                } else if (spot instanceof TheftTile){
+                    int earnings = game.performCommunism();
+                    message( "Lucky!", "You just earned " + Integer.toString(earnings) + " in taxes!");
+                    player.earnCurrency("MIL", earnings);
+                } else if (spot instanceof GoToJailTile) {
+                    player.goToJail();
+                    message( "Uh oh!", "You're going to jail!");
+                }
+                ctrlComponent = new ControlPanel(this, window);
             }
-            ctrlComponent = new ControlPanel(this, window);
         }
         boardComponent.refresh();
     }

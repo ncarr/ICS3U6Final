@@ -39,6 +39,7 @@ public class Game {
     }
 
     public void nextTurn() {
+        players[currPlayer].nextTurn();
         if (currPlayer == numPlayers - 1){
             currPlayer = 0;
             Bitcoin.update();
@@ -65,6 +66,10 @@ public class Game {
 
     public Player[] getPlayers() {
         return players;
+    }
+
+    public int getNumPlayers() {
+        return numPlayers;
     }
 
     public void addToTaxes(int taxes){

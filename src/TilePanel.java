@@ -1,6 +1,6 @@
 /**
  * [TilePanel.java]
- * Panel to resume a saved game
+ * Renders all game board tiles
  * @author Nicholas Carr, Carol Chen
  */
 
@@ -11,6 +11,7 @@ import java.awt.*;
 public class TilePanel extends JPanel {
     private Tile tile;
     private JTextArea titleLabel;
+    private JPanel jailPanel;
     private Game game;
     private int index;
 
@@ -27,6 +28,23 @@ public class TilePanel extends JPanel {
         }
         // Add the tile's name
         Font titleFont = Fonts.TITLE.deriveFont(15F);
+        // Add the "In jail" section to jail
+        if (tile.getName().equals("Visiting Jail")) {
+            this.jailPanel = new JPanel();
+            this.jailPanel.setBackground(MillennialopolyColor.orange);
+
+            // JTextAreas support text wrapping
+            JTextArea text = new JTextArea("In Jail");
+            // Make it look like a JLabel
+            text.setBackground(null);
+            text.setEditable(false);
+            text.setBorder(null);
+            text.setLineWrap(true);
+            text.setWrapStyleWord(true);
+            text.setFocusable(false);
+            text.setFont(titleFont);
+            this.jailPanel.add(text);
+        }
         // JTextAreas support text wrapping
         titleLabel = new JTextArea(tile.getName());
         // Make it look like a JLabel
@@ -37,7 +55,7 @@ public class TilePanel extends JPanel {
         titleLabel.setWrapStyleWord(true);
         titleLabel.setFocusable(false);
         titleLabel.setFont(titleFont);
-        this.add(titleLabel);
+        this.refreshContents();
         // Indicate whether a player is on this tile
         this.refreshBorder();
         this.refreshAvocados();
@@ -50,7 +68,7 @@ public class TilePanel extends JPanel {
         this.refreshOwner();
         this.refreshBorder();
         this.removeAll();
-        this.add(titleLabel);
+        this.refreshContents();
         this.refreshAvocados();
     }
 
@@ -78,7 +96,7 @@ public class TilePanel extends JPanel {
         Border border = this.getBorder();
         Player[] players = game.getPlayers();
         for (int i = 0; i < players.length; i++) {
-            if (players[i] != null && players[i].getLocation() == index) {
+            if (players[i] != null && !players[i].inJail() && players[i].getLocation() == index) {
                 Border outer = BorderFactory.createMatteBorder(0, 0, 5, 0, players[i].getColour());
                 border = BorderFactory.createCompoundBorder(border, outer);
                 outer = BorderFactory.createMatteBorder(0, 0, 1, 0, Color.white);
@@ -86,6 +104,27 @@ public class TilePanel extends JPanel {
             }
         }
         this.setBorder(border);
+    }
+
+    /**
+    * Reset the contents to the page title, or the jail
+    */
+    public void refreshContents() {
+        if (tile.getName().equals("Visiting Jail")) {
+            Border border = BorderFactory.createEmptyBorder();
+            Player[] players = game.getPlayers();
+            for (int i = 0; i < players.length; i++) {
+                if (players[i] != null && players[i].inJail()) {
+                    Border outer = BorderFactory.createMatteBorder(0, 0, 5, 0, players[i].getColour());
+                    border = BorderFactory.createCompoundBorder(border, outer);
+                    outer = BorderFactory.createMatteBorder(0, 0, 1, 0, Color.white);
+                    border = BorderFactory.createCompoundBorder(border, outer);
+                }
+            }
+            this.jailPanel.setBorder(border);
+            this.add(jailPanel);
+        }
+        this.add(titleLabel);
     }
 
     public void refreshAvocados() {

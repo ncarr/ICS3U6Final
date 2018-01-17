@@ -19,6 +19,8 @@ public class Player{
     private int location;
     private double MIL, BTC, ETH;
     private Color colour;
+    private int movementFactor;
+    private int jailTermsLeft;
 
     Player(String playerName, Color colour) {
         name = playerName;
@@ -28,14 +30,18 @@ public class Player{
         hyperloops = new ArrayList<HyperloopTile>();
         utilities = new ArrayList<UtilityTile>();
         MIL = 1500; // Starting money
+        movementFactor = 1; // Some wild chance cards will adjust this to have you move backwards
+        jailTermsLeft = -1;
     }
 
 
     public int move(int roll) {
-        location += roll;
-        if (location >= 40){
-            location = location % 40;
-            passGo();
+        if (!inJail()) {
+            location += roll * movementFactor;
+            if (location >= 40 || location < 0){
+                location = Math.floorMod(location, 40);
+                passGo();
+            }
         }
         return location;
     }
@@ -153,6 +159,21 @@ public class Player{
         } else {
             return false;
         }
+    }
+    public void nextTurn() {
+        if (inJail()) {
+            jailTermsLeft--;
+        }
+    }
+    public boolean inJail() {
+        return jailTermsLeft >= 0;
+    }
+    public void goToJail() {
+        this.location = 10;
+        this.jailTermsLeft = 3;
+    }
+    public void goBack() {
+        this.movementFactor = -1;
     }
 
     public void addProperty(Property p){
