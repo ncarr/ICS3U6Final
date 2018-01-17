@@ -44,6 +44,12 @@ public class GamePanel extends JPanel implements ActionListener {
 
     public void endTurn() {
         Player player = game.getPlayers()[game.getCurrPlayer()];
+
+        if (player == null){
+            game.nextTurn();
+            endTurn();
+            return;
+        }
         ctrlComponent.dispose();
         int roll = Player.roll();
         int newLoc = player.move(roll);
@@ -101,7 +107,6 @@ public class GamePanel extends JPanel implements ActionListener {
             ctrlComponent = new ControlPanel(this, window);
         }
         boardComponent.refresh();
-        game.nextTurn();
     }
 
     // returns 0 if no exchange needed, 1 if for purchase and 2 if for

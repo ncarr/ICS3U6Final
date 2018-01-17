@@ -63,6 +63,10 @@ public class Property extends Ownable implements Comparable<Ownable> {
         avocados--;
     }
 
+    public void removeAvocados() {
+        avocados = 0;
+    }
+
     public int compareTo(Ownable o) {
         if (o instanceof Property) {
             int colordiff = this.getColor().getIndex() - ((Property) o).getColor().getIndex();

@@ -34,6 +34,7 @@ public class ControlPanel extends MillennialopolyDialog implements ActionListene
 
         // Main commands
         if (command.equals("End Turn")) {
+            game.nextTurn();
             parent.endTurn();
             dispose();
         } else if (command.equals("Exchange Currencies")){
@@ -48,23 +49,31 @@ public class ControlPanel extends MillennialopolyDialog implements ActionListene
         // Exchange commands
         else if (command.equals("Buy BTC")) {
             try{ // try for number porsing
-                player.convertCurrency("MIL", "BTC", Double.parseDouble(btcField.getText()));
-                loadCurrencyExchange();
+                if (Double.parseDouble(btcField.getText()) > 0){
+                    player.convertCurrency("MIL", "BTC", Double.parseDouble(btcField.getText()));
+                    loadCurrencyExchange();
+                }
             } catch(Exception e){};
         } else if (command.equals("Sell BTC")){
             try{
-                player.convertCurrency("BTC", "MIL", Double.parseDouble(btcField.getText()));
-                loadCurrencyExchange();
+                if (Double.parseDouble(btcField.getText()) > 0){
+                    player.convertCurrency("BTC", "MIL", Double.parseDouble(btcField.getText()));
+                    loadCurrencyExchange();
+                }
             } catch(Exception e){};
         } else if (command.equals("Buy ETH")){
             try{
-                player.convertCurrency("MIL", "ETH", Double.parseDouble(ethField.getText()));
-                loadCurrencyExchange();
+                if (Double.parseDouble(ethField.getText()) > 0){
+                    player.convertCurrency("MIL", "ETH", Double.parseDouble(ethField.getText()));
+                    loadCurrencyExchange();
+                }
             } catch(Exception e){};
         } else if (command.equals("Sell ETH")){
             try{
-                player.convertCurrency("ETH", "MIL", Double.parseDouble(ethField.getText()));
-                loadCurrencyExchange();
+                if (Double.parseDouble(ethField.getText()) > 0){
+                    player.convertCurrency("ETH", "MIL", Double.parseDouble(ethField.getText()));
+                    loadCurrencyExchange();
+                }
             } catch(Exception e){};
         }
 

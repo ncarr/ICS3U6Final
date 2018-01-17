@@ -188,7 +188,12 @@ public class Player{
     }
 
     public void lose(){
-        // die user die
+        for (Ownable o: getOwnables()){
+            o.clearOwner();
+            if (o instanceof Property){
+                ((Property)o).removeAvocados();
+            }
+        }
     }
 
     public String getName() {

@@ -77,6 +77,20 @@ public class Game {
         return res;
     }
 
+    public void killCurrPlayer(){
+        getPlayers()[getCurrPlayer()].lose();
+        // Check if there's only one person left
+        int c = numPlayers;
+        for (Player p: getPlayers()){
+            if (p == null){
+                c--;
+            }
+        }
+        if (c == 1){
+            // game over, this user has won
+        }
+    }
+
     public String drawCard(boolean wild){
         Random rand = new Random();
         if (wild){

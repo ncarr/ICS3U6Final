@@ -69,7 +69,7 @@ public class PropertyManager extends JPanel implements ActionListener {
 
             if (p instanceof Property){
                 Property prop = (Property)p;
-                JLabel rentLabel = new JLabel(Integer.toString(prop.getRentVals()[0]),
+                JLabel rentLabel = new JLabel("Rent: $" + Integer.toString(prop.getRentVals()[0]),
                                               SwingConstants.CENTER);
 
                 JPanel avocadoPanel = new JPanel();
