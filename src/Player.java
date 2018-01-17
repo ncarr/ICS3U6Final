@@ -78,7 +78,7 @@ public class Player{
             }
             ETH -= Game.Ethereum.convertFromMIL(amountMIL);
         } else if (currency.equals("BTC")){
-            if (Game.Bitcoin.convertToMIL(amountMIL) > BTC){
+            if (Game.Bitcoin.convertFromMIL(amountMIL) > BTC){
                 return false;
             }
             BTC -= Game.Bitcoin.convertFromMIL(amountMIL);

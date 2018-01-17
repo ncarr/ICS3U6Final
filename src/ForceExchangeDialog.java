@@ -158,14 +158,17 @@ public class ForceExchangeDialog extends MillennialopolyDialog implements Action
                 dispose();
                 parent.ctrlComponent.setVisible(true);
             }
-        } if (command.equals("Manage Properties")) {
+        } else if (command.equals("Manage Properties")) {
             loadPropertyManager();
         } else if (command.equals("Sell BTC")){
+            System.out.println("HHHHHHHHHHHH");
             try{
                 player.convertCurrency("BTC", "MIL", Double.parseDouble(btcField.getText()));
                 loadMain();
             } catch(Exception e){};
         } else if (command.equals("Sell ETH")){
+            System.out.println("nthdiuidhdiuidhthdiuihdiuidhdiueuds");
+
             try{
                 player.convertCurrency("ETH", "MIL", Double.parseDouble(ethField.getText()));
                 loadMain();

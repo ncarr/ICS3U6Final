@@ -44,7 +44,6 @@ public class GamePanel extends JPanel implements ActionListener {
 
     public void endTurn() {
         Player player = game.getPlayers()[game.getCurrPlayer()];
-        game.nextTurn();
         ctrlComponent.dispose();
         int roll = Player.roll();
         int newLoc = player.move(roll);
@@ -102,6 +101,7 @@ public class GamePanel extends JPanel implements ActionListener {
             ctrlComponent = new ControlPanel(this, window);
         }
         boardComponent.refresh();
+        game.nextTurn();
     }
 
     // returns 0 if no exchange needed, 1 if for purchase and 2 if for
@@ -134,6 +134,7 @@ public class GamePanel extends JPanel implements ActionListener {
                     if (checkDeath(player, buyCosts)) { // they need to exchange currency to be able to pay
                         if (player.spendCurrency("MIL", buyCosts)) {
                             message( "Yay!", "You just paid " + buyCosts);
+                            game.sellOwnable(loc);
                         } else {
                             forceExchangeDialog(buyCosts, -1);
                             forceExchangeDialog.addWindowListener(new WindowAdapter() {
