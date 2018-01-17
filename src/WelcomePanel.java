@@ -77,9 +77,9 @@ public class WelcomePanel extends JPanel implements ActionListener {
     } else if (command.equals("Resume saved game")) {
         // this.window.add(new ResumePanel(this));
     } else if (command.equals("Help")) {
-        // this.window.add(new HelpPanel(this));
+        new HelpPanel(this.window);
     } else if (command.equals("Quit")) {
-        // this.window.dispose();
+        this.window.dispose();
     }
   }
 }
