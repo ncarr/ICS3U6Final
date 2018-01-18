@@ -127,7 +127,6 @@ public class ControlPanel extends MillennialopolyDialog implements ActionListene
 
         // button options
         JPanel buttonPanel = new JPanel();
-        JButton tradeButton = new JButton("Offer a Trade");
         JButton currencyButton = new JButton("Exchange Currencies");
         JButton propertyButton = new JButton("Manage Properties");
         JButton endButton = new JButton("End Turn");
@@ -139,7 +138,6 @@ public class ControlPanel extends MillennialopolyDialog implements ActionListene
         endButton.addActionListener(this);
 
         // Add the buttons to the JPanel
-        buttonPanel.add(tradeButton);
         buttonPanel.add(currencyButton);
         buttonPanel.add(propertyButton);
         buttonPanel.add(endButton);

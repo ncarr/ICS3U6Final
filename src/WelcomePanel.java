@@ -39,7 +39,6 @@ public class WelcomePanel extends JPanel implements ActionListener {
     // button options
     JPanel buttonPanel = new JPanel();
     JButton playButton = new JButton("Play");
-    JButton resumeButton = new JButton("Resume saved game");
     JButton helpButton = new JButton("Help");
     JButton quitButton = new JButton("Quit");
 
@@ -51,7 +50,6 @@ public class WelcomePanel extends JPanel implements ActionListener {
 
     // Add the buttons to the JPanel
     buttonPanel.add(playButton);
-    buttonPanel.add(resumeButton); // Will we ever do this?
     buttonPanel.add(helpButton);
     buttonPanel.add(quitButton);
 
@@ -74,8 +72,6 @@ public class WelcomePanel extends JPanel implements ActionListener {
         window.getContentPane().remove(this); // remove welcome
         window.add(new SetupPanel(window)); // Move to setup
         window.getContentPane().revalidate(); // revalidate to refresh
-    } else if (command.equals("Resume saved game")) {
-        // this.window.add(new ResumePanel(this));
     } else if (command.equals("Help")) {
         new HelpPanel(this.window);
     } else if (command.equals("Quit")) {
