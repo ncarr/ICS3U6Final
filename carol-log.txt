@@ -1,0 +1,447 @@
+commit ba8f860a52b768c9d6a87b14608ad431b34228c2 (HEAD)
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Jan 17 22:13:57 2018 -0500
+
+    Added log
+
+commit 217a7ea58b34f3f1fc083f32a2c38f236f0c6583
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Jan 17 19:56:14 2018 -0500
+
+    Jail prompt change to include name
+
+commit d52791583b5f5f4525838743f2fd60ff0e7fde83
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Jan 17 19:51:42 2018 -0500
+
+    Rewrite colour sorting for the property manager so that cards of the same colour are grouped.
+
+commit 1927ef95ce381f3d86be234401659d1bef3af916
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Jan 17 19:40:36 2018 -0500
+
+    modify jail logic to make it essentially a turn skip
+
+commit 436c1c75bcef6d568d15b6329cb04b5774922bc6
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Jan 17 19:38:26 2018 -0500
+
+    Remove debugging lines for losing
+
+commit 83a774f6f64e96c81e96343cf03a34f554e47e06
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Jan 17 19:37:09 2018 -0500
+
+    Used the wrong sign again
+
+commit cd90209d83362522684cd2502939df6262c1b8ed
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Jan 17 19:35:28 2018 -0500
+
+    fix skipping user issue by checking if user is null
+
+commit ccabadb01ae96f226c45f99a1d4813a332964d4f
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Jan 17 19:32:18 2018 -0500
+
+    disallow single players
+
+commit 2e78d7dcd0abde72e3816e16cb0322919badb784
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Jan 17 19:24:15 2018 -0500
+
+    Add restart on lose. If only one user remains, add message about game over and restart the app.
+
+commit 542cb140ddfb14ab3ad70565361a18b13800ba96
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Jan 17 13:48:06 2018 -0500
+
+    Add ability to lose. Having the current player lose involves clearing the owner of all their properties and removing any avocados
+
+    Users are nullified, then their turns will be skipped
+
+commit 60d240cd5cf7b8ea57b93132c731ec4740387cf4
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Jan 17 10:56:59 2018 -0500
+
+    fixed bug in selling bitcoin refactored chances and moves
+
+commit d3b794ce9836248ef98014673445da4c336cbe26
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Tue Jan 16 13:41:18 2018 -0500
+
+    use >= to allow currency to hit 0
+
+commit 8e290b2f57b8aacb28d9a0c39c93f043eb487bda
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Tue Jan 16 13:37:31 2018 -0500
+
+    Fix dialog size by subtracting the tile heights and widths so that it's always guaranteed to fit
+
+commit 3c1f45cbc03b4491a90d22ee827d6b291c81c332
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Tue Jan 16 13:29:03 2018 -0500
+
+    Don't sell property until force exchange has been completed
+
+commit 3e8d3e27afcd6305b0d5a3716e0a56cd96f13788
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Tue Jan 16 13:26:28 2018 -0500
+
+    Add use of chances and wild chances
+
+commit 666247a1b54c77de77801038f3115f12a50dc4b3
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Tue Jan 16 13:05:57 2018 -0500
+
+    make other images smaller
+
+commit cd5d3340bb606ea33059a1147bef244911249810
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Tue Jan 16 13:03:44 2018 -0500
+
+    Make images smaller
+
+commit 4b7ae8230249b76dd01cb30c1d2126e245d69022
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Tue Jan 16 11:08:42 2018 -0500
+
+    rename files to change "millenial" to "millennial"
+
+commit 79cd695cfce3cc027d90ae384d7ebea39b12a7b2
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Tue Jan 16 11:01:51 2018 -0500
+
+    fixed massive spelling error of "Millennial"
+
+    we've been spelling it wrong all along commit seppuku
+
+commit f1cb786f007e7b2737ef43ff91dd1a254539b9a7
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Tue Jan 16 10:39:41 2018 -0500
+
+    Don't allow avocado purchase if not enough money
+
+commit ff0b2bff2d7e1c57dbd5faf64c1aa3a8c9dee228
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Tue Jan 16 01:41:48 2018 -0500
+
+    Update labels, and include all types of tiles in the landing logic. Coded the taxes and theft tiles.
+
+commit f011a69e92075204bb004d60175e53950b98d58a
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Tue Jan 16 01:07:13 2018 -0500
+
+    Refactor landing logic to have a function if user lands on an ownable.
+
+commit 0512e0bda7facfc4995d8693d6a6e2c028e4e3a5
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Mon Jan 15 23:31:17 2018 -0500
+
+    Don't allow unmortgaging if not enough money, update grid layout of prices
+
+commit b0013db303ed149dafd754cdb75769c24c548cb9
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Mon Jan 15 19:44:33 2018 -0500
+
+    Remove duplicated functions and variables and put them under the ownable class instead
+
+commit d625e2f0b71eb5b8dbb42b716b1781a880ac0b64
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Mon Jan 15 19:12:39 2018 -0500
+
+    Updated property manager to support the ownables class instead of checking each type of ownable.
+
+commit c68ec61a2b5f7b14cadcec0e2dd1e5b7c309ee0b
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Mon Jan 15 18:42:42 2018 -0500
+
+    Include all ownables in property manager.
+
+commit 5e0d4d6975fccf8f229b080556d5d425c9fa8788
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Mon Jan 15 18:26:49 2018 -0500
+
+    Make class for dialog, as the control panel and force exchange dialog use a lot of similar properties
+
+commit a7bfdf37460cba4f95f1ba1f305339db22a8f7a4
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Mon Jan 15 18:17:10 2018 -0500
+
+    Update isMortgaged function to return whether or not it was mortgaged
+
+commit 0accf61191d328517810c4b44631f25a7bc69bf6
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Mon Jan 15 16:15:04 2018 -0500
+
+    Added property manager to list properties to the control panel. Accessible through a button on the home view
+
+commit 665ff959016eebfe20f225b7487bcfbf1da188a1
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Mon Jan 15 13:00:54 2018 -0500
+
+    I used the wrong < sign
+
+commit cf5fe8fbe43bb4536e87effa586afadd113d58d4
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Sun Jan 14 21:07:34 2018 -0500
+
+    Make the border on tiles thicker
+
+commit 6fa49bb95676a2a8ed96465bba0919d25d38baad
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Sun Jan 14 21:03:18 2018 -0500
+
+    Create a function to check if the roll caused the player to lose
+
+commit 035acedaa5ebd1d3e83aeeb0a061a64cd35ef189
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Sun Jan 14 20:57:08 2018 -0500
+
+    Support landing on utilities. Custom rent calculating, storing utilities for players and checking type of tile was added
+
+commit 35a28758e29395ea680e6c057d56e2cb9e55fc16
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Sun Jan 14 20:34:24 2018 -0500
+
+    Added a text field class as the JTextField has little features. New field is styled and allows backspaces
+
+commit 5394952db59920ec77162e3e52b5dfe279e14c3b
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Sun Jan 14 20:25:07 2018 -0500
+
+    Changed the shade of blue
+
+commit e68046f11ee347ee5a474af65d633308ed6f1936
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Sun Jan 14 20:20:36 2018 -0500
+
+    Update formatting and commenting
+
+commit 701865a9b078ab5ce85f2db0238d1990cb0b16ff
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Sun Jan 14 15:21:48 2018 -0500
+
+    All property logic completed
+
+    Will be cleaning for duplicated code, and properties list view needs to be added in order to handle mortgages and add those to the forceExchangeDialog
+
+commit cab0b2949d83469fc4d4a6eda08a543bd5430220
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Sat Jan 13 17:29:53 2018 -0500
+
+    Create a file to store chance and wild cards. Allows storage of an array of methods
+
+commit 6f1c498c5bcafbcc550a1dcfc7eadedc6e77b827
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Sat Jan 13 17:02:36 2018 -0500
+
+    Removed some useless things
+
+commit ec81920893c8b36fb172160ba2afaf7939309e82
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Sat Jan 13 17:01:17 2018 -0500
+
+    Modify layouts, sizing and title content of the force exchange
+
+commit 870e5b790515cd2b6351d4178e3aec90a1e73664
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Sat Jan 13 16:37:55 2018 -0500
+
+    Modify the way names of tiles are stored
+
+commit 246666bbb2ede04779eb2f17d2aba89f606a60b1
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Sat Jan 13 16:00:50 2018 -0500
+
+    remove transaction fees on exchanging currencies
+
+commit 545f0d3904fe00ce3a18a96a6061c21334bc7322
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Sat Jan 13 15:12:32 2018 -0500
+
+    Process landing on tiles before directing user to the control panel.
+
+    Now, landing on a property will prompt for purchase if possible or pay rent. A force exchange dialog was programmed if user needs to exchange currency to pay.
+
+commit df098ed94401f571f76a2a75893cbddde6cf65c3
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Fri Jan 12 22:57:07 2018 -0500
+
+    Add location tracking for the user
+
+commit 6b4a45b1e48e1d0692a76922e09edd4b70192565
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Fri Jan 12 22:57:07 2018 -0500
+
+    Add dice roll to the end of each turn
+
+commit 64710b8b381de45f356c59912c6bdfbc90938ea6
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Fri Jan 12 22:36:48 2018 -0500
+
+    Add help for currency exchange and update some logic to make the code simpler
+
+commit 9e423d09a57b59e019174fd0b2996e0f63946c45
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Fri Jan 12 22:34:11 2018 -0500
+
+    Remove text based data left over from the json
+
+commit 82a6eec1998fc26a65d6b33e54c682d23dae2303
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Fri Jan 12 22:25:41 2018 -0500
+
+    Add actual functionality to the currency exchange. this includes the adddition of fields
+
+commit 8fc067bcc1cfc39941ec4427ff2c6d838ac23e12
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Thu Jan 11 18:25:48 2018 -0500
+
+    Add currency exchange view to the control panel
+
+commit 91c2d306e42fc7598e99785cb0e21894cb0108c8
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Thu Jan 11 17:18:27 2018 -0500
+
+    Implement new turn tracking system. Instead of looping, it calls a function and tracks the current player
+
+commit abe2022ebdcfd2cd9b5800c5998fd232f92ea12d
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Thu Jan 11 16:38:21 2018 -0500
+
+    Control panel layout, with buttons and currencies
+
+commit bb95838f397317022c029e2e6f935ec53dca66d3
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Jan 10 22:46:34 2018 -0500
+
+    Commenting
+
+commit 6881000d1e30cf01d5c8d56a1bc2a55dc184d04c
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Jan 10 22:41:42 2018 -0500
+
+    Add board and control panel view. Split the game panel into a setup panel. Process the input from the setup panel
+
+commit 04339fb8339a6a0516dc607176cb6864fe3d5647
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Jan 10 22:03:51 2018 -0500
+
+    add setup to include collecting names and number of users and add more ui scaffolding
+
+commit 5b59b90b8027a1d60a4e92209f02f22455779e32
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Jan 10 13:46:06 2018 -0500
+
+    Minor variable name change
+
+commit aaddd881c57c4b352bf073afa62cfdba0e2c0dee
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Jan 10 13:41:50 2018 -0500
+
+    Remove JSON Parser files in favour of hardcoding the data
+
+commit 27016af1ffa9c5d080ad5e46867503622e1f220d
+Merge: fed27d9 2342c68
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Jan 10 13:38:26 2018 -0500
+
+    Merge branch 'master' of https://github.com/ncarr/ICS3U6Final
+
+commit fed27d9940c582c9d5c4737ae39b78b2c0a6736d
+Merge: 3fa7bf4 963a379
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Jan 10 13:37:25 2018 -0500
+
+     Merge branch 'hmmm' of https://github.com/ncarr/ICS3U6Final
+
+commit 3fa7bf4c8f7b29fcb5fb1a9c001f2d60779bebfe
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Jan 10 13:37:09 2018 -0500
+
+    Removed JSON and added init script with hardcoded values
+
+
+commit 963a379c2787bade7d2be56c50813467c980022c
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Jan 10 13:31:26 2018 -0500
+
+    did lots
+
+    deleted data/
+    Modified use of third party libraries. MDLAF has some modified files, and many are no longer being used
+    Fixed up the welcome panel
+    fixed some other random broken things
+
+commit 5c7ad59c137916e1268049f29cb353656843bbc8
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Jan 10 13:30:23 2018 -0500
+
+    Added fonts
+
+commit 098796be10bf4bc9df46871cb41cc4a5bb8e4d5c
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Sat Jan 6 14:56:09 2018 -0500
+
+    add material ui
+
+commit d0400737cf0112e67bbc332a52b9bcf768d3afc5
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Sat Jan 6 14:45:31 2018 -0500
+
+    Properly add the json parser
+
+commit 1d29478aaf2ff4e81afc56ed7013ac432402bc37
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Sat Jan 6 00:33:45 2018 -0500
+
+    Fix buffered reader and json parser packages
+
+commit cfd56009f3ad000de7c233ff4395593dc1e01418
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Fri Jan 5 13:04:00 2018 -0500
+
+    Add board init by parsing JSON
+
+commit 5d064f755f4698fe6b71e6558c072b7c6d94b8ea
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Thu Jan 4 16:45:23 2018 -0500
+
+    Added a player array and avocado storage
+
+commit 2e03db90fd6cfe891ec39f4fd5374ed33adfa362
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Sat Dec 30 20:51:48 2017 -0500
+
+    Revert "Made it compile, made it a package so intellij stops yelling at me"
+
+    This reverts commit 5e4ec1839e5ca6a1ee8b7af705c30ef11c80ee72. This is because we're not allowed to use packages
+
+commit 0bb6475eee43c498d8c7c520afa9de8cf9ba3c74
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Fri Dec 29 01:18:39 2017 -0500
+
+    Added currency logic
+
+    Contains most of the currency logic we'll need. Conversion, updating, volatility, exchange. Fixes #6
+
+commit 783911ade29c8662eebf5c6a58f5d20efffdcb68
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Dec 27 15:41:43 2017 -0500
+
+    Scaffolding for taking turns
+
+    Fixes #4
+
+commit c786eba92660599a9d3f50da450a5c1aa16f7052
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Dec 27 15:22:14 2017 -0500
+
+    Initial scaffolding
+
+commit 22779fb0a700c82cdacd323bcff4b1a649c1c886
+Author: Carol Chen <carolyfisher@gmail.com>
+Date:   Wed Dec 20 13:35:11 2017 -0500
+
+    Update README.md
