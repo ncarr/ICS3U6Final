@@ -142,7 +142,8 @@ public class Player{
                     count++;
                 }
             }
-            if (col.equals(MillennialopolyColor.brown)){
+            if (col.equals(MillennialopolyColor.brown) ||
+                col.equals(MillennialopolyColor.blue)){
                 if (count == 2) {
                     return true;
                 } else {
