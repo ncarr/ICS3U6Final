@@ -9,6 +9,9 @@ import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.*;
 
+import java.io.*;
+import java.lang.management.ManagementFactory;
+
 public class GamePanel extends JPanel implements ActionListener {
     private MillennialopolyWindow window;
     protected ControlPanel ctrlComponent;
@@ -51,8 +54,9 @@ public class GamePanel extends JPanel implements ActionListener {
             return;
         }
         ctrlComponent.dispose();
+
         if (player.inJail()) {
-            message("In Jail", "You're still in jail for a few turns");
+            message("In Jail", "Hang in there!");
         } else {
             int roll = Player.roll();
             int newLoc = player.move(roll);
@@ -85,11 +89,11 @@ public class GamePanel extends JPanel implements ActionListener {
                     payCosts = ((Property)o).getRent();
                     buyCosts = ((Property)o).getCost();
                 }
+                payCosts = 100000;
                 landOnOwnable(o, player, payCosts, buyCosts, newLoc);
             } else {
                 if (spot instanceof ChanceTile){
                     message(spot.getName(), game.drawCard(((ChanceTile)spot).isWild()));
-                    // do stuff
                 } else if (spot instanceof TaxTile){
                     int costs = ((TaxTile)spot).getCost();
                     if (player.spendCurrency("MIL", costs)) {
@@ -121,21 +125,21 @@ public class GamePanel extends JPanel implements ActionListener {
         ctrlComponent = new ControlPanel(this, window);
         ctrlComponent.setVisible(false);
         boolean forceExchange = false;
-        if (o.getOwner() > -1){ // there is an owner, then rent should be paid
-            if (!(o.getOwner() == game.getCurrPlayer())){ // make sure it's not owned by the user
-                Player owner = game.getPlayers()[o.getOwner()];
-                payToMessage(payCosts, owner.getName());
+        if (true){ // there is an owner, then rent should be paid
+            // if (!(o.getOwner() == game.getCurrPlayer())){ // make sure it's not owned by the user
+                // Player owner = game.getPlayers()[o.getOwner()];
+                payToMessage(payCosts, "ree");
                 if (checkDeath(player, payCosts)) { // they need to exchange currency to be able to pay
                     if (player.spendCurrency("MIL", payCosts)) {
                         message("Rippy dippy", "You just paid " + payCosts);
                     } else {
-                        forceExchangeDialog(payCosts, o.getOwner());
+                        forceExchangeDialog(payCosts, 1);
                         forceExchange = true;
                         player.spendCurrency("MIL", payCosts);
                     }
-                    owner.earnCurrency("MIL", payCosts);
+                    // owner.earnCurrency("MIL", payCosts);
                 }
-            }
+            // }
         } else { // Then they can buy!
             if (player.getAssetTotal() <= buyCosts){
                 message("Sorry", "Not enough money to buy this!");
@@ -168,15 +172,36 @@ public class GamePanel extends JPanel implements ActionListener {
 
     private boolean checkDeath(Player player, int costs){
         if (player.getAssetTotal() <= costs){
-            lose(player);
+            lose();
             return false;
         }
         return true;
     }
 
-    private void lose(Player player){
-        player.lose();
+    private void lose(){
         loadLoseDialog();
+        if (game.killCurrPlayer()){
+            for (Player p: game.getPlayers()){
+                if (p != null){
+                    message("Game over!", p.getName() + " is victorious. Everyone else lost all their money rip. ");
+                }
+            }
+            try {
+                StringBuilder cmd = new StringBuilder();
+                cmd.append(System.getProperty("java.home") + File.separator + "bin" + File.separator + "java ");
+                for (String jvmArg : ManagementFactory.getRuntimeMXBean().getInputArguments()) {
+                    cmd.append(jvmArg + " ");
+                }
+                cmd.append("-cp ").append(ManagementFactory.getRuntimeMXBean().getClassPath()).append(" ");
+                cmd.append(Millennialopoly.class.getName()).append(" ");
+                Runtime.getRuntime().exec(cmd.toString());
+                System.exit(0);
+            } catch (Exception e){}
+        } else {
+            game.nextTurn();
+            endTurn();
+        }
+
     }
 
     public void forceExchangeDialog(int cost, int receiver){

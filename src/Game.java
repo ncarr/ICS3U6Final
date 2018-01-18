@@ -82,9 +82,9 @@ public class Game {
         return res;
     }
 
-    public void killCurrPlayer(){
+    public boolean killCurrPlayer(){ // return true if one player remaining
         getPlayers()[getCurrPlayer()].lose();
-        // Check if there's only one person left
+        getPlayers()[getCurrPlayer()] = null;
         int c = numPlayers;
         for (Player p: getPlayers()){
             if (p == null){
@@ -92,8 +92,9 @@ public class Game {
             }
         }
         if (c == 1){
-            // game over, this user has won
+            return true;
         }
+        return false;
     }
 
     public String drawCard(boolean wild){
