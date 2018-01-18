@@ -48,19 +48,12 @@ public class GamePanel extends JPanel implements ActionListener {
     public void endTurn() {
         Player player = game.getPlayers()[game.getCurrPlayer()];
 
-        if (player == null){
+        if (player == null || player.inJail()){
             game.nextTurn();
             endTurn();
             return;
         }
 
-        if (player.inJail()) {
-            message("In Jail", "Hang in there " + player.getName() + "!");
-            game.nextTurn();
-            endTurn();
-            return;
-        }
-        
         ctrlComponent.dispose();
 
         int roll = Player.roll();
