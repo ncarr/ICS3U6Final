@@ -128,7 +128,7 @@ public class SetupPanel extends JPanel implements ActionListener {
             try { // Try for integer parse
                 if (!usersNumField.getText().equals("")){ // Must be filled
                     numUsers = Integer.parseInt(usersNumField.getText());
-                    if (numUsers > 6){
+                    if (numUsers > 6 || numUsers < 1){
                         return; // Too many people probably.
                     }
                     names = new String[numUsers]; // Set length of names
