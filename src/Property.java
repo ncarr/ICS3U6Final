@@ -1,12 +1,12 @@
 /**
  * [Property.java]
  * Stores a property class
- * @author Nicholas Carr, Carol Chen
+ * @author Nicholas Carr, Carol Chen, Nathan Shen
  */
 
 public class Property extends Ownable {
 
-
+  // variables
     private int[] rent;
     private int avocados;
     private int avocadoCost;
@@ -14,6 +14,7 @@ public class Property extends Ownable {
 
     private MillennialopolyColor color;
 
+    // constructor takes data from tiles.init---------------------------------------------
     Property(String name, MillennialopolyColor color, int[] rent,
              int mortgage, int cost, int avocadoCost) {
         // Init
@@ -26,7 +27,8 @@ public class Property extends Ownable {
         this.avocadoCost = avocadoCost;
         this.color = color;
     }
-
+//------------------------------------------------------------------------------------------
+   // Find values for property
     public MillennialopolyColor getColor() {
         return color;
     }

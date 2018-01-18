@@ -1,11 +1,11 @@
 /**
  * [MillennialopolyColor.java]
  * Game-specific colours
- * @author Nicholas Carr, Carol Chen
+ * @author Nicholas Carr, Carol Chen, Nathan Shen
  */
 
 import java.awt.Color;
-
+// Allows colour on the board
 public class MillennialopolyColor extends Color {
     private int index;
 
@@ -21,7 +21,7 @@ public class MillennialopolyColor extends Color {
     public int getIndex() {
         return this.index;
     }
-
+// Colour choices
     public static final MillennialopolyColor brown = new MillennialopolyColor(165, 42, 42, 0);
     public static final MillennialopolyColor lightBlue = new MillennialopolyColor(173, 216, 230, 1);
     public static final MillennialopolyColor magenta = new MillennialopolyColor(Color.magenta, 2);

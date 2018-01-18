@@ -1,7 +1,7 @@
 /**
  * [HyperloopTile.java]
  * Stores a hyperloop, or "railroad"
- * @author Nicholas Carr, Carol Chen
+ * @author Nicholas Carr, Carol Chen, Nathan Shen
  */
 
 public class HyperloopTile extends Ownable {

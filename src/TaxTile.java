@@ -1,7 +1,7 @@
 /**
  * [TaxTile.java]
  * Tile to charge taxes
- * @author Nicholas Carr, Carol Chen
+ * @author Nicholas Carr, Carol Chen, Nathan Shen
  */
 
 public class TaxTile extends Tile{

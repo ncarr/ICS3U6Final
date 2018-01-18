@@ -1,7 +1,7 @@
 /**
  * [UtilityTile.java]
  * Utility tile
- * @author Nicholas Carr, Carol Chen
+ * @author Nicholas Carr, Carol Chen, Nathan Shen
  */
 
  public class UtilityTile extends Ownable {

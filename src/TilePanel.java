@@ -1,7 +1,7 @@
 /**
  * [TilePanel.java]
  * Renders all game board tiles
- * @author Nicholas Carr, Carol Chen
+ * @author Nicholas Carr, Carol Chen, Nathan Shen
  */
 
 import javax.swing.*;

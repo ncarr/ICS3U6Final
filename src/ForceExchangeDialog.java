@@ -1,7 +1,7 @@
 /**
  * [ForceExchangeDialog.java]
  * This panel shows up for users to sell currency, mortgage proprties and sell avocades when needed
- * @author Nicholas Carr, Carol Chen
+ * @author Nicholas Carr, Carol Chen, Nathan Shen
  */
 
 import javax.imageio.*;
@@ -14,7 +14,7 @@ import java.awt.image.*;
 import java.io.*;
 
 public class ForceExchangeDialog extends MillennialopolyDialog implements ActionListener {
-
+    //Variables
     private JTextField ethField;
     private JTextField btcField;
 

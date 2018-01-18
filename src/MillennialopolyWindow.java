@@ -1,7 +1,7 @@
 /**
  * [MillennialopolyWindow.java]
  * Main window / frame
- * @author Nicholas Carr, Carol Chen
+ * @author Nicholas Carr, Carol Chen, Nathan Shen
  */
 
 import javax.swing.*;

@@ -1,7 +1,7 @@
 /**
  * [ControlPanel.java]
  * This panel shows up for users to manage properties and currencies after making their move
- * @author Nicholas Carr, Carol Chen
+ * @author Nicholas Carr, Carol Chen, Nathan Shen
  */
 
 import javax.imageio.*;
@@ -132,6 +132,7 @@ public class ControlPanel extends MillennialopolyDialog implements ActionListene
         JButton endButton = new JButton("End Turn");
 
         // Add action listeners to the buttons
+        //tradeButton.addActionListener(this);
         currencyButton.addActionListener(this);
         propertyButton.addActionListener(this);
         endButton.addActionListener(this);

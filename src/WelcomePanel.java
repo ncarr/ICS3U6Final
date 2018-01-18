@@ -1,7 +1,7 @@
 /**
  * [WelcomePanel.java]
  * Opening panel with options to start a game or get help
- * @author Nicholas Carr, Carol Chen
+ * @author Nicholas Carr, Carol Chen, Nathan Shen
  */
 
 import javax.swing.*;
@@ -44,6 +44,7 @@ public class WelcomePanel extends JPanel implements ActionListener {
 
     // Add action listeners to the buttons
     playButton.addActionListener(this);
+    //resumeButton.addActionListener(this);
     helpButton.addActionListener(this);
     quitButton.addActionListener(this);
 

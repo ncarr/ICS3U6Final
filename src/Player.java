@@ -1,26 +1,26 @@
 /**
  * [Player.java]
  * Player class
- * @author Nicholas Carr, Carol Chen
+ * @author Nicholas Carr, Carol Chen, Nathan Shen
  */
 
 
 import java.util.*;
 import java.awt.Color;
 
-public class Player{
-
+public class Player{// Player data
+// Variables
     private String name;
-
-    private ArrayList<Property> properties;
-    private ArrayList<HyperloopTile> hyperloops;
-    private ArrayList<UtilityTile> utilities;
+    private ArrayList<Property> properties;//properties owned
+    private ArrayList<HyperloopTile> hyperloops;//hyperloops owned
+    private ArrayList<UtilityTile> utilities;//utilities owned
     private int location;
-    private double MIL, BTC, ETH;
+    private double MIL, BTC, ETH;// Wealth
     private Color colour;
     private int movementFactor;
     private int jailTermsLeft;
 
+    // Constructs player ---------------------------------------------------------------------------------------
     Player(String playerName, Color colour) {
         name = playerName;
         this.colour = colour;
@@ -33,7 +33,7 @@ public class Player{
         jailTermsLeft = -1;
     }
 
-
+// movement/dice roll for player ---------------------------------------------------------------------------------------
     public int move(int roll) {
         if (!inJail()) {
             location += roll * movementFactor;
@@ -44,7 +44,8 @@ public class Player{
         }
         return location;
     }
-
+//---------------------------------------------------------------------------------------------------------------------
+  // pass go
     private void passGo(){
         earnCurrency("MIL", 200);
     }
@@ -67,6 +68,7 @@ public class Player{
         return res;
     }
 
+    // find total wealth of all 3 currencies
     public double getCurrencyTotal(){
         double total = 0;
         total += MIL;
@@ -97,6 +99,7 @@ public class Player{
         return true;
     }
 
+    // makes player earn currency
     public void earnCurrency(String currency, double amountMIL){
         if (currency.equals("ETH")){
             ETH += Game.Ethereum.convertFromMIL(amountMIL);
@@ -107,7 +110,7 @@ public class Player{
         }
     }
 
-    // To convert a currency, with the amount being the amount spent
+    // To convert a currency, with the amount being the amount spent---------------------------------------------------------------------------------------
     public boolean convertCurrency(String fromCurr, String toCurr, double amount){
 
         if (!spendCurrency(fromCurr, amount)){
@@ -132,7 +135,9 @@ public class Player{
         }
         return true;
     }
-
+//---------------------------------------------------------------------------------------
+   
+    // checks if player can buy avocadoes ---------------------------------------------------------------------------------------
     public boolean canBuyAvocados(Property p){
         if (p.getAvocados() < 6){
             MillennialopolyColor col = p.getColor();
@@ -142,8 +147,7 @@ public class Player{
                     count++;
                 }
             }
-            if (col.equals(MillennialopolyColor.brown) ||
-                col.equals(MillennialopolyColor.blue)){
+            if (col.equals(MillennialopolyColor.brown)){
                 if (count == 2) {
                     return true;
                 } else {
@@ -160,6 +164,8 @@ public class Player{
             return false;
         }
     }
+   // ---------------------------------------------------------------------------------------
+    // player in jail +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     public void nextTurn() {
         if (inJail()) {
             jailTermsLeft--;
@@ -175,7 +181,9 @@ public class Player{
     public void goBack() {
         this.movementFactor = -1;
     }
-
+ //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+    //buying tiles [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[
     public void addProperty(Property p){
         properties.add(p);
     }
@@ -199,7 +207,9 @@ public class Player{
     public ArrayList<Property> getProperties(){
         return properties;
     }
+    // [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[
 
+    // all ownables
     public ArrayList<Ownable> getOwnables(){
         ArrayList<Ownable> res = new ArrayList<Ownable>();
         Collections.sort(properties, new Comparator<Property>() {
@@ -214,6 +224,7 @@ public class Player{
         return res;
     }
 
+    // kills player
     public void lose(){
         for (Ownable o: getOwnables()){
             o.clearOwner();
@@ -223,6 +234,7 @@ public class Player{
         }
     }
 
+    // allows programs to access variables of player
     public String getName() {
         return name;
     }

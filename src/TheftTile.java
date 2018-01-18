@@ -1,7 +1,7 @@
 /**
  * [TheftTile.java]
  * User gets to claim taxes when landing on this tile
- * @author Nicholas Carr, Carol Chen
+ * @author Nicholas Carr, Carol Chen, Nathan Shen
  */
 
 public class TheftTile extends Tile{

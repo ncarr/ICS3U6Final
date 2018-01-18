@@ -1,7 +1,7 @@
 /**
  * [GamePanel.java]
  * Main controller for views
- * @author Nicholas Carr, Carol Chen
+ * @author Nicholas Carr, Carol Chen, Nathan Shen
  */
 
 import javax.swing.*;
@@ -48,14 +48,19 @@ public class GamePanel extends JPanel implements ActionListener {
     public void endTurn() {
         Player player = game.getPlayers()[game.getCurrPlayer()];
 
-        if (player == null || player.inJail()){
+        if (player == null){
             game.nextTurn();
             endTurn();
             return;
         }
-
         ctrlComponent.dispose();
 
+        if (player.inJail()) {
+            message("In Jail", "Hang in there " + player.getName() + "!");
+            game.nextTurn();
+            endTurn();
+            return;
+        }
         int roll = Player.roll();
         int newLoc = player.move(roll);
         message(player.getName() + "'s turn!", "You just rolled a " + roll);
@@ -80,7 +85,7 @@ public class GamePanel extends JPanel implements ActionListener {
             } else if (spot instanceof HyperloopTile){
                 if (o.getOwner() > -1){
                     Player owner = game.getPlayers()[o.getOwner()];
-                    payCosts = HyperloopTile.fares[owner.getNumHyperloops() - 1];
+                    payCosts = HyperloopTile.fares[owner.getNumHyperloops()];
                 }
                 buyCosts = HyperloopTile.cost;
             } else if (spot instanceof Property){

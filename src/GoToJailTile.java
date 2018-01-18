@@ -1,7 +1,7 @@
 /**
  * [GoToJailTile.java]
  * Sends the user to tail
- * @author Nicholas Carr, Carol Chen
+ * @author Nicholas Carr, Carol Chen, Nathan Shen
  */
 
  public class GoToJailTile extends Tile {

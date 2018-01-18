@@ -1,7 +1,7 @@
 /**
  * [BoardPanel.java]
  * Controls the game board visually
- * @author Nicholas Carr, Carol Chen
+ * @author Nicholas Carr, Carol Chen, Nathan Shen
  */
 
 import javax.swing.*;
@@ -9,8 +9,8 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class BoardPanel extends JPanel implements ActionListener {
+    // Variables
     private MillennialopolyWindow window;
-
     private GamePanel parent;
     private Game game;
     private Player player;
@@ -53,6 +53,7 @@ public class BoardPanel extends JPanel implements ActionListener {
                 }
             }
         }
+        // Toggle colours
         this.setOpaque(true);
         this.setBackground(Color.black);
     }

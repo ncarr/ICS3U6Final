@@ -1,7 +1,7 @@
 /**
  * [Currency.java]
  * Currency class for cryptos
- * @author Nicholas Carr, Carol Chen
+ * @author Nicholas Carr, Carol Chen, Nathan Shen
  */
 
 import java.util.Random;
@@ -32,13 +32,9 @@ public class Currency{
         }
         factorRelToMIL += variationFactor;
     }
-
+// Coversion and data methods //_+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     public double getFactorRelToMIL(){
         return factorRelToMIL;
-    }
-
-    public void setFactorRelToMIL(double val){
-        factorRelToMIL = val;
     }
 
     public double convertToMIL(double val){

@@ -1,7 +1,7 @@
 /**
  * [Game.java]
  * Stores the general game proprerties
- * @author Nicholas Carr, Carol Chen
+ * @author Nicholas Carr, Carol Chen, Nathan Shen
  */
 
 import java.util.Random;

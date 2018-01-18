@@ -1,7 +1,7 @@
 /**
  * [TilesInit.java]
  * Creates a list of all the tiles
- * @author Nicholas Carr, Carol Chen
+ * @author Nicholas Carr, Carol Chen, Nathan Shen
  */
 
 class TilesInit {
@@ -34,7 +34,7 @@ class TilesInit {
             100,
             50
         ),
-        new ChanceTile("Wild Chance", true),
+        new ChanceTile("Community Chest", false),
         new Property(
             "Miley Cyrus",
             MillennialopolyColor.lightBlue,
@@ -60,7 +60,7 @@ class TilesInit {
             140,
             100
         ),
-        new UtilityTile("Trent (Electric City)"),
+        new ChanceTile("Wild Chance", true),
         new Property(
             "Using internet acronyms irl",
             MillennialopolyColor.magenta,
@@ -182,7 +182,7 @@ class TilesInit {
             200
         ),
         new HyperloopTile("The Boring Company"),
-        new ChanceTile("Community Chest", false),
+        new ChanceTile("Wild Chance", true),
         new Property(
             "Misha inc.",
             MillennialopolyColor.blue,
@@ -191,7 +191,15 @@ class TilesInit {
             350,
             200
         ),
-        new TaxTile("Income Tax", 100),
+        // TODO: make this luxury tax
+        new Property(
+            "CBC",
+            MillennialopolyColor.blue,
+            new int[]{50,200,600,1400,1700,2000},
+            200,
+            400,
+            200
+        ),
         new Property(
             "dHack",
             MillennialopolyColor.blue,
