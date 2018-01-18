@@ -37,6 +37,10 @@ public class Currency{
         return factorRelToMIL;
     }
 
+    public void setFactorRelToMIL(double val){
+        factorRelToMIL = val;
+    }
+
     public double convertToMIL(double val){
         return val * factorRelToMIL;
     }
