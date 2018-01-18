@@ -89,7 +89,6 @@ public class GamePanel extends JPanel implements ActionListener {
                     payCosts = ((Property)o).getRent();
                     buyCosts = ((Property)o).getCost();
                 }
-                payCosts = 100000;
                 landOnOwnable(o, player, payCosts, buyCosts, newLoc);
             } else {
                 if (spot instanceof ChanceTile){
