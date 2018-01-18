@@ -56,7 +56,7 @@ public class GamePanel extends JPanel implements ActionListener {
         ctrlComponent.dispose();
 
         if (player.inJail()) {
-            message("In Jail", "Hang in there!");
+            message("In Jail", "Hang in there " + player.getName() + "!");
             game.nextTurn();
             endTurn();
             return;
