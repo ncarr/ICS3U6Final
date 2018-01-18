@@ -35,7 +35,7 @@ public abstract class MillennialopolyDialog extends JDialog implements ActionLis
         int height = (int)(r.height * (9.0 / 11) - 50);
         int width = (int)(r.width * (9.0 / 11) - 50);
         this.setSize(width, height);  // Don't have it take up full width
-        this.setLocation(r.width / 2 - this.getWidth() / 2, r.height / 2 - this.getHeight() / 2 + 10);
+        this.setLocation(r.width / 2 - this.getWidth() / 2, r.height / 2 - this.getHeight() / 2 + 25);
 
         this.setUndecorated(true); // No standard dialog decorations
         this.setVisible(true); // will make sure that the program stops until this closes
