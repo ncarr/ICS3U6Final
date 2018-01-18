@@ -124,10 +124,10 @@ public class GamePanel extends JPanel implements ActionListener {
         ctrlComponent = new ControlPanel(this, window);
         ctrlComponent.setVisible(false);
         boolean forceExchange = false;
-        if (true){ // there is an owner, then rent should be paid
-            // if (!(o.getOwner() == game.getCurrPlayer())){ // make sure it's not owned by the user
-                // Player owner = game.getPlayers()[o.getOwner()];
-                payToMessage(payCosts, "ree");
+        if (o.getOwner() != -1){ // there is an owner, then rent should be paid
+            if (!(o.getOwner() == game.getCurrPlayer())){ // make sure it's not owned by the user
+                Player owner = game.getPlayers()[o.getOwner()];
+                payToMessage(payCosts, owner.getName());
                 if (checkDeath(player, payCosts)) { // they need to exchange currency to be able to pay
                     if (player.spendCurrency("MIL", payCosts)) {
                         message("Rippy dippy", "You just paid " + payCosts);
@@ -136,9 +136,9 @@ public class GamePanel extends JPanel implements ActionListener {
                         forceExchange = true;
                         player.spendCurrency("MIL", payCosts);
                     }
-                    // owner.earnCurrency("MIL", payCosts);
+                    owner.earnCurrency("MIL", payCosts);
                 }
-            // }
+            }
         } else { // Then they can buy!
             if (player.getAssetTotal() <= buyCosts){
                 message("Sorry", "Not enough money to buy this!");
