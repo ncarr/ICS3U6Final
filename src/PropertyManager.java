@@ -95,7 +95,7 @@ public class PropertyManager extends JPanel implements ActionListener {
                 JPanel rentPanel = new JPanel();
                 rentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
                 rentPanel.setLayout(new GridLayout(4, 2));
-                for (int i = 0; i < 4; i++){
+                for (int i = 1; i < 5; i++){
                     rentPanel.add(new JLabel("With " + Integer.toString(i)+ " Hyperloop owned "));
                     rentPanel.add(new JLabel("$" + Integer.toString(HyperloopTile.fares[i]) + " ", SwingConstants.RIGHT));
                 }

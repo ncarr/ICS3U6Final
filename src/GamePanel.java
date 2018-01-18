@@ -85,7 +85,7 @@ public class GamePanel extends JPanel implements ActionListener {
             } else if (spot instanceof HyperloopTile){
                 if (o.getOwner() > -1){
                     Player owner = game.getPlayers()[o.getOwner()];
-                    payCosts = HyperloopTile.fares[owner.getNumHyperloops()];
+                    payCosts = HyperloopTile.fares[owner.getNumHyperloops() - 1];
                 }
                 buyCosts = HyperloopTile.cost;
             } else if (spot instanceof Property){
