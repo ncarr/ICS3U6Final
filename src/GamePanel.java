@@ -53,7 +53,6 @@ public class GamePanel extends JPanel implements ActionListener {
             endTurn();
             return;
         }
-        ctrlComponent.dispose();
 
         if (player.inJail()) {
             message("In Jail", "Hang in there " + player.getName() + "!");
@@ -61,6 +60,9 @@ public class GamePanel extends JPanel implements ActionListener {
             endTurn();
             return;
         }
+        
+        ctrlComponent.dispose();
+
         int roll = Player.roll();
         int newLoc = player.move(roll);
         message(player.getName() + "'s turn!", "You just rolled a " + roll);
