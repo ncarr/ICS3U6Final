@@ -39,7 +39,9 @@ public class Game {
     }
 
     public void nextTurn() {
-        players[currPlayer].nextTurn();
+        if (players[currPlayer] != null){
+            players[currPlayer].nextTurn();
+        }
         if (currPlayer == numPlayers - 1){
             currPlayer = 0;
             Bitcoin.update();
