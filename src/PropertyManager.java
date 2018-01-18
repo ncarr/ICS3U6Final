@@ -50,7 +50,7 @@ public class PropertyManager extends JPanel implements ActionListener {
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         int idx = 0;
-        Collections.sort(player.getOwnables());
+        player.getOwnables();
         for (Ownable p: player.getOwnables()){
             JPanel propertyPanel = new JPanel();
             propertyPanel.setLayout(new GridBagLayout());

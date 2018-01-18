@@ -5,8 +5,7 @@
  */
 
 
-import java.util.Random;
-import java.util.ArrayList;
+import java.util.*;
 import java.awt.Color;
 
 public class Player{
@@ -202,6 +201,12 @@ public class Player{
 
     public ArrayList<Ownable> getOwnables(){
         ArrayList<Ownable> res = new ArrayList<Ownable>();
+        Collections.sort(properties, new Comparator<Property>() {
+            @Override
+            public int compare(final Property object1, final Property object2) {
+                return object1.getColor().getRGB() - object2.getColor().getRGB();
+            }
+        });
         res.addAll(properties);
         res.addAll(hyperloops);
         res.addAll(utilities);

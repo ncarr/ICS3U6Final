@@ -4,7 +4,7 @@
  * @author Nicholas Carr, Carol Chen
  */
 
-public class Property extends Ownable implements Comparable<Ownable> {
+public class Property extends Ownable {
 
 
     private int[] rent;
@@ -65,15 +65,6 @@ public class Property extends Ownable implements Comparable<Ownable> {
 
     public void removeAvocados() {
         avocados = 0;
-    }
-
-    public int compareTo(Ownable o) {
-        if (o instanceof Property) {
-            int colordiff = this.getColor().getIndex() - ((Property) o).getColor().getIndex();
-            if (colordiff == 0) return super.compareTo(o);
-            return colordiff;
-        }
-        return -1;
     }
 
 }
