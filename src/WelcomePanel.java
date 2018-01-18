@@ -44,7 +44,6 @@ public class WelcomePanel extends JPanel implements ActionListener {
 
     // Add action listeners to the buttons
     playButton.addActionListener(this);
-    resumeButton.addActionListener(this);
     helpButton.addActionListener(this);
     quitButton.addActionListener(this);
 

@@ -132,7 +132,6 @@ public class ControlPanel extends MillennialopolyDialog implements ActionListene
         JButton endButton = new JButton("End Turn");
 
         // Add action listeners to the buttons
-        tradeButton.addActionListener(this);
         currencyButton.addActionListener(this);
         propertyButton.addActionListener(this);
         endButton.addActionListener(this);
